@@ -36,8 +36,8 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   const img = document.createElement("img");
-  img.src = "AJS1.jpg"; // debe estar junto al index.html (o ajusta la ruta)
-  img.alt = "Álvaro";
+  img.src = "https://github.com/Olochile/AJStempleton/raw/main/AJS1.jpg"; // debe estar junto al index.html (o ajusta la ruta)
+  img.alt = "AJ";
   img.style.width = "160px";
   img.style.height = "160px";
   img.style.borderRadius = "50%";
