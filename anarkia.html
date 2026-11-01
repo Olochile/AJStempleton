@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sombras de Anarquía (El Clan | AnarKía) — Saga de A.J. Stempleton</title>
+    <meta name="description" content="Descubre la saga Sombras de Anarquía (El Clan | AnarKía) por A.J. Stempleton. Un apasionante thriller político sobre poder, lealtad y la frontera entre el orden y la rebelión.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#0B0D12',
+                            card: '#131722',
+                            border: '#2A3042',
+                            crimson: '#E53E3E',
+                            gold: '#D69E2E',
+                            goldLight: '#F6E05E',
+                            amber: '#FF5722',
+                            text: '#E2E8F0',
+                            muted: '#94A3B8'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Cinzel', 'Playfair Display', 'Georgia', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts & FontAwesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        body {
+            background-color: #07090E;
+            color: #E2E8F0;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+        .font-serif-title {
+            font-family: 'Cinzel', serif;
+        }
+        .glow-effect {
+            box-shadow: 0 0 35px -5px rgba(229, 62, 62, 0.25);
+        }
+        .bg-grid-pattern {
+            background-size: 40px 40px;
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0B0D12;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2A3042;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #E53E3E;
+        }
+    </style>
+</head>
+<body class="bg-brand-dark text-brand-text antialiased selection:bg-brand-crimson selection:text-white">
+
+    <!-- NAVEGACIÓN SUPERIOR CON SELECTOR DE IDIOMAS -->
+    <nav class="fixed top-0 left-0 w-full z-50 bg-brand-dark/90 backdrop-blur-md border-b border-brand-border/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <a href="https://ajstempleton.com" class="flex items-center space-x-3 group">
+                    <span class="font-serif-title text-xl sm:text-2xl font-bold tracking-wider text-white group-hover:text-brand-gold transition-colors">
+                        A.J. STEMPLETON
+                    </span>
+                    <span class="w-2 h-2 rounded-full bg-brand-crimson animate-pulse"></span>
+                </a>
+                
+                <div class="flex items-center space-x-3 sm:space-x-6">
+                    <!-- Selector de Idioma (ES / EN / PT) -->
+                    <div class="flex items-center bg-brand-card border border-brand-border rounded-lg p-1 space-x-1">
+                        <button onclick="setLanguage('es')" id="lang-es" class="px-2 py-1 rounded text-xs font-mono font-bold bg-brand-gold text-black transition-all">ES</button>
+                        <button onclick="setLanguage('en')" id="lang-en" class="px-2 py-1 rounded text-xs font-mono font-medium text-brand-muted hover:text-white transition-all">EN</button>
+                        <button onclick="setLanguage('pt')" id="lang-pt" class="px-2 py-1 rounded text-xs font-mono font-medium text-brand-muted hover:text-white transition-all">PT</button>
+                    </div>
+
+                    <a href="https://ajstempleton.com" class="text-xs sm:text-sm font-mono text-brand-muted hover:text-brand-gold transition-colors hidden sm:flex items-center gap-2" data-i18n="nav_back">
+                        <i class="fa-solid fa-arrow-left"></i> Volver al Inicio
+                    </a>
+
+                    <a href="https://www.amazon.com/-/es/dp/B0DJWQPRMY?binding=kindle_edition&ref=dbs_dp_rwt_sb_pc_tkin" id="buy-top-link" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-xl bg-gradient-to-r from-brand-crimson to-red-700 text-white font-bold text-xs sm:text-sm hover:opacity-95 transition-all shadow-md" data-i18n="nav_buy">
+                        Comprar Saga
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- SECCIÓN PRINCIPAL DE LA SAGA -->
+    <section class="pt-32 pb-20 md:pt-40 md:pb-32 relative bg-grid-pattern">
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-brand-crimson/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Columna Izquierda: Portada Dinámica -->
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="relative group max-w-sm w-full">
+                        <div class="absolute -inset-1 bg-gradient-to-r from-brand-crimson via-amber-500 to-brand-gold rounded-3xl opacity-50 group-hover:opacity-90 transition duration-500 blur-lg"></div>
+                        <div class="relative bg-brand-card p-4 rounded-2xl border border-brand-border glow-effect">
+                            <img id="book-cover-img" src="https://ajstempleton.wordpress.com/wp-content/uploads/2024/10/cropped-cropped-portada-de-libro-clan-anarquia.jpg" alt="El Clan | AnarKía - Portada" class="w-full h-auto rounded-xl shadow-2xl transition-all duration-300">
+                            <div class="mt-4 text-center">
+                                <span class="inline-block px-3 py-1 bg-brand-dark border border-brand-crimson/40 rounded-full text-brand-gold font-mono text-xs uppercase tracking-widest" data-i18n="hero_formats">
+                                    Formatos: eBook &amp; Impreso
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Columna Derecha: Información y Compra -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full bg-brand-card border border-brand-border text-brand-gold text-xs font-mono uppercase tracking-wider">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        <span data-i18n="hero_genre">Thriller Político &amp; Distopía de Poder</span>
+                    </div>
+
+                    <h1 class="font-serif-title text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight" id="book-title-heading">
+                        Sombras de <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-crimson via-amber-400 to-brand-gold italic">Anarquía</span>
+                    </h1>
+
+                    <div class="flex items-center justify-center lg:justify-start gap-4 text-sm font-mono text-brand-muted">
+                        <span class="text-white font-bold">A.J. Stempleton</span>
+                        <span>•</span>
+                        <span class="text-brand-gold font-semibold" data-i18n="hero_edition">Saga Completa</span>
+                    </div>
+
+                    <p class="text-brand-muted text-base sm:text-lg leading-relaxed" data-i18n="hero_lead">
+                        En las sombras del poder global opera una red clandestina dispuesta a mantener el orden a cualquier costo. Pero cuando las lealtades se quiebran y el descontento popular estalla, nace una insurrección dispuesta a incendiar el viejo sistema.
+                    </p>
+
+                    <!-- Botones de Compra Directa -->
+                    <div class="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                        <a href="https://www.amazon.com/-/es/dp/B0DJWQPRMY?binding=kindle_edition&ref=dbs_dp_rwt_sb_pc_tkin" id="buy-main-link" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-brand-crimson to-red-700 text-white font-bold text-center text-lg hover:opacity-95 transition-all shadow-xl shadow-brand-crimson/20 flex items-center justify-center space-x-3">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            <span data-i18n="btn_buy_main">Ver Serie en Amazon</span>
+                        </a>
+                        <a href="#detalles" class="w-full sm:w-auto px-6 py-4 rounded-xl bg-brand-card border border-brand-border text-white font-semibold text-center hover:border-brand-gold/60 transition-all" data-i18n="btn_read_details">
+                            Leer detalles completos
+                        </a>
+                    </div>
+                    <p class="text-xs text-brand-muted italic" data-i18n="hero_notice">Consulta los volúmenes de la saga y formatos en las tiendas autorizadas.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN DE DETALLES Y SINOPSIS EXTENDIDA -->
+    <section id="detalles" class="py-20 bg-brand-card/30 border-y border-brand-border/60">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+            <div class="text-center space-y-3">
+                <span class="text-xs font-mono uppercase tracking-widest text-brand-gold" data-i18n="sec_details_tag">Detalles de la Obra</span>
+                <h2 class="font-serif-title text-3xl font-bold text-white" data-i18n="sec_details_title">¿Dónde termina el orden legítimo y dónde empieza la verdadera tiranía?</h2>
+                <div class="w-16 h-1 bg-brand-crimson mx-auto rounded-full"></div>
+            </div>
+
+            <div class="bg-brand-card p-8 rounded-2xl border border-brand-border space-y-6 text-brand-muted text-base sm:text-lg leading-relaxed shadow-xl">
+                <p data-i18n="p1_desc">
+                    «Sombras de Anarquía» (El Clan | AnarKía) se adentra en las entrañas de una organización hermética que ha moldeado silenciosamente el destino geopolítico de naciones enteras. Durante décadas, su dominio absoluto garantizó una aparente estabilidad a expensas de la libertad individual.
+                </p>
+                <p data-i18n="p2_desc">
+                    Sin embargo, la aparición de una facción disidente rebelde desencadena una feroz guerra ideológica y táctica. Entre intrigas de alto nivel, conspiraciones gubernamentales y batallas en las sombras, la saga cuestiona la legitimidad del control estatal y los riesgos de la anarquía irrestricta.
+                </p>
+                <p data-i18n="p3_desc">
+                    A través de personajes complejos movidos por el honor, la venganza o el idealismo radical, esta obra ofrece un electrizante thriller político cargado de acción estratégica y reflexiones éticas.
+                </p>
+                
+                <div class="p-6 bg-brand-dark/80 rounded-xl border border-brand-crimson/30 my-4 text-center">
+                    <p class="text-brand-gold font-serif text-xl italic mb-2" data-i18n="quote_highlight">
+                        «Una lectura imprescindible para quienes buscan suspenso geopolítico, rebelión y cuestionamiento del poder.»
+                    </p>
+                    <p class="text-xs font-mono text-brand-muted uppercase tracking-widest" data-i18n="quote_coincidence">
+                        ¿Qué precio estás dispuesto a pagar por la libertad absoluta?
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN DE BENEFICIOS -->
+    <section id="beneficios" class="py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+            
+            <div class="text-center max-w-3xl mx-auto space-y-4">
+                <span class="text-xs font-mono uppercase tracking-widest text-brand-gold" data-i18n="benefits_tag">Razones para sumergirte en la saga</span>
+                <h2 class="font-serif-title text-3xl sm:text-4xl font-bold text-white" data-i18n="benefits_title">¿Por qué leer Sombras de Anarquía?</h2>
+                <p class="text-brand-muted text-base" data-i18n="benefits_sub">Intriga política, giros impredecibles y un choque desgarrador entre el orden y la rebelión.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <div class="bg-brand-card p-8 rounded-2xl border border-brand-border space-y-4 hover:border-brand-crimson/50 transition-all">
+                    <div class="w-12 h-12 rounded-xl bg-brand-crimson/10 border border-brand-crimson/30 flex items-center justify-center text-brand-crimson text-xl font-bold">01</div>
+                    <h3 class="font-serif-title text-xl font-bold text-white" data-i18n="b1_title">Intriga Geopolítica</h3>
+                    <p class="text-brand-muted text-sm leading-relaxed" data-i18n="b1_text">Adéntrate en los hilos invisibles que mueven los gobiernos, las agencias de inteligencia y las organizaciones secretas.</p>
+                </div>
+
+                <div class="bg-brand-card p-8 rounded-2xl border border-brand-border space-y-4 hover:border-brand-crimson/50 transition-all">
+                    <div class="w-12 h-12 rounded-xl bg-brand-crimson/10 border border-brand-crimson/30 flex items-center justify-center text-brand-crimson text-xl font-bold">02</div>
+                    <h3 class="font-serif-title text-xl font-bold text-white" data-i18n="b2_title">Dilemas Éticos</h3>
+                    <p class="text-brand-muted text-sm leading-relaxed" data-i18n="b2_text">Analiza el enfrentamiento entre la paz impuesta por el autoritarismo y el caos impredecible de la libertad extrema.</p>
+                </div>
+
+                <div class="bg-brand-card p-8 rounded-2xl border border-brand-crimson/50 transition-all">
+                    <div class="w-12 h-12 rounded-xl bg-brand-crimson/10 border border-brand-crimson/30 flex items-center justify-center text-brand-crimson text-xl font-bold">03</div>
+                    <h3 class="font-serif-title text-xl font-bold text-white" data-i18n="b3_title">Ritmo Trepidante</h3>
+                    <p class="text-brand-muted text-sm leading-relaxed" data-i18n="b3_text">Acción continua, traiciones inesperadas y estrategias en la sombra que te mantendrán en constante tensión.</p>
+                </div>
+
+                <div class="bg-brand-card p-8 rounded-2xl border border-brand-border space-y-4 hover:border-brand-crimson/50 transition-all">
+                    <div class="w-12 h-12 rounded-xl bg-brand-crimson/10 border border-brand-crimson/30 flex items-center justify-center text-brand-crimson text-xl font-bold">04</div>
+                    <h3 class="font-serif-title text-xl font-bold text-white" data-i18n="b4_title">Universo Distópico</h3>
+                    <p class="text-brand-muted text-sm leading-relaxed" data-i18n="b4_text">Un escenario cercano a nuestro presente que proyecta los peligros del control absoluto y la polarización social.</p>
+                </div>
+
+                <div class="bg-brand-card p-8 rounded-2xl border border-brand-border space-y-4 hover:border-brand-crimson/50 transition-all md:col-span-2 lg:col-span-2">
+                    <div class="w-12 h-12 rounded-xl bg-brand-crimson/10 border border-brand-crimson/30 flex items-center justify-center text-brand-crimson text-xl font-bold">05</div>
+                    <h3 class="font-serif-title text-xl font-bold text-white" data-i18n="b5_title">Lectura Adictiva</h3>
+                    <p class="text-brand-muted text-sm leading-relaxed" data-i18n="b5_text">Perfecta para amantes de los thrillers políticos complejos, las redes de espionaje y los relatos de resistencia rebelde.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- LLAMADA A LA ACCIÓN FINAL -->
+    <section class="py-24 relative overflow-hidden bg-gradient-to-b from-brand-dark via-brand-card to-brand-dark">
+        <div class="absolute inset-0 bg-grid-pattern opacity-50 pointer-events-none"></div>
+
+        <div class="max-w-4xl mx-auto px-4 text-center space-y-8 relative z-10">
+            <span class="px-4 py-1.5 rounded-full bg-brand-crimson/10 border border-brand-crimson/30 text-brand-gold text-xs font-mono uppercase tracking-widest" data-i18n="cta_tag">
+                Disponible ahora en formato digital e impreso
+            </span>
+
+            <h2 class="font-serif-title text-3xl sm:text-5xl font-bold text-white" data-i18n="cta_title">
+                ¿Estás listo para ingresar en la guerra de las sombras?
+            </h2>
+
+            <p class="text-brand-muted text-lg max-w-2xl mx-auto">
+                <span data-i18n="cta_desc_prefix">Consigue la saga</span> <strong class="text-white" id="cta-book-name">El Clan | AnarKía</strong> <span data-i18n="cta_desc_suffix">en tu tienda preferida.</span>
+            </p>
+
+            <div class="pt-4 flex flex-wrap justify-center gap-4">
+                <a href="https://www.amazon.com/-/es/dp/B0DJWQPRMY?binding=kindle_edition&ref=dbs_dp_rwt_sb_pc_tkin" id="buy-cta-link" target="_blank" rel="noopener noreferrer" class="px-8 py-5 rounded-xl bg-gradient-to-r from-brand-crimson to-red-700 text-white font-bold text-xl hover:opacity-95 transition-all shadow-2xl shadow-brand-crimson/30 flex items-center space-x-3">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span data-i18n="btn_buy_final">Comprar Serie Completa</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- PIE DE PÁGINA -->
+    <footer class="bg-black border-t border-brand-border text-brand-muted py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
+            <p class="font-serif-title text-lg font-bold text-white">A.J. STEMPLETON</p>
+            <p class="text-xs text-brand-muted">&copy; 2026 A.J. Stempleton. Todos los derechos reservados.</p>
+            <div class="flex justify-center space-x-6 text-sm pt-2">
+                <a href="https://ajstempleton.com" class="hover:text-brand-gold transition-colors" data-i18n="f_main">Sitio Principal</a>
+                <a href="https://ajstempleton.com/#tienda" class="hover:text-brand-gold transition-colors" data-i18n="f_store">Tienda Oficial</a>
+                <a href="https://ajstempleton.com/#contacto" class="hover:text-brand-gold transition-colors" data-i18n="f_contact">Contacto</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPT DE INTERACTIVIDAD, PORTADAS Y TRADUCCIONES -->
+    <script>
+        const storeUrls = {
+            es: "https://www.amazon.com/-/es/dp/B0DJWQPRMY?binding=kindle_edition&ref=dbs_dp_rwt_sb_pc_tkin",
+            en: "https://www.amazon.com/-/es/dp/B0DJWXZM67?binding=kindle_edition&ref=dbs_dp_rwt_sb_pc_tkin",
+            pt: "https://www.amazon.com/-/es/dp/B0DJWR3265?binding=kindle_edition&ref_=dbs_s_ks_series_rwt_tkin&qid=1793564622&sr=1-1"
+        };
+
+        const bookCovers = {
+            es: "https://ajstempleton.wordpress.com/wp-content/uploads/2024/10/cropped-cropped-portada-de-libro-clan-anarquia.jpg",
+            en: "https://ajstempleton.wordpress.com/wp-content/uploads/2024/10/cropped-cropped-portada-de-libro-clan-anarquia.jpg",
+            pt: "https://ajstempleton.wordpress.com/wp-content/uploads/2024/10/cropped-cropped-portada-de-libro-clan-anarquia.jpg"
+        };
+
+        const titles = {
+            es: 'Sombras de <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-crimson via-amber-400 to-brand-gold italic">Anarquía</span>',
+            en: 'Anarchy <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-crimson via-amber-400 to-brand-gold italic">Shadows</span>',
+            pt: 'Sombras da <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-crimson via-amber-400 to-brand-gold italic">Anarquia</span>'
+        };
+
+        const ctaBookNames = {
+            es: "El Clan | AnarKía",
+            en: "The Clan | AnarKía",
+            pt: "O Clã | AnarKía"
+        };
+
+        const translations = {
+            es: {
+                nav_back: '<i class="fa-solid fa-arrow-left"></i> Volver al Inicio',
+                nav_buy: "Comprar Saga",
+                hero_formats: "Formatos: eBook & Impreso",
+                hero_genre: "Thriller Político & Distopía de Poder",
+                hero_edition: "Saga Completa",
+                hero_lead: "En las sombras del poder global opera una red clandestina dispuesta a mantener el orden a cualquier costo. Pero cuando las lealtades se quiebran y el descontento popular estalla, nace una insurrección dispuesta a incendiar el viejo sistema.",
+                btn_buy_main: "Ver Serie en Amazon",
+                btn_read_details: "Leer detalles completos",
+                hero_notice: "Consulta los volúmenes de la saga y formatos en las tiendas autorizadas.",
+                sec_details_tag: "Detalles de la Obra",
+                sec_details_title: "¿Dónde termina el orden legítimo y dónde empieza la verdadera tiranía?",
+                p1_desc: "«Sombras de Anarquía» (El Clan | AnarKía) se adentra en las entrañas de una organización hermética que ha moldeado silenciosamente el destino geopolítico de naciones enteras. Durante décadas, su dominio absoluto garantizó una aparente estabilidad a expensas de la libertad individual.",
+                p2_desc: "Sin embargo, la aparición de una facción disidente rebelde desencadena una feroz guerra ideológica y táctica. Entre intrigas de alto nivel, conspiraciones gubernamentales y batallas en las sombras, la saga cuestiona la legitimidad del control estatal y los riesgos de la anarquía irrestricta.",
+                p3_desc: "A través de personajes complejos movidos por el honor, la venganza o el idealismo radical, esta obra ofrece un electrizante thriller político cargado de acción estratégica y reflexiones éticas.",
+                quote_highlight: '«Una lectura imprescindible para quienes buscan suspenso geopolítico, rebelión y cuestionamiento del poder.»',
+                quote_coincidence: "¿Qué precio estás dispuesto a pagar por la libertad absoluta?",
+                benefits_tag: "Razones para sumergirte en la saga",
+                benefits_title: "¿Por qué leer Sombras de Anarquía?",
+                benefits_sub: "Intriga política, giros impredecibles y un choque desgarrador entre el orden y la rebelión.",
+                b1_title: "Intriga Geopolítica",
+                b1_text: "Adéntrate en los hilos invisibles que mueven los gobiernos, las agencias de inteligencia y las organizaciones secretas.",
+                b2_title: "Dilemas Éticos",
+                b2_text: "Analiza el enfrentamiento entre la paz impuesta por el autoritarismo y el caos impredecible de la libertad extrema.",
+                b3_title: "Ritmo Trepidante",
+                b3_text: "Acción continua, traiciones inesperadas y estrategias en la sombra que te mantendrán en constante tensión.",
+                b4_title: "Universo Distópico",
+                b4_text: "Un escenario cercano a nuestro presente que proyecta los peligros del control absoluto y la polarización social.",
+                b5_title: "Lectura Adictiva",
+                b5_text: "Perfecta para amantes de los thrillers políticos complejos, las redes de espionaje y los relatos de resistencia rebelde.",
+                cta_tag: "Disponible ahora en formato digital e impreso",
+                cta_title: "¿Estás listo para ingresar en la guerra de las sombras?",
+                cta_desc_prefix: "Consigue la saga",
+                cta_desc_suffix: "en tu tienda preferida.",
+                btn_buy_final: "Comprar Serie Completa",
+                f_main: "Sitio Principal",
+                f_store: "Tienda Oficial",
+                f_contact: "Contacto"
+            },
+            en: {
+                nav_back: '<i class="fa-solid fa-arrow-left"></i> Back to Home',
+                nav_buy: "Buy Saga",
+                hero_formats: "Formats: eBook & Paperback",
+                hero_genre: "Political Thriller & Dystopian Power",
+                hero_edition: "Complete Saga",
+                hero_lead: "In the shadows of global power operates a secret network willing to maintain order at any cost. But when loyalties break and popular discontent erupts, an insurrection is born ready to burn the old system.",
+                btn_buy_main: "View Series on Amazon",
+                btn_read_details: "Read full details",
+                hero_notice: "Check saga volumes and formats on authorized retailers.",
+                sec_details_tag: "Book Details",
+                sec_details_title: "Where does legitimate order end and true tyranny begin?",
+                p1_desc: "'Anarchy Shadows' (The Clan | AnarKía) delves into the depths of a clandestine organization that has quietly shaped the geopolitical destiny of entire nations for decades.",
+                p2_desc: "However, the rise of a rebel faction triggers a fierce ideological and tactical war. Amid high-level intrigue and government conspiracies, the saga questions state control and unchecked anarchy.",
+                p3_desc: "Driven by honor, revenge, or radical idealism, complex characters deliver an electrifying political thriller filled with strategic action and ethical dilemmas.",
+                quote_highlight: '«An essential read for those seeking geopolitical suspense, rebellion, and deep questions about power.»',
+                quote_coincidence: "What price are you willing to pay for absolute freedom?",
+                benefits_tag: "Reasons to dive into the saga",
+                benefits_title: "Why Read Anarchy Shadows?",
+                benefits_sub: "Political intrigue, unpredictable twists, and a gripping conflict between order and rebellion.",
+                b1_title: "Geopolitical Intrigue",
+                b1_text: "Uncover the invisible threads manipulating governments, intelligence agencies, and secret societies.",
+                b2_title: "Ethical Dilemmas",
+                b2_text: "Examine the clash between peace enforced by authoritarian control vs. the chaotic freedom of rebellion.",
+                b3_title: "Fast-Paced Action",
+                b3_text: "Non-stop tension, unexpected betrayals, and covert strategies that keep you on the edge of your seat.",
+                b4_title: "Dystopian Reality",
+                b4_text: "A near-future scenario mirroring real-world power struggles and social polarization.",
+                b5_title: "Addictive Storytelling",
+                b5_text: "Tailor-made for fans of complex political thrillers, espionage, and rebellion narratives.",
+                cta_tag: "Available now in digital and print formats",
+                cta_title: "Are you ready to step into the shadow war?",
+                cta_desc_prefix: "Get the saga",
+                cta_desc_suffix: "at your favorite store.",
+                btn_buy_final: "Buy Complete Series",
+                f_main: "Main Website",
+                f_store: "Official Store",
+                f_contact: "Contact"
+            },
+            pt: {
+                nav_back: '<i class="fa-solid fa-arrow-left"></i> Voltar ao Início',
+                nav_buy: "Comprar Saga",
+                hero_formats: "Formatos: eBook & Impresso",
+                hero_genre: "Thriller Político & Distopia de Poder",
+                hero_edition: "Saga Completa",
+                hero_lead: "Nas sombras do poder global opera uma rede clandestina disposta a manter a ordem a qualquer custo. Mas quando lealdades se rompem, nasce uma insurreição pronta para incendiar o velho sistema.",
+                btn_buy_main: "Ver Série na Amazon",
+                btn_read_details: "Ler detalhes completos",
+                hero_notice: "Consulte os volumes e formatos nas lojas autorizadas.",
+                sec_details_tag: "Detalhes da Obra",
+                sec_details_title: "Onde termina a ordem legítima e começa a verdadeira tirania?",
+                p1_desc: "«Sombras da Anarquia» (O Clã | AnarKía) mergulha nas entranhas de uma organização secreta que moldou silenciosamente o destino geopolítico de nações inteiras.",
+                p2_desc: "Contudo, o surgimento de uma facção rebelde desencadeia uma guerra ideológica e tática feroz, questionando a legitimidade do controle estatal.",
+                p3_desc: "Com personagens complexos movidos por honra ou idealismo radical, a obra entrega um thriller político eletrizante.",
+                quote_highlight: '«Uma leitura indispensável para quem busca suspense geopolítico e reflexões profundas sobre o poder.»',
+                quote_coincidence: "Qual preço você está disposto a pagar pela liberdade absoluta?",
+                benefits_tag: "Razões para ler a saga",
+                benefits_title: "Por que ler Sombras da Anarquia?",
+                benefits_sub: "Intriga política, reviravoltas marcantes e um confronto intenso entre ordem e rebelião.",
+                b1_title: "Intriga Geopolítica",
+                b1_text: "Descubra os fios invisíveis que movem governos e organizações secretas.",
+                b2_title: "Dilemas Éticos",
+                b2_text: "Análise o confronto entre o controle autoritário e o caos da liberdade extrema.",
+                b3_title: "Ritmo Eletrizante",
+                b3_text: "Ação contínua, traições inesperadas e estratégias nas sombras.",
+                b4_title: "Universo Distópico",
+                b4_text: "Um cenário próximo do nosso presente sobre os perigos do controle absoluto.",
+                b5_title: "Leitura Envolvente",
+                b5_text: "Perfeita para fãs de thrillers políticos e histórias de resistência rebelde.",
+                cta_tag: "Disponível agora em formato digital e impresso",
+                cta_title: "Você está pronto para entrar na guerra das sombras?",
+                cta_desc_prefix: "Adquira a saga",
+                cta_desc_suffix: "na sua loja preferida.",
+                btn_buy_final: "Comprar Série Completa",
+                f_main: "Site Principal",
+                f_store: "Loja Oficial",
+                f_contact: "Contato"
+            }
+        };
+
+        function setLanguage(lang) {
+            ['es', 'en', 'pt'].forEach(l => {
+                const btn = document.getElementById(`lang-${l}`);
+                if (btn) {
+                    if (l === lang) {
+                        btn.className = "px-2 py-1 rounded text-xs font-mono font-bold bg-brand-gold text-black transition-all";
+                    } else {
+                        btn.className = "px-2 py-1 rounded text-xs font-mono font-medium text-brand-muted hover:text-white transition-all";
+                    }
+                }
+            });
+
+            const coverImg = document.getElementById('book-cover-img');
+            if (coverImg && bookCovers[lang]) {
+                coverImg.src = bookCovers[lang];
+            }
+
+            const url = storeUrls[lang];
+            const buyTop = document.getElementById('buy-top-link');
+            const buyMain = document.getElementById('buy-main-link');
+            const buyCta = document.getElementById('buy-cta-link');
+            if (buyTop) buyTop.href = url;
+            if (buyMain) buyMain.href = url;
+            if (buyCta) buyCta.href = url;
+
+            const titleHead = document.getElementById('book-title-heading');
+            const ctaBookName = document.getElementById('cta-book-name');
+            if (titleHead) titleHead.innerHTML = titles[lang];
+            if (ctaBookName) ctaBookName.textContent = ctaBookNames[lang];
+
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    el.innerHTML = translations[lang][key];
+                }
+            });
+        }
+    </script>
+</body>
+</html>
