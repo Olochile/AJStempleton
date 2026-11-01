@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Los Olvidados (Bilogía) — Novelas de A.J. Stempleton</title>
+    <meta name="description" content="Descubre la bilogía Los Olvidados de A.J. Stempleton: El despertar de los antiguos y Crónica de los olvidados. Una saga épica de ciencia ficción, arqueología y evolución.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#0B0D12',
+                            card: '#131722',
+                            border: '#2A3042',
+                            crimson: '#E53E3E',
+                            gold: '#D69E2E',
+                            goldLight: '#F6E05E',
+                            amber: '#FF5722',
+                            text: '#E2E8F0',
+                            muted: '#94A3B8'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Cinzel', 'Playfair Display', 'Georgia', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts & FontAwesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        body {
+            background-color: #07090E;
+            color: #E2E8F0;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+        .font-serif-title {
+            font-family: 'Cinzel', serif;
+        }
+        .glow-effect {
+            box-shadow: 0 0 35px -5px rgba(214, 158, 46, 0.25);
+        }
+        .bg-grid-pattern {
+            background-size: 40px 40px;
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0B0D12;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2A3042;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #D69E2E;
+        }
+    </style>
+</head>
+<body class="bg-brand-dark text-brand-text antialiased selection:bg-brand-gold selection:text-black">
+
+    <!-- NAVEGACIÓN SUPERIOR CON SELECTOR DE IDIOMAS -->
+    <nav class="fixed top-0 left-0 w-full z-50 bg-brand-dark/90 backdrop-blur-md border-b border-brand-border/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <a href="https://ajstempleton.com" class="flex items-center space-x-3 group">
+                    <span class="font-serif-title text-xl sm:text-2xl font-bold tracking-wider text-white group-hover:text-brand-gold transition-colors">
+                        A.J. STEMPLETON
+                    </span>
+                    <span class="w-2 h-2 rounded-full bg-brand-crimson animate-pulse"></span>
+                </a>
+                
+                <div class="flex items-center space-x-3 sm:space-x-6">
+                    <!-- Selector de Idioma (ES / EN / PT) -->
+                    <div class="flex items-center bg-brand-card border border-brand-border rounded-lg p-1 space-x-1">
+                        <button onclick="setLanguage('es')" id="lang-es" class="px-2 py-1 rounded text-xs font-mono font-bold bg-brand-gold text-black transition-all">ES</button>
+                        <button onclick="setLanguage('en')" id="lang-en" class="px-2 py-1 rounded text-xs font-mono font-medium text-brand-muted hover:text-white transition-all">EN</button>
+                        <button onclick="setLanguage('pt')" id="lang-pt" class="px-2 py-1 rounded text-xs font-mono font-medium text-brand-muted hover:text-white transition-all">PT</button>
+                    </div>
+
+                    <a href="https://ajstempleton.com" class="text-xs sm:text-sm font-mono text-brand-muted hover:text-brand-gold transition-colors hidden sm:flex items-center gap-2" data-i18n="nav_back">
+                        <i class="fa-solid fa-arrow-left"></i> Volver al Inicio
+                    </a>
+
+                    <a href="https://mybook.to/losolvidados" id="buy-top-link" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-xl bg-brand-gold text-black font-bold text-xs sm:text-sm hover:opacity-95 transition-all shadow-md" data-i18n="nav_buy">
+                        Comprar Bilogía
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- SECCIÓN PRINCIPAL DE LA BILOGÍA -->
+    <section class="pt-32 pb-20 md:pt-40 md:pb-32 relative bg-grid-pattern">
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-brand-gold/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Columna Izquierda: Portadas de los 2 Libros de la Bilogía -->
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="relative group max-w-md w-full">
+                        <div class="absolute -inset-1 bg-gradient-to-r from-brand-gold to-brand-crimson rounded-3xl opacity-50 group-hover:opacity-90 transition duration-500 blur-lg"></div>
+                        <div class="relative bg-brand-card p-4 rounded-2xl border border-brand-border glow-effect">
+                            <!-- Visualización de Portadas Lado a Lado -->
+                            <div class="grid grid-cols-2 gap-3">
+                                <div class="space-y-2">
+                                    <img id="cover-vol1" src="https://ajstempleton.wordpress.com/wp-content/uploads/2026/10/eda1.jpg" alt="El despertar de los antiguos" class="w-full h-auto rounded-lg shadow-xl border border-brand-border/60 transition-all duration-300">
+                                    <p class="text-[10px] font-mono text-center text-brand-gold font-semibold uppercase tracking-wider" data-i18n="cover_label_1">Libro 1</p>
+                                </div>
+                                <div class="space-y-2">
+                                    <img id="cover-vol2" src="https://ajstempleton.wordpress.com/wp-content/uploads/2026/10/cronica.jpg" alt="Crónica de los olvidados" class="w-full h-auto rounded-lg shadow-xl border border-brand-border/60 transition-all duration-300">
+                                    <p class="text-[10px] font-mono text-center text-brand-gold font-semibold uppercase tracking-wider" data-i18n="cover_label_2">Libro 2</p>
+                                </div>
+                            </div>
+
+                            <div class="mt-4 text-center">
+                                <span class="inline-block px-3 py-1 bg-brand-dark border border-brand-gold/30 rounded-full text-brand-gold font-mono text-xs uppercase tracking-widest" data-i18n="hero_formats">
+                                    Formatos: eBook &amp; Impreso
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Columna Derecha: Información General -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full bg-brand-card border border-brand-border text-brand-gold text-xs font-mono uppercase tracking-wider">
+                        <i class="fa-solid fa-hourglass-half"></i>
+                        <span data-i18n="hero_genre">Bilogía de Ciencia Ficción &amp; Arqueología Especulativa</span>
+                    </div>
+
+                    <h1 class="font-serif-title text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight" id="book-title-heading">
+                        Los <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-gold via-amber-400 to-brand-crimson italic">Olvidados</span>
+                    </h1>
+
+                    <div class="flex items-center justify-center lg:justify-start gap-4 text-sm font-mono text-brand-muted">
+                        <span class="text-white font-bold">A.J. Stempleton</span>
+                        <span>•</span>
+                        <span class="text-brand-gold font-semibold" data-i18n="hero_edition">Serie en 2 Libros</span>
+                    </div>
+
+                    <p class="text-brand-muted text-base sm:text-lg leading-relaxed" data-i18n="hero_lead">
+                        ¿Qué pasaría si nuestro origen verdadero hubiera sido borrado de la historia? Una saga épica que conecta hallazgos arqueológicos prehistóricos con el salto evolutivo que amenaza con extinguir a la especie humana.
+                    </p>
+
+                    <!-- Botones de Compra Directa -->
+                    <div class="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                        <a href="https://mybook.to/losolvidados" id="buy-main-link" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-brand-gold to-amber-600 text-black font-bold text-center text-lg hover:opacity-95 transition-all shadow-xl shadow-brand-gold/20 flex items-center justify-center space-x-3">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            <span data-i18n="btn_buy_main">Ver Serie en Amazon</span>
+                        </a>
+                        <a href="#libros-saga" class="w-full sm:w-auto px-6 py-4 rounded-xl bg-brand-card border border-brand-border text-white font-semibold text-center hover:border-brand-gold/60 transition-all" data-i18n="btn_read_details">
+                            Explorar los 2 Libros
+                        </a>
+                    </div>
+                    <p class="text-xs text-brand-muted italic" data-i18n="hero_notice">Consulta la colección completa y volúmenes individuales en las plataformas autorizadas.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN DE LOS 2 LIBROS DE LA SAGA CON SUS RESPECTIVAS PORTADAS -->
+    <section id="libros-saga" class="py-24 bg-brand-card/30 border-y border-brand-border/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+            
+            <div class="text-center max-w-3xl mx-auto space-y-4">
+                <span class="text-xs font-mono uppercase tracking-widest text-brand-gold" data-i18n="sec_saga_tag">Contenido de la Bilogía</span>
+                <h2 class="font-serif-title text-3xl sm:text-5xl font-bold text-white" data-i18n="sec_saga_title">Los 2 Volúmenes de la Saga</h2>
+                <div class="w-16 h-1 bg-brand-gold mx-auto rounded-full"></div>
+            </div>
+
+            <!-- TARJETA LIBRO 1 -->
+            <div class="bg-brand-card rounded-2xl border border-brand-border p-8 sm:p-10 shadow-2xl space-y-6 relative overflow-hidden">
+                <div class="absolute top-0 right-0 px-6 py-2 bg-brand-gold text-black font-mono font-bold text-xs uppercase tracking-widest rounded-bl-xl" data-i18n="vol1_badge">
+                    Libro 1
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+                    <div class="md:col-span-4 flex justify-center">
+                        <img id="detail-cover-vol1" src="https://ajstempleton.wordpress.com/wp-content/uploads/2026/10/eda1.jpg" alt="El despertar de los antiguos" class="w-48 sm:w-56 h-auto rounded-xl shadow-2xl border border-brand-border glow-effect">
+                    </div>
+                    <div class="md:col-span-8 space-y-4">
+                        <span class="text-xs font-mono text-brand-gold uppercase tracking-wider" data-i18n="vol1_tag">Arqueología &amp; Tecnologías Ancestrales</span>
+                        <h3 class="font-serif-title text-3xl font-bold text-white" data-i18n="vol1_title">El despertar de los antiguos</h3>
+
+                        <div class="space-y-4 text-brand-muted text-base leading-relaxed border-t border-brand-border/50 pt-4">
+                            <p class="text-white font-serif italic text-lg" data-i18n="vol1_hook">
+                                ¿Estás listo para desenterrar los secretos más oscuros de nuestro planeta?
+                            </p>
+                            <p data-i18n="vol1_p1">
+                                Un descubrimiento arqueológico desata una cadena de eventos que podrían cambiar el curso de la historia. Una civilización avanzada prehistórica ha dejado tras de sí un legado de conocimiento y tecnología que desafía todo lo que creíamos saber.
+                            </p>
+                            <p data-i18n="vol1_p2">
+                                En este primer volumen te adentrarás en un mundo lleno de misterios, donde la ciencia ficción se fusiona con la arqueología y la historia. Prepárate para un viaje épico a través del tiempo y el espacio, donde descubrirás tecnologías ancestrales, civilizaciones perdidas y una conspiración que amenaza a toda la humanidad.
+                            </p>
+                            <p class="text-brand-gold font-semibold" data-i18n="vol1_call">
+                                ¡Una emocionante aventura que te hará cuestionar todo lo que creías saber sobre la historia humana!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TARJETA LIBRO 2 -->
+            <div class="bg-brand-card rounded-2xl border border-brand-border p-8 sm:p-10 shadow-2xl space-y-6 relative overflow-hidden">
+                <div class="absolute top-0 right-0 px-6 py-2 bg-gradient-to-r from-amber-500 to-brand-crimson text-white font-mono font-bold text-xs uppercase tracking-widest rounded-bl-xl" data-i18n="vol2_badge">
+                    Libro 2 (Desenlace)
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+                    <div class="md:col-span-4 flex justify-center">
+                        <img id="detail-cover-vol2" src="https://ajstempleton.wordpress.com/wp-content/uploads/2026/10/cronica.jpg" alt="Crónica de los olvidados" class="w-48 sm:w-56 h-auto rounded-xl shadow-2xl border border-brand-border glow-effect">
+                    </div>
+                    <div class="md:col-span-8 space-y-4">
+                        <span class="text-xs font-mono text-brand-gold uppercase tracking-wider" data-i18n="vol2_tag">Evolución &amp; Futuro Espiritual</span>
+                        <h3 class="font-serif-title text-3xl font-bold text-white" data-i18n="vol2_title">Crónica de los olvidados</h3>
+
+                        <div class="space-y-4 text-brand-muted text-base leading-relaxed border-t border-brand-border/50 pt-4">
+                            <p class="text-white font-serif italic text-lg" data-i18n="vol2_hook">
+                                ¿Qué pasaría si la evolución nos sobrepasara?
+                            </p>
+                            <p data-i18n="vol2_p1">
+                                En un futuro donde la tecnología y la espiritualidad se fusionan, la humanidad se enfrenta a una nueva era. Pero esta era dorada oculta un oscuro secreto: una nueva especie, más poderosa y conectada, está lista para tomar las riendas.
+                            </p>
+                            <p data-i18n="vol2_p2">
+                                ¿Podrá la humanidad sobrevivir a su propia creación? Una saga épica de ciencia ficción que culmina en un desenlace trepidante que te mantendrá al borde del asiento.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECCIÓN DE BENEFICIOS -->
+    <section id="beneficios" class="py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+            
+            <div class="text-center max-w-3xl mx-auto space-y-4">
+                <span class="text-xs font-mono uppercase tracking-widest text-brand-gold" data-i18n="benefits_tag">Razones para sumergirte en la saga</span>
+                <h2 class="font-serif-title text-3xl sm:text-4xl font-bold text-white" data-i18n="benefits_title">¿Por qué leer Los Olvidados?</h2>
+                <p class="text-brand-muted text-base" data-i18n="benefits_sub">Una mezcla perfecta entre el suspenso arqueológico y la ciencia ficción transformadora.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <div class="bg-brand-card p-8 rounded-2xl border border-brand-border space-y-4 hover:border-brand-gold/50 transition-all">
+                    <div class="w-12 h-12 rounded-xl bg-brand-gold/10 border border-brand-gold/30 flex items-center justify-center text-brand-gold text-xl font-bold">01</div>
+                    <h3 class="font-serif-title text-xl font-bold text-white" data-i18n="b1_title">Fusión Única</h3>
+                    <p class="text-brand-muted text-sm leading-relaxed" data-i18n="b1_text">Combina hallazgos arqueológicos enigmáticos con alta tecnología prehistórica y ciencia ficción.</p>
+                </div>
+
+                <div class="bg-brand-card p-8 rounded-2xl border border-brand-border space-y-4 hover:border-brand-gold/50 transition-all">
+                    <div class="w-12 h-12 rounded-xl bg-brand-gold/10 border border-brand-gold/30 flex items-center justify-center text-brand-gold text-xl font-bold">02</div>
+                    <h3 class="font-serif-title text-xl font-bold text-white" data-i18n="b2_title">Dilema Evolutivo</h3>
+                    <p class="text-brand-muted text-sm leading-relaxed" data-i18n="b2_text">Cuestiona el lugar del ser humano ante la aparición de una especie superior y superconectada.</p>
+                </div>
+
+                <div class="bg-brand-card p-8 rounded-2xl border border-brand-border space-y-4 hover:border-brand-gold/50 transition-all">
+                    <div class="w-12 h-12 rounded-xl bg-brand-gold/10 border border-brand-gold/30 flex items-center justify-center text-brand-gold text-xl font-bold">03</div>
+                    <h3 class="font-serif-title text-xl font-bold text-white" data-i18n="b3_title">Conspiración Global</h3>
+                    <p class="text-brand-muted text-sm leading-relaxed" data-i18n="b3_text">Una trama envuelta en conspiraciones ancestrales que amenazan la existencia misma de la civilización.</p>
+                </div>
+
+                <div class="bg-brand-card p-8 rounded-2xl border border-brand-border space-y-4 hover:border-brand-gold/50 transition-all">
+                    <div class="w-12 h-12 rounded-xl bg-brand-gold/10 border border-brand-gold/30 flex items-center justify-center text-brand-gold text-xl font-bold">04</div>
+                    <h3 class="font-serif-title text-xl font-bold text-white" data-i18n="b4_title">Tecnología y Espiritualidad</h3>
+                    <p class="text-brand-muted text-sm leading-relaxed" data-i18n="b4_text">Explora la convergencia del progreso técnico con dimensiones espirituales y místicas de la mente.</p>
+                </div>
+
+                <div class="bg-brand-card p-8 rounded-2xl border border-brand-border space-y-4 hover:border-brand-gold/50 transition-all md:col-span-2 lg:col-span-2">
+                    <div class="w-12 h-12 rounded-xl bg-brand-gold/10 border border-brand-gold/30 flex items-center justify-center text-brand-gold text-xl font-bold">05</div>
+                    <h3 class="font-serif-title text-xl font-bold text-white" data-i18n="b5_title">Experiencia Inmersiva</h3>
+                    <p class="text-brand-muted text-sm leading-relaxed" data-i18n="b5_text">Una bilogía completa pensada para lectores fascinados por la historia antigua, las ruinas perdidas y los saltos cuánticos de la humanidad.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- LLAMADA A LA ACCIÓN FINAL -->
+    <section class="py-24 relative overflow-hidden bg-gradient-to-b from-brand-dark via-brand-card to-brand-dark">
+        <div class="absolute inset-0 bg-grid-pattern opacity-50 pointer-events-none"></div>
+
+        <div class="max-w-4xl mx-auto px-4 text-center space-y-8 relative z-10">
+            <span class="px-4 py-1.5 rounded-full bg-brand-gold/10 border border-brand-gold/30 text-brand-gold text-xs font-mono uppercase tracking-widest" data-i18n="cta_tag">
+                Disponible ahora en formato digital e impreso
+            </span>
+
+            <h2 class="font-serif-title text-3xl sm:text-5xl font-bold text-white" data-i18n="cta_title">
+                ¿Estás listo para desenterrar los secretos del origen humano?
+            </h2>
+
+            <p class="text-brand-muted text-lg max-w-2xl mx-auto">
+                <span data-i18n="cta_desc_prefix">Consigue tu ejemplar de la bilogía</span> <strong class="text-white" id="cta-book-name">Los Olvidados</strong> <span data-i18n="cta_desc_suffix">en tu tienda preferida.</span>
+            </p>
+
+            <div class="pt-4 flex flex-wrap justify-center gap-4">
+                <a href="https://mybook.to/losolvidados" id="buy-cta-link" target="_blank" rel="noopener noreferrer" class="px-8 py-5 rounded-xl bg-gradient-to-r from-brand-gold to-amber-600 text-black font-bold text-xl hover:opacity-95 transition-all shadow-2xl shadow-brand-gold/30 flex items-center space-x-3">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span data-i18n="btn_buy_final">Comprar Serie Completa</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- PIE DE PÁGINA -->
+    <footer class="bg-black border-t border-brand-border text-brand-muted py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
+            <p class="font-serif-title text-lg font-bold text-white">A.J. STEMPLETON</p>
+            <p class="text-xs text-brand-muted">&copy; 2026 A.J. Stempleton. Todos los derechos reservados.</p>
+            <div class="flex justify-center space-x-6 text-sm pt-2">
+                <a href="https://ajstempleton.com" class="hover:text-brand-gold transition-colors" data-i18n="f_main">Sitio Principal</a>
+                <a href="https://ajstempleton.com/#tienda" class="hover:text-brand-gold transition-colors" data-i18n="f_store">Tienda Oficial</a>
+                <a href="https://ajstempleton.com/#contacto" class="hover:text-brand-gold transition-colors" data-i18n="f_contact">Contacto</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPT DE INTERACTIVIDAD Y TRADUCCIONES -->
+    <script>
+        const storeUrls = {
+            es: "https://mybook.to/losolvidados",
+            en: "https://mybook.to/TheF0rg0tten",
+            pt: "https://ajstempleton.wordpress.com/categoriapt/"
+        };
+
+        const coversVol1 = {
+            es: "https://ajstempleton.wordpress.com/wp-content/uploads/2026/10/eda1.jpg",
+            en: "https://ajstempleton.wordpress.com/wp-content/uploads/2024/10/the-awakening-of-the-ancients.jpg",
+            pt: "https://ajstempleton.wordpress.com/wp-content/uploads/2024/10/o-despertar-dos-antigos.jpg"
+        };
+
+        const coversVol2 = {
+            es: "https://ajstempleton.wordpress.com/wp-content/uploads/2026/10/cronica.jpg",
+            en: "https://ajstempleton.wordpress.com/wp-content/uploads/2024/10/chronicle.jpg",
+            pt: "https://ajstempleton.wordpress.com/wp-content/uploads/2024/10/cronica-dos-esquecidos.jpg"
+        };
+
+        const titles = {
+            es: 'Los <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-gold via-amber-400 to-brand-crimson italic">Olvidados</span>',
+            en: 'The <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-gold via-amber-400 to-brand-crimson italic">Forgotten</span>',
+            pt: 'Os <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-gold via-amber-400 to-brand-crimson italic">Esquecidos</span>'
+        };
+
+        const ctaBookNames = {
+            es: "Los Olvidados",
+            en: "The Forgotten",
+            pt: "Os Esquecidos"
+        };
+
+        const translations = {
+            es: {
+                nav_back: '<i class="fa-solid fa-arrow-left"></i> Volver al Inicio',
+                nav_buy: "Comprar Bilogía",
+                cover_label_1: "Libro 1",
+                cover_label_2: "Libro 2",
+                hero_formats: "Formatos: eBook & Impreso",
+                hero_genre: "Bilogía de Ciencia Ficción & Arqueología Especulativa",
+                hero_edition: "Serie en 2 Libros",
+                hero_lead: "¿Qué pasaría si nuestro origen verdadero hubiera sido borrado de la historia? Una saga épica que conecta hallazgos arqueológicos prehistóricos con el salto evolutivo que amenaza con extinguir a la especie humana.",
+                btn_buy_main: "Ver Serie en Amazon",
+                btn_read_details: "Explorar los 2 Libros",
+                hero_notice: "Consulta la colección completa y volúmenes individuales en las plataformas autorizadas.",
+                sec_saga_tag: "Contenido de la Bilogía",
+                sec_saga_title: "Los 2 Volúmenes de la Saga",
+                vol1_badge: "Libro 1",
+                vol1_tag: "Arqueología & Tecnologías Ancestrales",
+                vol1_title: "El despertar de los antiguos",
+                vol1_hook: "¿Estás listo para desenterrar los secretos más oscuros de nuestro planeta?",
+                vol1_p1: "Un descubrimiento arqueológico desata una cadena de eventos que podrían cambiar el curso de la historia. Una civilización avanzada prehistórica ha dejado tras de sí un legado de conocimiento y tecnología que desafía todo lo que creíamos saber.",
+                vol1_p2: "En este primer volumen te adentrarás en un mundo lleno de misterios, donde la ciencia ficción se fusiona con la arqueología y la historia. Prepárate para un viaje épico a través del tiempo y el espacio, donde descubrirás tecnologías ancestrales, civilizaciones perdidas y una conspiración que amenaza a toda la humanidad.",
+                vol1_call: "¡Una emocionante aventura que te hará cuestionar todo lo que creías saber sobre la historia humana!",
+                vol2_badge: "Libro 2 (Desenlace)",
+                vol2_tag: "Evolución & Futuro Espiritual",
+                vol2_title: "Crónica de los olvidados",
+                vol2_hook: "¿Qué pasaría si la evolución nos sobrepasara?",
+                vol2_p1: "En un futuro donde la tecnología y la espiritualidad se fusionan, la humanidad se enfrenta a una nueva era. Pero esta era dorada oculta un oscuro secreto: una nueva especie, más poderosa y conectada, está lista para tomar las riendas.",
+                vol2_p2: "¿Podrá la humanidad sobrevivir a su propia creación? Una saga épica de ciencia ficción que culmina en un desenlace trepidante que te mantendrá al borde del asiento.",
+                benefits_tag: "Razones para sumergirte en la saga",
+                benefits_title: "¿Por qué leer Los Olvidados?",
+                benefits_sub: "Una mezcla perfecta entre el suspenso arqueológico y la ciencia ficción transformadora.",
+                b1_title: "Fusión Única",
+                b1_text: "Combina hallazgos arqueológicos enigmáticos con alta tecnología prehistórica y ciencia ficción.",
+                b2_title: "Dilema Evolutivo",
+                b2_text: "Cuestiona el lugar del ser humano ante la aparición de una especie superior y superconectada.",
+                b3_title: "Conspiración Global",
+                b3_text: "Una trama envuelta en conspiraciones ancestrales que amenazan la existencia misma de la civilización.",
+                b4_title: "Tecnología y Espiritualidad",
+                b4_text: "Explora la convergencia del progreso técnico con dimensiones espirituales y místicas de la mente.",
+                b5_title: "Experiencia Inmersiva",
+                b5_text: "Una bilogía completa pensada para lectores fascinados por la historia antigua, las ruinas perdidas y los saltos cuánticos de la humanidad.",
+                cta_tag: "Disponible ahora en formato digital e impreso",
+                cta_title: "¿Estás listo para desenterrar los secretos del origen humano?",
+                cta_desc_prefix: "Consigue tu ejemplar de la bilogía",
+                cta_desc_suffix: "en tu tienda preferida.",
+                btn_buy_final: "Comprar Serie Completa",
+                f_main: "Sitio Principal",
+                f_store: "Tienda Oficial",
+                f_contact: "Contacto"
+            },
+            en: {
+                nav_back: '<i class="fa-solid fa-arrow-left"></i> Back to Home',
+                nav_buy: "Buy Duology",
+                cover_label_1: "Book 1",
+                cover_label_2: "Book 2",
+                hero_formats: "Formats: eBook & Paperback",
+                hero_genre: "Speculative Sci-Fi & Archaeology Duology",
+                hero_edition: "2-Book Series",
+                hero_lead: "What if our true origin had been erased from history? An epic saga linking prehistoric archaeological finds with an evolutionary leap that threatens humanity's survival.",
+                btn_buy_main: "View Series on Amazon",
+                btn_read_details: "Explore the 2 Books",
+                hero_notice: "Browse the full collection and standalone books on authorized retailers.",
+                sec_saga_tag: "Duology Content",
+                sec_saga_title: "The 2 Volumes of the Saga",
+                vol1_badge: "Book 1",
+                vol1_tag: "Archaeology & Ancestral Tech",
+                vol1_title: "The Awakening of the Ancients",
+                vol1_hook: "Are you ready to unearth our planet's darkest secrets?",
+                vol1_p1: "An archaeological discovery triggers a chain reaction capable of altering history. An advanced prehistoric civilization left behind a legacy of technology and knowledge that challenges everything we knew.",
+                vol1_p2: "In this first volume, dive into a world of mystery where sci-fi merges with archaeology. Prepare for an epic journey across time and space, discovering lost civilizations and a conspiracy threatening all humanity.",
+                vol1_call: "A thrilling adventure that will make you question human history!",
+                vol2_badge: "Book 2 (Finale)",
+                vol2_tag: "Evolution & Spiritual Future",
+                vol2_title: "Chronicle of the Forgotten",
+                vol2_hook: "What if evolution leaves us behind?",
+                vol2_p1: "In a future where technology and spirituality merge, humanity faces a new era. But this golden age conceals a dark secret: a new, hyper-connected species ready to take control.",
+                vol2_p2: "Can humanity survive its own creation? An epic sci-fi saga culminating in a heart-pounding conclusion that will keep you on the edge of your seat.",
+                benefits_tag: "Reasons to dive into the saga",
+                benefits_title: "Why Read The Forgotten?",
+                benefits_sub: "A seamless blend of archaeological suspense and transformative science fiction.",
+                b1_title: "Unique Fusion",
+                b1_text: "Combines enigmatic archaeological digs with high prehistoric tech and sci-fi.",
+                b2_title: "Evolutionary Dilemma",
+                b2_text: "Questions humanity's place when faced with a superior, hyper-connected species.",
+                b3_title: "Global Conspiracy",
+                b3_text: "A narrative wrapped in ancient conspiracies that endanger civilization itself.",
+                b4_title: "Tech & Spirituality",
+                b4_text: "Explores the convergence of technological progress with spiritual dimensions.",
+                b5_title: "Immersive Experience",
+                b5_text: "A complete duology crafted for readers fascinated by ancient history, lost ruins, and quantum human leaps.",
+                cta_tag: "Available now in digital and print formats",
+                cta_title: "Ready to unearth the secrets of human origins?",
+                cta_desc_prefix: "Get your copy of",
+                cta_desc_suffix: "at your favorite store.",
+                btn_buy_final: "Buy Complete Series",
+                f_main: "Main Website",
+                f_store: "Official Store",
+                f_contact: "Contact"
+            },
+            pt: {
+                nav_back: '<i class="fa-solid fa-arrow-left"></i> Voltar ao Início',
+                nav_buy: "Comprar Bilogia",
+                cover_label_1: "Livro 1",
+                cover_label_2: "Livro 2",
+                hero_formats: "Formatos: eBook & Impresso",
+                hero_genre: "Bilogia de Ficção Científica & Arqueologia Especulativa",
+                hero_edition: "Série em 2 Livros",
+                hero_lead: "E se nossa verdadeira origem tivesse sido apagada da história? Uma saga épica conectando descobertas arqueológicas pré-históricas ao salto evolutivo que ameaça a humanidade.",
+                btn_buy_main: "Ver Série na Amazon",
+                btn_read_details: "Explorar os 2 Livros",
+                hero_notice: "Consulte a coleção completa nas plataformas autorizadas.",
+                sec_saga_tag: "Conteúdo da Bilogia",
+                sec_saga_title: "Os 2 Volumes da Saga",
+                vol1_badge: "Livro 1",
+                vol1_tag: "Arqueologia & Tecnologias Ancestrais",
+                vol1_title: "O despertar dos antigos",
+                vol1_hook: "Você está pronto para desenterrar os segredos mais sombrios do nosso planeta?",
+                vol1_p1: "Uma descoberta arqueológica desencadeia uma reação capaz de mudar a história. Uma civilização pré-histórica avançada deixou um legado de tecnologia e conhecimento que desafia tudo o que sabíamos.",
+                vol1_p2: "Neste primeiro volume, mergulhe em um mundo onde a ficção científica se funde à arqueologia. Prepare-se para uma viagem épica no tempo e no espaço descobrindo civilizações perdidas.",
+                vol1_call: "Uma aventura emocionante que fará você questionar a história humana!",
+                vol2_badge: "Livro 2 (Final)",
+                vol2_tag: "Evolução & Futuro Espiritual",
+                vol2_title: "Crônica dos esquecidos",
+                vol2_hook: "E se a evolução nos ultrapassasse?",
+                vol2_p1: "Em um futuro onde tecnologia e espiritualidade se fundem, a humanidade enfrenta uma nova era. Mas essa era dourada esconde um segredo sombrio: uma nova espécie pronta para assumir o controle.",
+                vol2_p2: "A humanidade poderá sobreviver à sua própria criação? Uma saga de ficção científica eletrizante.",
+                benefits_tag: "Razões para ler a saga",
+                benefits_title: "Por que ler Os Esquecidos?",
+                benefits_sub: "Uma mistura perfeita de mistério arqueológico e ficção científica transformadora.",
+                b1_title: "Fusão Única",
+                b1_text: "Combina arqueologia enigmática com alta tecnologia pré-histórica.",
+                b2_title: "Dilema Evolutivo",
+                b2_text: "Questiona o lugar do ser humano diante do surgimento de uma espécie superior.",
+                b3_title: "Conspiração Global",
+                b3_text: "Uma trama envolta em conspirações ancestrais que ameaçam a civilização.",
+                b4_title: "Tecnologia e Espiritualidade",
+                b4_text: "Explora a convergência do progresso técnico com a dimensão espiritual.",
+                b5_title: "Experiência Imersiva",
+                b5_text: "Uma bilogia completa para leitores fascinados por história antiga e ruínas perdidas.",
+                cta_tag: "Disponível agora em formato digital e impresso",
+                cta_title: "Pronto para desenterrar os segredos da origem humana?",
+                cta_desc_prefix: "Adquira a bilogia",
+                cta_desc_suffix: "na sua loja preferida.",
+                btn_buy_final: "Comprar Série Completa",
+                f_main: "Site Principal",
+                f_store: "Loja Oficial",
+                f_contact: "Contato"
+            }
+        };
+
+        function setLanguage(lang) {
+            ['es', 'en', 'pt'].forEach(l => {
+                const btn = document.getElementById(`lang-${l}`);
+                if (btn) {
+                    if (l === lang) {
+                        btn.className = "px-2 py-1 rounded text-xs font-mono font-bold bg-brand-gold text-black transition-all";
+                    } else {
+                        btn.className = "px-2 py-1 rounded text-xs font-mono font-medium text-brand-muted hover:text-white transition-all";
+                    }
+                }
+            });
+
+            // Actualizar portadas de los dos libros según el idioma seleccionado
+            const cover1 = document.getElementById('cover-vol1');
+            const cover2 = document.getElementById('cover-vol2');
+            const detailCover1 = document.getElementById('detail-cover-vol1');
+            const detailCover2 = document.getElementById('detail-cover-vol2');
+
+            if (cover1 && coversVol1[lang]) cover1.src = coversVol1[lang];
+            if (cover2 && coversVol2[lang]) cover2.src = coversVol2[lang];
+            if (detailCover1 && coversVol1[lang]) detailCover1.src = coversVol1[lang];
+            if (detailCover2 && coversVol2[lang]) detailCover2.src = coversVol2[lang];
+
+            // Actualizar enlaces de tiendas
+            const url = storeUrls[lang];
+            const buyTop = document.getElementById('buy-top-link');
+            const buyMain = document.getElementById('buy-main-link');
+            const buyCta = document.getElementById('buy-cta-link');
+            if (buyTop) buyTop.href = url;
+            if (buyMain) buyMain.href = url;
+            if (buyCta) buyCta.href = url;
+
+            // Actualizar títulos dinámicos
+            const titleHead = document.getElementById('book-title-heading');
+            const ctaBookName = document.getElementById('cta-book-name');
+            if (titleHead) titleHead.innerHTML = titles[lang];
+            if (ctaBookName) ctaBookName.textContent = ctaBookNames[lang];
+
+            // Traducir elementos con data-i18n
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    el.innerHTML = translations[lang][key];
+                }
+            });
+        }
+    </script>
+</body>
+</html>
+```
+
+### Summary of Updates made:
+1. **Dynamic Book Cover Switching:**
+   - **Spanish covers:** `eda1.jpg` (Book 1) & `cronica.jpg` (Book 2).
+   - **English covers:** `the-awakening-of-the-ancients.jpg` & `chronicle.jpg`.
+   - **Portuguese covers:** `o-despertar-dos-antigos.jpg` & `cronica-dos-esquecidos.jpg`.
+2. **Hero & Detailed Section Layout:** Added individual book cover cards in the detailed breakdown section for both Volume 1 and Volume 2.
+3. **Seamless Multi-language Support:** Switching languages automatically updates all titles, paragraphs, store links, and book covers simultaneously.
