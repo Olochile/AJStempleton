@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ocho mil millones, un caos — Novela de A.J. Stempleton</title>
+    <meta name="description" content="Descubre Ocho mil millones, un caos. Una sátira política aguda y brillante sobre el poder, la tecnología y el futuro del planeta por A.J. Stempleton.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#0B0D12',
+                            card: '#131722',
+                            border: '#2A3042',
+                            crimson: '#E53E3E',
+                            gold: '#D69E2E',
+                            goldLight: '#F6E05E',
+                            amber: '#FF5722',
+                            text: '#E2E8F0',
+                            muted: '#94A3B8'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Cinzel', 'Playfair Display', 'Georgia', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts & FontAwesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        body {
+            background-color: #07090E;
+            color: #E2E8F0;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+        .font-serif-title {
+            font-family: 'Cinzel', serif;
+        }
+        .glow-effect {
+            box-shadow: 0 0 35px -5px rgba(214, 158, 46, 0.25);
+        }
+        .bg-grid-pattern {
+            background-size: 40px 40px;
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0B0D12;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2A3042;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #D69E2E;
+        }
+    </style>
+</head>
+<body class="bg-brand-dark text-brand-text antialiased selection:bg-brand-gold selection:text-black">
+
+    <!-- NAVEGACIÓN SUPERIOR CON SELECTOR DE IDIOMAS -->
+    <nav class="fixed top-0 left-0 w-full z-50 bg-brand-dark/90 backdrop-blur-md border-b border-brand-border/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <a href="https://ajstempleton.com" class="flex items-center space-x-3 group">
+                    <span class="font-serif-title text-xl sm:text-2xl font-bold tracking-wider text-white group-hover:text-brand-gold transition-colors">
+                        A.J. STEMPLETON
+                    </span>
+                    <span class="w-2 h-2 rounded-full bg-brand-crimson animate-pulse"></span>
+                </a>
+                
+                <div class="flex items-center space-x-3 sm:space-x-6">
+                    <!-- Selector de Idioma (ES / EN / PT) -->
+                    <div class="flex items-center bg-brand-card border border-brand-border rounded-lg p-1 space-x-1">
+                        <button onclick="setLanguage('es')" id="lang-es" class="px-2 py-1 rounded text-xs font-mono font-bold bg-brand-gold text-black transition-all">ES</button>
+                        <button onclick="setLanguage('en')" id="lang-en" class="px-2 py-1 rounded text-xs font-mono font-medium text-brand-muted hover:text-white transition-all">EN</button>
+                        <button onclick="setLanguage('pt')" id="lang-pt" class="px-2 py-1 rounded text-xs font-mono font-medium text-brand-muted hover:text-white transition-all">PT</button>
+                    </div>
+
+                    <a href="https://ajstempleton.com" class="text-xs sm:text-sm font-mono text-brand-muted hover:text-brand-gold transition-colors hidden sm:flex items-center gap-2" data-i18n="nav_back">
+                        <i class="fa-solid fa-arrow-left"></i> Volver al Inicio
+                    </a>
+
+                    <a href="https://mybook.to/8billones" id="buy-top-link" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-xl bg-brand-gold text-black font-bold text-xs sm:text-sm hover:opacity-95 transition-all shadow-md" data-i18n="nav_buy">
+                        Comprar eBook
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- SECCIÓN PRINCIPAL DEL LIBRO -->
+    <section class="pt-32 pb-20 md:pt-40 md:pb-32 relative bg-grid-pattern">
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-brand-gold/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Columna Izquierda: Portada Dinámica del Libro -->
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="relative group max-w-sm w-full">
+                        <div class="absolute -inset-1 bg-gradient-to-r from-brand-gold to-brand-crimson rounded-3xl opacity-50 group-hover:opacity-90 transition duration-500 blur-lg"></div>
+                        <div class="relative bg-brand-card p-4 rounded-2xl border border-brand-border glow-effect">
+                            <img id="book-cover-img" src="https://ajstempleton.wordpress.com/wp-content/uploads/2024/11/8000.jpg" alt="Ocho mil millones, un caos - Portada" class="w-full h-auto rounded-xl shadow-2xl transition-all duration-300">
+                            <div class="mt-4 text-center">
+                                <span class="inline-block px-3 py-1 bg-brand-dark border border-brand-gold/30 rounded-full text-brand-gold font-mono text-xs uppercase tracking-widest" data-i18n="hero_formats">
+                                    Formatos: eBook &amp; Impreso
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Columna Derecha: Información y Compra -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full bg-brand-card border border-brand-border text-brand-gold text-xs font-mono uppercase tracking-wider">
+                        <i class="fa-solid fa-globe"></i>
+                        <span data-i18n="hero_genre">Ficción Política &amp; Sátira Global</span>
+                    </div>
+
+                    <h1 class="font-serif-title text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight" id="book-title-heading">
+                        Ocho mil millones, <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-gold via-amber-400 to-brand-crimson italic">un caos</span>
+                    </h1>
+
+                    <div class="flex items-center justify-center lg:justify-start gap-4 text-sm font-mono text-brand-muted">
+                        <span class="text-white font-bold">A.J. Stempleton</span>
+                        <span>•</span>
+                        <span class="text-brand-gold font-semibold" data-i18n="hero_edition">Edición Oficial</span>
+                    </div>
+
+                    <p class="text-brand-muted text-base sm:text-lg leading-relaxed" data-i18n="hero_lead">
+                        En «Ocho mil millones, un caos», dos figuras reconocibles de nuestra era toman protagonismo bajo nombres ficticios pero inconfundibles: <strong>Ronald Drump</strong>, presidente de las Provincias Unidas de Extremoamérica, e <strong>Ilon Task</strong>, un excéntrico multimillonario que revolucionó el mundo con sus innovaciones tecnológicas.
+                    </p>
+
+                    <!-- Botón de Compra Directa Principal -->
+                    <div class="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                        <a href="https://mybook.to/8billones" id="buy-main-link" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-brand-gold to-amber-600 text-black font-bold text-center text-lg hover:opacity-95 transition-all shadow-xl shadow-brand-gold/20 flex items-center justify-center space-x-3">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            <span data-i18n="btn_buy_main">Comprar Ejemplar</span>
+                        </a>
+                        <a href="#detalles" class="w-full sm:w-auto px-6 py-4 rounded-xl bg-brand-card border border-brand-border text-white font-semibold text-center hover:border-brand-gold/60 transition-all" data-i18n="btn_read_details">
+                            Leer detalles completos
+                        </a>
+                    </div>
+                    <p class="text-xs text-brand-muted italic" data-i18n="hero_notice">Consulta precios y disponibilidad según tu región en las tiendas autorizadas.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN DE DETALLES Y SINOPSIS EXTENDIDA -->
+    <section id="detalles" class="py-20 bg-brand-card/30 border-y border-brand-border/60">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+            <div class="text-center space-y-3">
+                <span class="text-xs font-mono uppercase tracking-widest text-brand-gold" data-i18n="sec_details_tag">Detalles de la Obra</span>
+                <h2 class="font-serif-title text-3xl font-bold text-white" data-i18n="sec_details_title">¿Es esto solo una parodia o una mirada irreverente a nuestra era?</h2>
+                <div class="w-16 h-1 bg-brand-gold mx-auto rounded-full"></div>
+            </div>
+
+            <div class="bg-brand-card p-8 rounded-2xl border border-brand-border space-y-6 text-brand-muted text-base sm:text-lg leading-relaxed shadow-xl">
+                <p data-i18n="p1_desc">
+                    En «Ocho mil millones, un caos», dos figuras reconocibles de nuestra era toman protagonismo bajo nombres ficticios pero inconfundibles: <strong class="text-white">Ronald Drump</strong>, presidente de las Provincias Unidas de Extremoamérica, e <strong class="text-white">Ilon Task</strong>, un excéntrico multimillonario que revolucionó el mundo con sus innovaciones tecnológicas.
+                </p>
+                <p data-i18n="p2_desc">
+                    La historia explora cómo el monumental regalo de Task, un millón de dólares por cada habitante del planeta, desencadena una cascada de consecuencias no deseadas, ya que Drump, con su insaciable hambre de poder, enfrenta desafíos internacionales que podrían llevar al mundo al borde del colapso.
+                </p>
+                <p data-i18n="p3_desc">
+                    Entre conflictos globales, decisiones surrealistas y momentos de puro sarcasmo, esta novela te hará reír, reflexionar y cuestionar la delgada línea que separa la realidad de la ficción. ¿Es esto solo una parodia? ¿O es una mirada irreverente a los tiempos en los que vivimos?
+                </p>
+                
+                <div class="p-6 bg-brand-dark/80 rounded-xl border border-brand-gold/30 my-4 text-center">
+                    <p class="text-brand-gold font-serif text-xl italic mb-2" data-i18n="quote_highlight">
+                        «Una obra que mezcla ironía, crítica social y un toque de absurdo para cautivar a los lectores más exigentes.»
+                    </p>
+                    <p class="text-xs font-mono text-brand-muted uppercase tracking-widest" data-i18n="quote_coincidence">
+                        Cualquier parecido con la realidad es pura coincidencia… ¿O no?
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN DE BENEFICIOS -->
+    <section id="beneficios" class="py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+            
+            <div class="text-center max-w-3xl mx-auto space-y-4">
+                <span class="text-xs font-mono uppercase tracking-widest text-brand-gold" data-i18n="benefits_tag">Razones para leer esta novela</span>
+                <h2 class="font-serif-title text-3xl sm:text-4xl font-bold text-white" data-i18n="benefits_title">¿Qué obtendrás al adquirir este libro?</h2>
+                <p class="text-brand-muted text-base" data-i18n="benefits_sub">Un viaje hilarante y provocador a través de un mundo al borde del colapso.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <div class="bg-brand-card p-8 rounded-2xl border border-brand-border space-y-4 hover:border-brand-gold/50 transition-all">
+                    <div class="w-12 h-12 rounded-xl bg-brand-gold/10 border border-brand-gold/30 flex items-center justify-center text-brand-gold text-xl font-bold">01</div>
+                    <h3 class="font-serif-title text-xl font-bold text-white" data-i18n="b1_title">Risa y Conciencia</h3>
+                    <p class="text-brand-muted text-sm leading-relaxed" data-i18n="b1_text">Una obra que te hará reír y pensar al mismo tiempo, despertando conciencia sobre los dilemas cruciales de nuestro tiempo.</p>
+                </div>
+
+                <div class="bg-brand-card p-8 rounded-2xl border border-brand-border space-y-4 hover:border-brand-gold/50 transition-all">
+                    <div class="w-12 h-12 rounded-xl bg-brand-gold/10 border border-brand-gold/30 flex items-center justify-center text-brand-gold text-xl font-bold">02</div>
+                    <h3 class="font-serif-title text-xl font-bold text-white" data-i18n="b2_title">Sátira Implacable</h3>
+                    <p class="text-brand-muted text-sm leading-relaxed" data-i18n="b2_text">Expone con ironía los absurdos del poder político, la tecnología desmedida y la sociedad contemporánea.</p>
+                </div>
+
+                <div class="bg-brand-card p-8 rounded-2xl border border-brand-border space-y-4 hover:border-brand-gold/50 transition-all">
+                    <div class="w-12 h-12 rounded-xl bg-brand-gold/10 border border-brand-gold/30 flex items-center justify-center text-brand-gold text-xl font-bold">03</div>
+                    <h3 class="font-serif-title text-xl font-bold text-white" data-i18n="b3_title">Exceso de Riqueza</h3>
+                    <p class="text-brand-muted text-sm leading-relaxed" data-i18n="b3_text">Descubre cómo una inyección masiva de dinero y la búsqueda desenfrenada de control pueden llevar a la destrucción.</p>
+                </div>
+
+                <div class="bg-brand-card p-8 rounded-2xl border border-brand-border space-y-4 hover:border-brand-gold/50 transition-all">
+                    <div class="w-12 h-12 rounded-xl bg-brand-gold/10 border border-brand-gold/30 flex items-center justify-center text-brand-gold text-xl font-bold">04</div>
+                    <h3 class="font-serif-title text-xl font-bold text-white" data-i18n="b4_title">Crítica del Siglo XXI</h3>
+                    <p class="text-brand-muted text-sm leading-relaxed" data-i18n="b4_text">Una aguda e inteligente reflexión sobre los retos geopolíticos y tecnológicos que afrontamos hoy en día.</p>
+                </div>
+
+                <div class="bg-brand-card p-8 rounded-2xl border border-brand-border space-y-4 hover:border-brand-gold/50 transition-all md:col-span-2 lg:col-span-2">
+                    <div class="w-12 h-12 rounded-xl bg-brand-gold/10 border border-brand-gold/30 flex items-center justify-center text-brand-gold text-xl font-bold">05</div>
+                    <h3 class="font-serif-title text-xl font-bold text-white" data-i18n="b5_title">Lectura Indispensable</h3>
+                    <p class="text-brand-muted text-sm leading-relaxed" data-i18n="b5_text">Ideal para cualquier lector exigente que busque entender el mundo a través de un lente crítico, irónico y profundamente entretenido.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN DE TESTIMONIOS -->
+    <section class="py-24 bg-brand-card/20 border-y border-brand-border/60">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+            
+            <div class="text-center space-y-3">
+                <span class="text-xs font-mono uppercase tracking-widest text-brand-gold" data-i18n="reviews_tag">Lo que dicen los lectores</span>
+                <h2 class="font-serif-title text-3xl font-bold text-white" data-i18n="reviews_title">Reseñas destacadas</h2>
+            </div>
+
+            <div class="bg-brand-card p-8 sm:p-10 rounded-2xl border border-brand-border space-y-6 shadow-2xl relative">
+                <i class="fa-solid fa-quote-right absolute top-6 right-8 text-4xl text-brand-border/40"></i>
+                
+                <p class="text-lg sm:text-xl font-serif text-gray-100 italic leading-relaxed" data-i18n="review_quote">
+                    «¡Me encantó la originalidad de la trama! La narrativa es envolvente y adictiva. No pude dejar el libro hasta descubrir el final.»
+                </p>
+
+                <div class="flex items-center space-x-4 pt-4 border-t border-brand-border/50">
+                    <img src="https://ajstempleton.wordpress.com/wp-content/uploads/2024/12/designer.jpg" alt="Theo Barbosa" class="w-14 h-14 rounded-full object-cover border-2 border-brand-gold">
+                    <div>
+                        <h4 class="font-bold text-white">Theo Barbosa</h4>
+                        <p class="text-xs font-mono text-brand-muted" data-i18n="review_user_sub">Lector verificado — Bahia</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- LLAMADA A LA ACCIÓN FINAL -->
+    <section class="py-24 relative overflow-hidden bg-gradient-to-b from-brand-dark via-brand-card to-brand-dark">
+        <div class="absolute inset-0 bg-grid-pattern opacity-50 pointer-events-none"></div>
+
+        <div class="max-w-4xl mx-auto px-4 text-center space-y-8 relative z-10">
+            <span class="px-4 py-1.5 rounded-full bg-brand-gold/10 border border-brand-gold/30 text-brand-gold text-xs font-mono uppercase tracking-widest" data-i18n="cta_tag">
+                Disponible ahora en formato digital e impreso
+            </span>
+
+            <h2 class="font-serif-title text-3xl sm:text-5xl font-bold text-white" data-i18n="cta_title">
+                ¿Estás listo para adentrarte en el caos global?
+            </h2>
+
+            <p class="text-brand-muted text-lg max-w-2xl mx-auto">
+                <span data-i18n="cta_desc_prefix">Consigue tu ejemplar de</span> <strong class="text-white" id="cta-book-name">Ocho mil millones, un caos</strong> <span data-i18n="cta_desc_suffix">en tu tienda preferida.</span>
+            </p>
+
+            <div class="pt-4 flex flex-wrap justify-center gap-4">
+                <a href="https://mybook.to/8billones" id="buy-cta-link" target="_blank" rel="noopener noreferrer" class="px-8 py-5 rounded-xl bg-gradient-to-r from-brand-gold to-amber-600 text-black font-bold text-xl hover:opacity-95 transition-all shadow-2xl shadow-brand-gold/30 flex items-center space-x-3">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span data-i18n="btn_buy_final">Comprar Ahora</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- PIE DE PÁGINA -->
+    <footer class="bg-black border-t border-brand-border text-brand-muted py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
+            <p class="font-serif-title text-lg font-bold text-white">A.J. STEMPLETON</p>
+            <p class="text-xs text-brand-muted">&copy; 2026 A.J. Stempleton. Todos los derechos reservados.</p>
+            <div class="flex justify-center space-x-6 text-sm pt-2">
+                <a href="https://ajstempleton.com" class="hover:text-brand-gold transition-colors" data-i18n="f_main">Sitio Principal</a>
+                <a href="https://ajstempleton.com/#tienda" class="hover:text-brand-gold transition-colors" data-i18n="f_store">Tienda Oficial</a>
+                <a href="https://ajstempleton.com/#contacto" class="hover:text-brand-gold transition-colors" data-i18n="f_contact">Contacto</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPT DE INTERACTIVIDAD, PORTADAS Y TRADUCCIONES -->
+    <script>
+        const storeUrls = {
+            es: "https://mybook.to/8billones",
+            en: "https://mybook.to/EightB",
+            pt: "https://ajstempleton.wordpress.com/8b1c/"
+        };
+
+        const bookCovers = {
+            es: "https://ajstempleton.wordpress.com/wp-content/uploads/2024/11/8000.jpg",
+            en: "https://ajstempleton.wordpress.com/wp-content/uploads/2024/10/8billion.jpg",
+            pt: "https://ajstempleton.wordpress.com/wp-content/uploads/2024/11/oitobilhoes.jpg"
+        };
+
+        const titles = {
+            es: 'Ocho mil millones, <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-gold via-amber-400 to-brand-crimson italic">un caos</span>',
+            en: 'Eight Billion, <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-gold via-amber-400 to-brand-crimson italic">One Chaos</span>',
+            pt: '8 Bilhões, <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-gold via-amber-400 to-brand-crimson italic">1 Caos</span>'
+        };
+
+        const ctaBookNames = {
+            es: "Ocho mil millones, un caos",
+            en: "Eight Billion, One Chaos",
+            pt: "8 Bilhões, 1 Caos"
+        };
+
+        const translations = {
+            es: {
+                nav_back: '<i class="fa-solid fa-arrow-left"></i> Volver al Inicio',
+                nav_buy: "Comprar eBook",
+                hero_formats: "Formatos: eBook & Impreso",
+                hero_genre: "Ficción Política & Sátira Global",
+                hero_edition: "Edición Oficial",
+                hero_lead: 'En «Ocho mil millones, un caos», dos figuras reconocibles de nuestra era toman protagonismo bajo nombres ficticios pero inconfundibles: <strong>Ronald Drump</strong>, presidente de las Provincias Unidas de Extremoamérica, e <strong>Ilon Task</strong>, un excéntrico multimillonario que revolucionó el mundo con sus innovaciones tecnológicas.',
+                btn_buy_main: "Comprar Ejemplar",
+                btn_read_details: "Leer detalles completos",
+                hero_notice: "Consulta precios y disponibilidad según tu región en las tiendas autorizadas.",
+                sec_details_tag: "Detalles de la Obra",
+                sec_details_title: "¿Es esto solo una parodia o una mirada irreverente a nuestra era?",
+                p1_desc: 'En «Ocho mil millones, un caos», dos figuras reconocibles de nuestra era toman protagonismo bajo nombres ficticios pero inconfundibles: <strong class="text-white">Ronald Drump</strong>, presidente de las Provincias Unidas de Extremoamérica, e <strong class="text-white">Ilon Task</strong>, un excéntrico multimillonario que revolucionó el mundo con sus innovaciones tecnológicas.',
+                p2_desc: 'La historia explora cómo el monumental regalo de Task, un millón de dólares por cada habitante del planeta, desencadena una cascada de consecuencias no deseadas, ya que Drump, con su insaciable hambre de poder, enfrenta desafíos internacionales que podrían llevar al mundo al borde del colapso.',
+                p3_desc: 'Entre conflictos globales, decisiones surrealistas y momentos de puro sarcasmo, esta novela te hará reír, reflexionar y cuestionar la delgada línea que separa la realidad de la ficción. ¿Es esto solo una parodia? ¿O es una mirada irreverente a los tiempos en los que vivimos?',
+                quote_highlight: '«Una obra que mezcla ironía, crítica social y un toque de absurdo para cautivar a los lectores más exigentes.»',
+                quote_coincidence: "Cualquier parecido con la realidad es pura coincidencia… ¿O no?",
+                benefits_tag: "Razones para leer esta novela",
+                benefits_title: "¿Qué obtendrás al adquirir este libro?",
+                benefits_sub: "Un viaje hilarante y provocador a través de un mundo al borde del colapso.",
+                b1_title: "Risa y Conciencia",
+                b1_text: "Una obra que te hará reír y pensar al mismo tiempo, despertando conciencia sobre los dilemas cruciales de nuestro tiempo.",
+                b2_title: "Sátira Implacable",
+                b2_text: "Expone con ironía los absurdos del poder político, la tecnología desmedida y la sociedad contemporánea.",
+                b3_title: "Exceso de Riqueza",
+                b3_text: "Descubre cómo una inyección masiva de dinero y la búsqueda desenfrenada de control pueden llevar a la destrucción.",
+                b4_title: "Crítica del Siglo XXI",
+                b4_text: "Una aguda e inteligente reflexión sobre los retos geopolíticos y tecnológicos que afrontamos hoy en día.",
+                b5_title: "Lectura Indispensable",
+                b5_text: "Ideal para cualquier lector exigente que busque entender el mundo a través de un lente crítico, irónico y profundamente entretenido.",
+                reviews_tag: "Lo que dicen los lectores",
+                reviews_title: "Reseñas destacadas",
+                review_quote: '«¡Me encantó la originalidad de la trama! La narrativa es envolvente y adictiva. No pude dejar el libro hasta descubrir el final.»',
+                review_user_sub: "Lector verificado — Bahia",
+                cta_tag: "Disponible ahora en formato digital e impreso",
+                cta_title: "¿Estás listo para adentrarte en el caos global?",
+                cta_desc_prefix: "Consigue tu ejemplar de",
+                cta_desc_suffix: "en tu tienda preferida.",
+                btn_buy_final: "Comprar Ahora",
+                f_main: "Sitio Principal",
+                f_store: "Tienda Oficial",
+                f_contact: "Contacto"
+            },
+            en: {
+                nav_back: '<i class="fa-solid fa-arrow-left"></i> Back to Home',
+                nav_buy: "Buy eBook",
+                hero_formats: "Formats: eBook & Paperback",
+                hero_genre: "Political Fiction & Global Satire",
+                hero_edition: "Official Edition",
+                hero_lead: 'In "Eight Billion, One Chaos", two recognizable figures of our era take center stage under fictitious yet unmistakable names: <strong>Ronald Drump</strong>, president of the United Provinces of Extreme America, and <strong>Ilon Task</strong>, an eccentric billionaire who revolutionized the world with technological innovations.',
+                btn_buy_main: "Get Your Copy",
+                btn_read_details: "Read full details",
+                hero_notice: "Check prices and regional availability on authorized stores.",
+                sec_details_tag: "Book Details",
+                sec_details_title: "Is this just a parody or an irreverent look at our era?",
+                p1_desc: 'In "Eight Billion, One Chaos", two recognizable figures of our era take center stage under fictitious yet unmistakable names: <strong class="text-white">Ronald Drump</strong>, president of the United Provinces of Extreme America, and <strong class="text-white">Ilon Task</strong>, an eccentric billionaire who revolutionized the world.',
+                p2_desc: 'The story explores how Task’s monumental gift—one million dollars to every person on Earth—triggers an avalanche of unintended consequences, as Drump faces international challenges that threaten to push the global economy over the edge.',
+                p3_desc: 'Between global conflicts, surreal decisions, and moments of pure sarcasm, this novel will make you laugh, ponder, and question the fine line separating reality from fiction. Is it just a parody, or an irreverent mirror to our times?',
+                quote_highlight: '«A work blending irony, social commentary, and a touch of the absurd to captivate demanding readers.»',
+                quote_coincidence: "Any resemblance to real events is purely coincidental… or is it?",
+                benefits_tag: "Reasons to read this novel",
+                benefits_title: "What will you get from reading this book?",
+                benefits_sub: "A hilarious and provocative journey through a world on the brink of collapse.",
+                b1_title: "Laughter & Insight",
+                b1_text: "A narrative that makes you laugh and think at the same time, raising awareness about critical contemporary issues.",
+                b2_title: "Relentless Satire",
+                b2_text: "Exposes with irony the absurdities of political power, unchecked technology, and modern society.",
+                b3_title: "Wealth Overload",
+                b3_text: "Discover how a massive influx of money and an unbridled pursuit of control can lead to mayhem.",
+                b4_title: "21st Century Critique",
+                b4_text: "A sharp and intelligent reflection on the geopolitical and technological challenges facing us today.",
+                b5_title: "Essential Reading",
+                b5_text: "Perfect for readers looking to understand our world through a critical, satirical, and highly entertaining lens.",
+                reviews_tag: "What readers say",
+                reviews_title: "Featured Reviews",
+                review_quote: '«Loved the originality of the plot! The narrative is gripping and addictive. Couldn’t put it down until the very end.»',
+                review_user_sub: "Verified Reader — Bahia",
+                cta_tag: "Available now in digital and print formats",
+                cta_title: "Are you ready to step into global chaos?",
+                cta_desc_prefix: "Get your copy of",
+                cta_desc_suffix: "at your favorite store.",
+                btn_buy_final: "Buy Now",
+                f_main: "Main Website",
+                f_store: "Official Store",
+                f_contact: "Contact"
+            },
+            pt: {
+                nav_back: '<i class="fa-solid fa-arrow-left"></i> Voltar ao Início',
+                nav_buy: "Comprar eBook",
+                hero_formats: "Formatos: eBook & Impresso",
+                hero_genre: "Ficção Política & Sátira Global",
+                hero_edition: "Edição Oficial",
+                hero_lead: 'Em «8 Bilhões, 1 Caos», duas figuras reconhecíveis da nossa era ganham destaque sob nomes fictícios, porém inconfundíveis: <strong>Ronald Drump</strong>, presidente das Províncias Unidas da Extremoamérica, e <strong>Ilon Task</strong>, um excêntrico bilionário que revolucionou o mundo.',
+                btn_buy_main: "Comprar Exemplar",
+                btn_read_details: "Ler detalhes completos",
+                hero_notice: "Consulte preços e disponibilidade por região nas lojas autorizadas.",
+                sec_details_tag: "Detalhes da Obra",
+                sec_details_title: "Isso é apenas uma paródia ou um olhar irreverente sobre a nossa era?",
+                p1_desc: 'Em «8 Bilhões, 1 Caos», duas figuras reconhecíveis da nossa era ganham destaque sob nomes fictícios: <strong class="text-white">Ronald Drump</strong>, presidente das Províncias Unidas da Extremoamérica, e <strong class="text-white">Ilon Task</strong>, um excêntrico bilionário.',
+                p2_desc: 'A história explora como a dádiva monumental de Task — um milhão de dólares para cada habitante do planeta — desencadeia uma cascata de consequências não intencionais, enquanto Drump enfrenta crises internacionais à beira do colapso.',
+                p3_desc: 'Entre conflitos globais, decisões surrealistas e momentos de puro sarcasmo, este romance fará você rir, refletir e questionar a linha tênue entre a realidade e a ficção.',
+                quote_highlight: '«Uma obra que mistura ironia, crítica social e um toque de absurdo para capturar os leitores mais exigentes.»',
+                quote_coincidence: "Qualquer semelhança com a realidade é mera coincidência… ou não?",
+                benefits_tag: "Razões para ler este livro",
+                benefits_title: "O que você encontrará nesta obra?",
+                benefits_sub: "Uma jornada hilária e provocante por um mundo à beira do colapso.",
+                b1_title: "Riso e Reflexão",
+                b1_text: "Uma narrativa que faz rir e pensar ao mesmo tempo, despertando consciência sobre os dilemas do nosso tempo.",
+                b2_title: "Sátira Implacável",
+                b2_text: "Expõe com ironia os absurdos do poder político, da tecnologia desenfreada e da sociedade atual.",
+                b3_title: "Excesso de Riqueza",
+                b3_text: "Descubra como uma injeção massiva de dinheiro e a busca por controle podem levar ao caos.",
+                b4_title: "Crítica do Século XXI",
+                b4_text: "Uma reflexão afiada sobre os desafios geopolíticos e tecnológicos que enfrentamos hoje.",
+                b5_title: "Leitura Indispensável",
+                b5_text: "Ideal para leitores que buscam compreender o mundo através de uma lente crítica, irônica e profundamente envolvente.",
+                reviews_tag: "O que dizem os leitores",
+                reviews_title: "Avaliações em Destaque",
+                review_quote: '«Adorei a originalidade da trama! A narrativa foi envolvente e viciante. Não consegui largar o livro até o fim.»',
+                review_user_sub: "Leitor verificado — Bahia",
+                cta_tag: "Disponível agora em formato digital e impresso",
+                cta_title: "Você está pronto para mergulhar no caos global?",
+                cta_desc_prefix: "Adquira seu exemplar de",
+                cta_desc_suffix: "na sua loja preferida.",
+                btn_buy_final: "Comprar Agora",
+                f_main: "Site Principal",
+                f_store: "Loja Oficial",
+                f_contact: "Contato"
+            }
+        };
+
+        function setLanguage(lang) {
+            ['es', 'en', 'pt'].forEach(l => {
+                const btn = document.getElementById(`lang-${l}`);
+                if (btn) {
+                    if (l === lang) {
+                        btn.className = "px-2 py-1 rounded text-xs font-mono font-bold bg-brand-gold text-black transition-all";
+                    } else {
+                        btn.className = "px-2 py-1 rounded text-xs font-mono font-medium text-brand-muted hover:text-white transition-all";
+                    }
+                }
+            });
+
+            // Actualizar portada del libro según el idioma seleccionado
+            const coverImg = document.getElementById('book-cover-img');
+            if (coverImg && bookCovers[lang]) {
+                coverImg.src = bookCovers[lang];
+            }
+
+            // Actualizar enlaces de tiendas
+            const url = storeUrls[lang];
+            const buyTop = document.getElementById('buy-top-link');
+            const buyMain = document.getElementById('buy-main-link');
+            const buyCta = document.getElementById('buy-cta-link');
+            if (buyTop) buyTop.href = url;
+            if (buyMain) buyMain.href = url;
+            if (buyCta) buyCta.href = url;
+
+            // Actualizar títulos dinámicos
+            const titleHead = document.getElementById('book-title-heading');
+            const ctaBookName = document.getElementById('cta-book-name');
+            if (titleHead) titleHead.innerHTML = titles[lang];
+            if (ctaBookName) ctaBookName.textContent = ctaBookNames[lang];
+
+            // Traducir elementos con el atributo data-i18n
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    el.innerHTML = translations[lang][key];
+                }
+            });
+        }
+    </script>
+</body>
+</html>
