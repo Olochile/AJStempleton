@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sin Cruz — Novela de A.J. Stempleton</title>
+    <meta name="description" content="Descubre Sin Cruz. Una fascinante novela de historia alternativa e inteligencia artificial sobre justicia, fe y poder por A.J. Stempleton.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#0B0D12',
+                            card: '#131722',
+                            border: '#2A3042',
+                            crimson: '#E53E3E',
+                            gold: '#D69E2E',
+                            goldLight: '#F6E05E',
+                            amber: '#FF5722',
+                            text: '#E2E8F0',
+                            muted: '#94A3B8'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Cinzel', 'Playfair Display', 'Georgia', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts & FontAwesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        body {
+            background-color: #07090E;
+            color: #E2E8F0;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+        .font-serif-title {
+            font-family: 'Cinzel', serif;
+        }
+        .glow-effect {
+            box-shadow: 0 0 35px -5px rgba(214, 158, 46, 0.25);
+        }
+        .bg-grid-pattern {
+            background-size: 40px 40px;
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0B0D12;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2A3042;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #D69E2E;
+        }
+    </style>
+</head>
+<body class="bg-brand-dark text-brand-text antialiased selection:bg-brand-gold selection:text-black">
+
+    <!-- NAVEGACIÓN SUPERIOR CON SELECTOR DE IDIOMAS -->
+    <nav class="fixed top-0 left-0 w-full z-50 bg-brand-dark/90 backdrop-blur-md border-b border-brand-border/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <a href="https://ajstempleton.com" class="flex items-center space-x-3 group">
+                    <span class="font-serif-title text-xl sm:text-2xl font-bold tracking-wider text-white group-hover:text-brand-gold transition-colors">
+                        A.J. STEMPLETON
+                    </span>
+                    <span class="w-2 h-2 rounded-full bg-brand-crimson animate-pulse"></span>
+                </a>
+                
+                <div class="flex items-center space-x-3 sm:space-x-6">
+                    <!-- Selector de Idioma (ES / EN / PT) -->
+                    <div class="flex items-center bg-brand-card border border-brand-border rounded-lg p-1 space-x-1">
+                        <button onclick="setLanguage('es')" id="lang-es" class="px-2 py-1 rounded text-xs font-mono font-bold bg-brand-gold text-black transition-all">ES</button>
+                        <button onclick="setLanguage('en')" id="lang-en" class="px-2 py-1 rounded text-xs font-mono font-medium text-brand-muted hover:text-white transition-all">EN</button>
+                        <button onclick="setLanguage('pt')" id="lang-pt" class="px-2 py-1 rounded text-xs font-mono font-medium text-brand-muted hover:text-white transition-all">PT</button>
+                    </div>
+
+                    <a href="https://ajstempleton.com" class="text-xs sm:text-sm font-mono text-brand-muted hover:text-brand-gold transition-colors hidden sm:flex items-center gap-2" data-i18n="nav_back">
+                        <i class="fa-solid fa-arrow-left"></i> Volver al Inicio
+                    </a>
+
+                    <a href="https://mybook.to/sincruz" id="buy-top-link" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-xl bg-brand-gold text-black font-bold text-xs sm:text-sm hover:opacity-95 transition-all shadow-md" data-i18n="nav_buy">
+                        Comprar eBook
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- SECCIÓN PRINCIPAL DEL LIBRO -->
+    <section class="pt-32 pb-20 md:pt-40 md:pb-32 relative bg-grid-pattern">
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-brand-gold/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Columna Izquierda: Portada Dinámica del Libro -->
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="relative group max-w-sm w-full">
+                        <div class="absolute -inset-1 bg-gradient-to-r from-brand-gold to-brand-crimson rounded-3xl opacity-50 group-hover:opacity-90 transition duration-500 blur-lg"></div>
+                        <div class="relative bg-brand-card p-4 rounded-2xl border border-brand-border glow-effect">
+                            <img id="book-cover-img" src="https://ajstempleton.wordpress.com/wp-content/uploads/2026/10/sin-cruz.jpg" alt="Sin Cruz - Portada" class="w-full h-auto rounded-xl shadow-2xl transition-all duration-300">
+                            <div class="mt-4 text-center">
+                                <span class="inline-block px-3 py-1 bg-brand-dark border border-brand-gold/30 rounded-full text-brand-gold font-mono text-xs uppercase tracking-widest" data-i18n="hero_formats">
+                                    Formatos: eBook &amp; Impreso
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Columna Derecha: Información y Compra -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full bg-brand-card border border-brand-border text-brand-gold text-xs font-mono uppercase tracking-wider">
+                        <i class="fa-solid fa-timeline"></i>
+                        <span data-i18n="hero_genre">Historia Alternativa &amp; Inteligencia Artificial</span>
+                    </div>
+
+                    <h1 class="font-serif-title text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight" id="book-title-heading">
+                        Sin <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-gold via-amber-400 to-brand-crimson italic">Cruz</span>
+                    </h1>
+
+                    <div class="flex items-center justify-center lg:justify-start gap-4 text-sm font-mono text-brand-muted">
+                        <span class="text-white font-bold">A.J. Stempleton</span>
+                        <span>•</span>
+                        <span class="text-brand-gold font-semibold" data-i18n="hero_edition">Edición Oficial</span>
+                    </div>
+
+                    <p class="text-brand-muted text-base sm:text-lg leading-relaxed" data-i18n="hero_lead">
+                        Un giro en la Edad Media cambió la historia: la Iglesia nunca existió. En el presente, fríos algoritmos e inteligencias artificiales administran la justicia humana con precisión matemática e implacable.
+                    </p>
+
+                    <!-- Botones de Compra Directa -->
+                    <div class="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                        <a href="https://mybook.to/sincruz" id="buy-main-link" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-brand-gold to-amber-600 text-black font-bold text-center text-lg hover:opacity-95 transition-all shadow-xl shadow-brand-gold/20 flex items-center justify-center space-x-3">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            <span data-i18n="btn_buy_main">Comprar Ejemplar</span>
+                        </a>
+                        <a href="#detalles" class="w-full sm:w-auto px-6 py-4 rounded-xl bg-brand-card border border-brand-border text-white font-semibold text-center hover:border-brand-gold/60 transition-all" data-i18n="btn_read_details">
+                            Leer detalles completos
+                        </a>
+                    </div>
+                    <p class="text-xs text-brand-muted italic" data-i18n="hero_notice">Consulta precios y disponibilidad según tu región en las tiendas autorizadas.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN DE DETALLES Y SINOPSIS EXTENDIDA -->
+    <section id="detalles" class="py-20 bg-brand-card/30 border-y border-brand-border/60">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+            <div class="text-center space-y-3">
+                <span class="text-xs font-mono uppercase tracking-widest text-brand-gold" data-i18n="sec_details_tag">Detalles de la Obra</span>
+                <h2 class="font-serif-title text-3xl font-bold text-white" data-i18n="sec_details_title">¿Puede existir una justicia perfecta cuando se elimina la compasión?</h2>
+                <div class="w-16 h-1 bg-brand-gold mx-auto rounded-full"></div>
+            </div>
+
+            <div class="bg-brand-card p-8 rounded-2xl border border-brand-border space-y-6 text-brand-muted text-base sm:text-lg leading-relaxed shadow-xl">
+                <p data-i18n="p1_desc">
+                    Imagina un mundo donde la historia dio un giro inesperado durante la Edad Media y el cristianismo nunca se consolidó como institución dominante. Sin templos ni tribunales religiosos, la civilización evolucionó sobre el pilar del pragmatismo puro y la razón secular.
+                </p>
+                <p data-i18n="p2_desc">
+                    En esta realidad paralela contemporánea, la justicia no está en manos de jueces humanos influenciables, sino administrada por un avanzado sistema de Inteligencia Artificial guiado por la infranqueable Ley de Hierro. Un sistema diseñado para eliminar la corrupción, el favoritismo y el sesgo moral.
+                </p>
+                <p data-i18n="p3_desc">
+                    Sin embargo, cuando surge un dilema sin precedentes que desafía la lógica del algoritmo, la sociedad debe enfrentarse a una pregunta devastadora: al extirpar el dogma y la fe del destino humano, ¿acaso no hemos destruido también la misericordia y la empatía?
+                </p>
+                
+                <div class="p-6 bg-brand-dark/80 rounded-xl border border-brand-gold/30 my-4 text-center">
+                    <p class="text-brand-gold font-serif text-xl italic mb-2" data-i18n="quote_highlight">
+                        «Una distopía filosófica e imperdible sobre los límites del poder, el auge del juicio algorítmico y la naturaleza de la moral humana.»
+                    </p>
+                    <p class="text-xs font-mono text-brand-muted uppercase tracking-widest" data-i18n="quote_coincidence">
+                        ¿Qué significa ser justo en un mundo gobernado por código?
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN DE BENEFICIOS -->
+    <section id="beneficios" class="py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+            
+            <div class="text-center max-w-3xl mx-auto space-y-4">
+                <span class="text-xs font-mono uppercase tracking-widest text-brand-gold" data-i18n="benefits_tag">Razones para leer esta novela</span>
+                <h2 class="font-serif-title text-3xl sm:text-4xl font-bold text-white" data-i18n="benefits_title">¿Por qué leer Sin Cruz?</h2>
+                <p class="text-brand-muted text-base" data-i18n="benefits_sub">Un dilema moral y tecnológico que cuestiona las bases de la civilización moderna.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <div class="bg-brand-card p-8 rounded-2xl border border-brand-border space-y-4 hover:border-brand-gold/50 transition-all">
+                    <div class="w-12 h-12 rounded-xl bg-brand-gold/10 border border-brand-gold/30 flex items-center justify-center text-brand-gold text-xl font-bold">01</div>
+                    <h3 class="font-serif-title text-xl font-bold text-white" data-i18n="b1_title">Ucronía Fascinante</h3>
+                    <p class="text-brand-muted text-sm leading-relaxed" data-i18n="b1_text">Explora una línea temporal donde la arquitectura, las leyes y el pensamiento global se desarrollaron al margen de la religión institucional.</p>
+                </div>
+
+                <div class="bg-brand-card p-8 rounded-2xl border border-brand-border space-y-4 hover:border-brand-gold/50 transition-all">
+                    <div class="w-12 h-12 rounded-xl bg-brand-gold/10 border border-brand-gold/30 flex items-center justify-center text-brand-gold text-xl font-bold">02</div>
+                    <h3 class="font-serif-title text-xl font-bold text-white" data-i18n="b2_title">IA y Ética</h3>
+                    <p class="text-brand-muted text-sm leading-relaxed" data-i18n="b2_text">Plantea debates profundos sobre las decisiones judiciales automatizadas y los peligros de confiar el juicio ético a las máquinas.</p>
+                </div>
+
+                <div class="bg-brand-card p-8 rounded-2xl border border-brand-border space-y-4 hover:border-brand-gold/50 transition-all">
+                    <div class="w-12 h-12 rounded-xl bg-brand-gold/10 border border-brand-gold/30 flex items-center justify-center text-brand-gold text-xl font-bold">03</div>
+                    <h3 class="font-serif-title text-xl font-bold text-white" data-i18n="b3_title">Ritmo Intenso</h3>
+                    <p class="text-brand-muted text-sm leading-relaxed" data-i18n="b3_text">Una trama llena de giros inesperados, investigaciones de alta tensión y misterios políticos que atrapan desde el primer capítulo.</p>
+                </div>
+
+                <div class="bg-brand-card p-8 rounded-2xl border border-brand-border space-y-4 hover:border-brand-gold/50 transition-all">
+                    <div class="w-12 h-12 rounded-xl bg-brand-gold/10 border border-brand-gold/30 flex items-center justify-center text-brand-gold text-xl font-bold">04</div>
+                    <h3 class="font-serif-title text-xl font-bold text-white" data-i18n="b4_title">Personajes Complejos</h3>
+                    <p class="text-brand-muted text-sm leading-relaxed" data-i18n="b4_text">Protagonistas enfrentados entre la lealtad al sistema automatizado y la llamada de su propia conciencia moral.</p>
+                </div>
+
+                <div class="bg-brand-card p-8 rounded-2xl border border-brand-border space-y-4 hover:border-brand-gold/50 transition-all md:col-span-2 lg:col-span-2">
+                    <div class="w-12 h-12 rounded-xl bg-brand-gold/10 border border-brand-gold/30 flex items-center justify-center text-brand-gold text-xl font-bold">05</div>
+                    <h3 class="font-serif-title text-xl font-bold text-white" data-i18n="b5_title">Provocación Intelectual</h3>
+                    <p class="text-brand-muted text-sm leading-relaxed" data-i18n="b5_text">Una historia pensada para apasionados de la ciencia ficción especulativa, la filosofía del derecho y los escenarios alternativos.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- LLAMADA A LA ACCIÓN FINAL -->
+    <section class="py-24 relative overflow-hidden bg-gradient-to-b from-brand-dark via-brand-card to-brand-dark">
+        <div class="absolute inset-0 bg-grid-pattern opacity-50 pointer-events-none"></div>
+
+        <div class="max-w-4xl mx-auto px-4 text-center space-y-8 relative z-10">
+            <span class="px-4 py-1.5 rounded-full bg-brand-gold/10 border border-brand-gold/30 text-brand-gold text-xs font-mono uppercase tracking-widest" data-i18n="cta_tag">
+                Disponible ahora en formato digital e impreso
+            </span>
+
+            <h2 class="font-serif-title text-3xl sm:text-5xl font-bold text-white" data-i18n="cta_title">
+                ¿Te atreves a explorar un mundo sin fe ni compasión?
+            </h2>
+
+            <p class="text-brand-muted text-lg max-w-2xl mx-auto">
+                <span data-i18n="cta_desc_prefix">Consigue tu ejemplar de</span> <strong class="text-white" id="cta-book-name">Sin Cruz</strong> <span data-i18n="cta_desc_suffix">en tu tienda preferida.</span>
+            </p>
+
+            <div class="pt-4 flex flex-wrap justify-center gap-4">
+                <a href="https://mybook.to/sincruz" id="buy-cta-link" target="_blank" rel="noopener noreferrer" class="px-8 py-5 rounded-xl bg-gradient-to-r from-brand-gold to-amber-600 text-black font-bold text-xl hover:opacity-95 transition-all shadow-2xl shadow-brand-gold/30 flex items-center space-x-3">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span data-i18n="btn_buy_final">Comprar Ahora</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- PIE DE PÁGINA -->
+    <footer class="bg-black border-t border-brand-border text-brand-muted py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
+            <p class="font-serif-title text-lg font-bold text-white">A.J. STEMPLETON</p>
+            <p class="text-xs text-brand-muted">&copy; 2026 A.J. Stempleton. Todos los derechos reservados.</p>
+            <div class="flex justify-center space-x-6 text-sm pt-2">
+                <a href="https://ajstempleton.com" class="hover:text-brand-gold transition-colors" data-i18n="f_main">Sitio Principal</a>
+                <a href="https://ajstempleton.com/#tienda" class="hover:text-brand-gold transition-colors" data-i18n="f_store">Tienda Oficial</a>
+                <a href="https://ajstempleton.com/#contacto" class="hover:text-brand-gold transition-colors" data-i18n="f_contact">Contacto</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPT DE INTERACTIVIDAD, PORTADAS Y TRADUCCIONES -->
+    <script>
+        const storeUrls = {
+            es: "https://mybook.to/sincruz",
+            en: "https://mybook.to/with0ut",
+            pt: "https://ajstempleton.wordpress.com/semcruz/"
+        };
+
+        const bookCovers = {
+            es: "https://ajstempleton.wordpress.com/wp-content/uploads/2026/10/sin-cruz.jpg",
+            en: "https://ajstempleton.wordpress.com/wp-content/uploads/2024/11/wc.jpg",
+            pt: "https://ajstempleton.wordpress.com/wp-content/uploads/2024/10/sem-cruz.jpg"
+        };
+
+        const titles = {
+            es: 'Sin <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-gold via-amber-400 to-brand-crimson italic">Cruz</span>',
+            en: 'Without <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-gold via-amber-400 to-brand-crimson italic">Cross</span>',
+            pt: 'Sem <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-gold via-amber-400 to-brand-crimson italic">Cruz</span>'
+        };
+
+        const ctaBookNames = {
+            es: "Sin Cruz",
+            en: "Without Cross",
+            pt: "Sem Cruz"
+        };
+
+        const translations = {
+            es: {
+                nav_back: '<i class="fa-solid fa-arrow-left"></i> Volver al Inicio',
+                nav_buy: "Comprar eBook",
+                hero_formats: "Formatos: eBook & Impreso",
+                hero_genre: "Historia Alternativa & Inteligencia Artificial",
+                hero_edition: "Edición Oficial",
+                hero_lead: "Un giro en la Edad Media cambió la historia: la Iglesia nunca existió. En el presente, fríos algoritmos e inteligencias artificiales administran la justicia humana con precisión matemática e implacable.",
+                btn_buy_main: "Comprar Ejemplar",
+                btn_read_details: "Leer detalles completos",
+                hero_notice: "Consulta precios y disponibilidad según tu región en las tiendas autorizadas.",
+                sec_details_tag: "Detalles de la Obra",
+                sec_details_title: "¿Puede existir una justicia perfecta cuando se elimina la compasión?",
+                p1_desc: "Imagina un mundo donde la historia dio un giro inesperado durante la Edad Media y el cristianismo nunca se consolidó como institución dominante. Sin templos ni tribunales religiosos, la civilización evolucionó sobre el pilar del pragmatismo puro y la razón secular.",
+                p2_desc: "En esta realidad paralela contemporánea, la justicia no está en manos de jueces humanos influenciables, sino administrada por un avanzado sistema de Inteligencia Artificial guiado por la infranqueable Ley de Hierro. Un sistema diseñado para eliminar la corrupción, el favoritismo y el sesgo moral.",
+                p3_desc: "Sin embargo, cuando surge un dilema sin precedentes que desafía la lógica del algoritmo, la sociedad debe enfrentarse a una pregunta devastadora: al extirpar el dogma y la fe del destino humano, ¿acaso no hemos destruido también la misericordia y la empatía?",
+                quote_highlight: '«Una distopía filosófica e imperdible sobre los límites del poder, el auge del juicio algorítmico y la naturaleza de la moral humana.»',
+                quote_coincidence: "¿Qué significa ser justo en un mundo gobernado por código?",
+                benefits_tag: "Razones para leer esta novela",
+                benefits_title: "¿Por qué leer Sin Cruz?",
+                benefits_sub: "Un dilema moral y tecnológico que cuestiona las bases de la civilización moderna.",
+                b1_title: "Ucronía Fascinante",
+                b1_text: "Explora una línea temporal donde la arquitectura, las leyes y el pensamiento global se desarrollaron al margen de la religión institucional.",
+                b2_title: "IA y Ética",
+                b2_text: "Plantea debates profundos sobre las decisiones judiciales automatizadas y los peligros de confiar el juicio ético a las máquinas.",
+                b3_title: "Ritmo Intenso",
+                b3_text: "Una trama llena de giros inesperados, investigaciones de alta tensión y misterios políticos que atrapan desde el primer capítulo.",
+                b4_title: "Personajes Complejos",
+                b4_text: "Protagonistas enfrentados entre la lealtad al sistema automatizado y la llamada de su propia conciencia moral.",
+                b5_title: "Provocación Intelectual",
+                b5_text: "Una historia pensada para apasionados de la ciencia ficción especulativa, la filosofía del derecho y los escenarios alternativos.",
+                cta_tag: "Disponible ahora en formato digital e impreso",
+                cta_title: "¿Te atreves a explorar un mundo sin fe ni compasión?",
+                cta_desc_prefix: "Consigue tu ejemplar de",
+                cta_desc_suffix: "en tu tienda preferida.",
+                btn_buy_final: "Comprar Ahora",
+                f_main: "Sitio Principal",
+                f_store: "Tienda Oficial",
+                f_contact: "Contacto"
+            },
+            en: {
+                nav_back: '<i class="fa-solid fa-arrow-left"></i> Back to Home',
+                nav_buy: "Buy eBook",
+                hero_formats: "Formats: eBook & Paperback",
+                hero_genre: "Alternate History & Artificial Intelligence",
+                hero_edition: "Official Edition",
+                hero_lead: "A twist in the Middle Ages altered history: the Church never existed. In the present, cold algorithms and artificial intelligence administer human justice with mathematical and relentless precision.",
+                btn_buy_main: "Get Your Copy",
+                btn_read_details: "Read full details",
+                hero_notice: "Check prices and regional availability on authorized stores.",
+                sec_details_tag: "Book Details",
+                sec_details_title: "Can perfect justice exist when compassion is removed?",
+                p1_desc: "Imagine a world where history took an unexpected turn in the Middle Ages, and traditional religious institutions never rose to power. Without temples or ecclesiastical courts, civilization evolved on pure pragmatism and secular reason.",
+                p2_desc: "In this parallel contemporary timeline, justice isn't meted out by fallible human judges, but governed by an advanced AI system bound by the unyielding Iron Law—designed to eradicate corruption and bias.",
+                p3_desc: "However, when an unprecedented dilemma challenges algorithmic logic, society must face a devastating question: by stripping dogma from human destiny, have we also erased mercy and empathy?",
+                quote_highlight: '«A thought-provoking philosophical dystopia exploring power, algorithmic judgment, and human morality.»',
+                quote_coincidence: "What does justice mean in a world ruled by code?",
+                benefits_tag: "Reasons to read this novel",
+                benefits_title: "Why Read Without Cross?",
+                benefits_sub: "A moral and technological dilemma questioning the foundations of modern civilization.",
+                b1_title: "Fascinating Alternate History",
+                b1_text: "Explore a timeline where law, architecture, and global thought developed independently from institutional religion.",
+                b2_title: "AI & Ethics",
+                b2_text: "Sparks deep debates on automated judicial decisions and the risks of surrendering ethical judgment to machines.",
+                b3_title: "Intense Pacing",
+                b3_text: "A narrative packed with unexpected twists, high-stakes investigations, and political intrigue from chapter one.",
+                b4_title: "Complex Characters",
+                b4_text: "Protagonists torn between obedience to the automated system and the quiet pull of their own moral conscience.",
+                b5_title: "Intellectual Thrill",
+                b5_text: "Crafted for fans of speculative sci-fi, philosophy of law, and compelling alternate realities.",
+                cta_tag: "Available now in digital and print formats",
+                cta_title: "Dare to explore a world without faith or mercy?",
+                cta_desc_prefix: "Get your copy of",
+                cta_desc_suffix: "at your favorite store.",
+                btn_buy_final: "Buy Now",
+                f_main: "Main Website",
+                f_store: "Official Store",
+                f_contact: "Contact"
+            },
+            pt: {
+                nav_back: '<i class="fa-solid fa-arrow-left"></i> Voltar ao Início',
+                nav_buy: "Comprar eBook",
+                hero_formats: "Formatos: eBook & Impresso",
+                hero_genre: "História Alternativa & Inteligência Artificial",
+                hero_edition: "Edição Oficial",
+                hero_lead: "Uma reviravolta na Idade Média mudou a história: a Igreja nunca existiu. No presente, algoritmos frios e inteligências artificiais administram a justiça humana com precisão matemática implacável.",
+                btn_buy_main: "Comprar Exemplar",
+                btn_read_details: "Ler detalhes completos",
+                hero_notice: "Consulte preços e disponibilidade por região nas lojas autorizadas.",
+                sec_details_tag: "Detalhes da Obra",
+                sec_details_title: "Pode existir uma justiça perfeita quando a compaixão é eliminada?",
+                p1_desc: "Imagine um mundo onde a história tomou um rumo inesperado durante a Idade Média e as instituições religiosas nunca se consolidaram. Sem templos nem tribunais eclesiásticos, a civilização evoluiu sob o pragmatismo puro.",
+                p2_desc: "Nesta realidade paralela contemporânea, a justiça é administrada por um sistema avançado de Inteligência Artificial guiado pela inflexível Lei de Ferro, projetado para erradicar a corrupção e os favoritismos.",
+                p3_desc: "Contudo, quando surge um dilema sem precedentes que desafia a lógica do algoritmo, a sociedade enfrenta uma pergunta devastadora: ao erradicar a fé, será que destruímos também a misericórdia e a empatia?",
+                quote_highlight: '«Uma distopia filosófica imperdível sobre os limites do poder, o julgamento algorítmico e a moralidade humana.»',
+                quote_coincidence: "O que significa justiça em um mundo governado por código?",
+                benefits_tag: "Razões para ler este livro",
+                benefits_title: "Por que ler Sem Cruz?",
+                benefits_sub: "Um dilema moral e tecnológico que questiona as bases da civilização moderna.",
+                b1_title: "Ucronia Fascinante",
+                b1_text: "Explore uma linha do tempo onde leis, arquitetura e pensamento global evoluíram à margem da religião institucional.",
+                b2_title: "IA e Ética",
+                b2_text: "Levanta debates profundos sobre decisões judiciais automatizadas e os perigos de confiar a ética às máquinas.",
+                b3_title: "Ritmo Intenso",
+                b3_text: "Uma trama repleta de reviravoltas, investigações de alta tensão e mistérios políticos envolventes.",
+                b4_title: "Personagens Complexos",
+                b4_text: "Protagonistas divididos entre a lealdade ao sistema automatizado e a voz da sua própria consciência.",
+                b5_title: "Provocação Intelectual",
+                b5_text: "Ideal para leitores apaixonados por ficção científica especulativa, filosofia do direito e cenários alternativos.",
+                cta_tag: "Disponível agora em formato digital e impresso",
+                cta_title: "Você se atreve a explorar um mundo sem fé nem compaixão?",
+                cta_desc_prefix: "Adquira seu exemplar de",
+                cta_desc_suffix: "na sua loja preferida.",
+                btn_buy_final: "Comprar Agora",
+                f_main: "Site Principal",
+                f_store: "Loja Oficial",
+                f_contact: "Contato"
+            }
+        };
+
+        function setLanguage(lang) {
+            ['es', 'en', 'pt'].forEach(l => {
+                const btn = document.getElementById(`lang-${l}`);
+                if (btn) {
+                    if (l === lang) {
+                        btn.className = "px-2 py-1 rounded text-xs font-mono font-bold bg-brand-gold text-black transition-all";
+                    } else {
+                        btn.className = "px-2 py-1 rounded text-xs font-mono font-medium text-brand-muted hover:text-white transition-all";
+                    }
+                }
+            });
+
+            // Actualizar portada según el idioma seleccionado
+            const coverImg = document.getElementById('book-cover-img');
+            if (coverImg && bookCovers[lang]) {
+                coverImg.src = bookCovers[lang];
+            }
+
+            // Actualizar enlaces de tiendas
+            const url = storeUrls[lang];
+            const buyTop = document.getElementById('buy-top-link');
+            const buyMain = document.getElementById('buy-main-link');
+            const buyCta = document.getElementById('buy-cta-link');
+            if (buyTop) buyTop.href = url;
+            if (buyMain) buyMain.href = url;
+            if (buyCta) buyCta.href = url;
+
+            // Actualizar títulos dinámicos
+            const titleHead = document.getElementById('book-title-heading');
+            const ctaBookName = document.getElementById('cta-book-name');
+            if (titleHead) titleHead.innerHTML = titles[lang];
+            if (ctaBookName) ctaBookName.textContent = ctaBookNames[lang];
+
+            // Traducir elementos con data-i18n
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    el.innerHTML = translations[lang][key];
+                }
+            });
+        }
+    </script>
+</body>
+</html>
