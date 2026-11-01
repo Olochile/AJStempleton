@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Más allá del velo — Novela de A.J. Stempleton</title>
+    <meta name="description" content="Descubre Más allá del velo. Una fascinante novela de ciencia ficción, filosofía y misterio sobrenatural por A.J. Stempleton.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#0B0D12',
+                            card: '#131722',
+                            border: '#2A3042',
+                            crimson: '#E53E3E',
+                            gold: '#D69E2E',
+                            goldLight: '#F6E05E',
+                            amber: '#FF5722',
+                            text: '#E2E8F0',
+                            muted: '#94A3B8'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Cinzel', 'Playfair Display', 'Georgia', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts & FontAwesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        body {
+            background-color: #07090E;
+            color: #E2E8F0;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+        .font-serif-title {
+            font-family: 'Cinzel', serif;
+        }
+        .glow-effect {
+            box-shadow: 0 0 35px -5px rgba(214, 158, 46, 0.25);
+        }
+        .bg-grid-pattern {
+            background-size: 40px 40px;
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0B0D12;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2A3042;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #D69E2E;
+        }
+    </style>
+</head>
+<body class="bg-brand-dark text-brand-text antialiased selection:bg-brand-gold selection:text-black">
+
+    <!-- NAVEGACIÓN SUPERIOR CON SELECTOR DE IDIOMAS -->
+    <nav class="fixed top-0 left-0 w-full z-50 bg-brand-dark/90 backdrop-blur-md border-b border-brand-border/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <a href="https://ajstempleton.com" class="flex items-center space-x-3 group">
+                    <span class="font-serif-title text-xl sm:text-2xl font-bold tracking-wider text-white group-hover:text-brand-gold transition-colors">
+                        A.J. STEMPLETON
+                    </span>
+                    <span class="w-2 h-2 rounded-full bg-brand-crimson animate-pulse"></span>
+                </a>
+                
+                <div class="flex items-center space-x-3 sm:space-x-6">
+                    <!-- Selector de Idioma (ES / EN / PT) -->
+                    <div class="flex items-center bg-brand-card border border-brand-border rounded-lg p-1 space-x-1">
+                        <button onclick="setLanguage('es')" id="lang-es" class="px-2 py-1 rounded text-xs font-mono font-bold bg-brand-gold text-black transition-all">ES</button>
+                        <button onclick="setLanguage('en')" id="lang-en" class="px-2 py-1 rounded text-xs font-mono font-medium text-brand-muted hover:text-white transition-all">EN</button>
+                        <button onclick="setLanguage('pt')" id="lang-pt" class="px-2 py-1 rounded text-xs font-mono font-medium text-brand-muted hover:text-white transition-all">PT</button>
+                    </div>
+
+                    <a href="https://ajstempleton.com" class="text-xs sm:text-sm font-mono text-brand-muted hover:text-brand-gold transition-colors hidden sm:flex items-center gap-2" data-i18n="nav_back">
+                        <i class="fa-solid fa-arrow-left"></i> Volver al Inicio
+                    </a>
+
+                    <a href="https://mybook.to/masalladelvelo" id="buy-top-link" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-xl bg-brand-gold text-black font-bold text-xs sm:text-sm hover:opacity-95 transition-all shadow-md" data-i18n="nav_buy">
+                        Comprar eBook
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- SECCIÓN PRINCIPAL DEL LIBRO -->
+    <section class="pt-32 pb-20 md:pt-40 md:pb-32 relative bg-grid-pattern">
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-brand-gold/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Columna Izquierda: Portada Dinámica del Libro -->
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="relative group max-w-sm w-full">
+                        <div class="absolute -inset-1 bg-gradient-to-r from-brand-gold to-brand-crimson rounded-3xl opacity-50 group-hover:opacity-90 transition duration-500 blur-lg"></div>
+                        <div class="relative bg-brand-card p-4 rounded-2xl border border-brand-border glow-effect">
+                            <img id="book-cover-img" src="https://ajstempleton.wordpress.com/wp-content/uploads/2024/10/masalla.jpg" alt="Más allá del velo - Portada" class="w-full h-auto rounded-xl shadow-2xl transition-all duration-300">
+                            <div class="mt-4 text-center">
+                                <span class="inline-block px-3 py-1 bg-brand-dark border border-brand-gold/30 rounded-full text-brand-gold font-mono text-xs uppercase tracking-widest" data-i18n="hero_formats">
+                                    Formatos: eBook &amp; Impreso
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Columna Derecha: Información y Compra -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full bg-brand-card border border-brand-border text-brand-gold text-xs font-mono uppercase tracking-wider">
+                        <i class="fa-solid fa-atom"></i>
+                        <span data-i18n="hero_genre">Ciencia Ficción &amp; Filosofía Especulativa</span>
+                    </div>
+
+                    <h1 class="font-serif-title text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight" id="book-title-heading">
+                        Más allá del <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-gold via-amber-400 to-brand-crimson italic">velo</span>
+                    </h1>
+
+                    <div class="flex items-center justify-center lg:justify-start gap-4 text-sm font-mono text-brand-muted">
+                        <span class="text-white font-bold">A.J. Stempleton</span>
+                        <span>•</span>
+                        <span class="text-brand-gold font-semibold" data-i18n="hero_edition">Edición Oficial</span>
+                    </div>
+
+                    <p class="text-brand-muted text-base sm:text-lg leading-relaxed" data-i18n="hero_lead">
+                        Dos realidades superpuestas en un mismo punto del espacio, divididas únicamente por una barrera invisible e impenetrable. Cuando Clara y Ezar logran romper el silencio entre ambos universos, el velo comienza a desgarrarse.
+                    </p>
+
+                    <!-- Botones de Compra Directa -->
+                    <div class="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                        <a href="https://mybook.to/masalladelvelo" id="buy-main-link" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-brand-gold to-amber-600 text-black font-bold text-center text-lg hover:opacity-95 transition-all shadow-xl shadow-brand-gold/20 flex items-center justify-center space-x-3">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            <span data-i18n="btn_buy_main">Comprar Ejemplar</span>
+                        </a>
+                        <a href="#detalles" class="w-full sm:w-auto px-6 py-4 rounded-xl bg-brand-card border border-brand-border text-white font-semibold text-center hover:border-brand-gold/60 transition-all" data-i18n="btn_read_details">
+                            Leer detalles completos
+                        </a>
+                    </div>
+                    <p class="text-xs text-brand-muted italic" data-i18n="hero_notice">Consulta precios y disponibilidad según tu región en las tiendas autorizadas.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN DE DETALLES Y SINOPSIS EXTENDIDA -->
+    <section id="detalles" class="py-20 bg-brand-card/30 border-y border-brand-border/60">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+            <div class="text-center space-y-3">
+                <span class="text-xs font-mono uppercase tracking-widest text-brand-gold" data-i18n="sec_details_tag">Detalles de la Obra</span>
+                <h2 class="font-serif-title text-3xl font-bold text-white" data-i18n="sec_details_title">¿Qué ocurre cuando la frontera entre dos planos de existencia deja de existir?</h2>
+                <div class="w-16 h-1 bg-brand-gold mx-auto rounded-full"></div>
+            </div>
+
+            <div class="bg-brand-card p-8 rounded-2xl border border-brand-border space-y-6 text-brand-muted text-base sm:text-lg leading-relaxed shadow-xl">
+                <p data-i18n="p1_desc">
+                    En «Más allá del velo», A.J. Stempleton nos invita a sumergirnos en un fascinante enigma metafísico donde dos mundos coexisten en las mismas coordenadas espaciales, completamente ciegos el uno al otro por la presencia de una frontera dimensional sutil pero infranqueable: el Velo.
+                </p>
+                <p data-i18n="p2_desc">
+                    Clara, desde su realidad guiada por la ciencia y la percepción tangible, y Ezar, perteneciente al plano divergente, descubren por accidente una grieta de comunicación. Un fenómeno imperceptible para el resto de la población que desafía las leyes conocidas de la física y la percepción humana.
+                </p>
+                <p data-i18n="p3_desc">
+                    A medida que intentan comprender la verdadera naturaleza del fenómeno, sus hallazgos amenazan con desestabilizar el equilibrio de ambos planos. ¿Es el Velo una barrera protectora diseñada para mantener la cordura del cosmos, o una prisión impuesta que impide descubrir la dimensión suprema de la existencia?
+                </p>
+                
+                <div class="p-6 bg-brand-dark/80 rounded-xl border border-brand-gold/30 my-4 text-center">
+                    <p class="text-brand-gold font-serif text-xl italic mb-2" data-i18n="quote_highlight">
+                        «Un viaje místico y filosófico que desafía la brecha entre lo científico y lo sobrenatural, cautivando la mente de los lectores más curiosos.»
+                    </p>
+                    <p class="text-xs font-mono text-brand-muted uppercase tracking-widest" data-i18n="quote_coincidence">
+                        ¿Hasta dónde llegarías para descubrir la verdad que se oculta detrás de la realidad?
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN DE BENEFICIOS -->
+    <section id="beneficios" class="py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+            
+            <div class="text-center max-w-3xl mx-auto space-y-4">
+                <span class="text-xs font-mono uppercase tracking-widest text-brand-gold" data-i18n="benefits_tag">Razones para leer esta novela</span>
+                <h2 class="font-serif-title text-3xl sm:text-4xl font-bold text-white" data-i18n="benefits_title">¿Por qué leer Más allá del velo?</h2>
+                <p class="text-brand-muted text-base" data-i18n="benefits_sub">Una experiencia literaria que une la ciencia ficción dura con la intriga filosófica y mística.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <div class="bg-brand-card p-8 rounded-2xl border border-brand-border space-y-4 hover:border-brand-gold/50 transition-all">
+                    <div class="w-12 h-12 rounded-xl bg-brand-gold/10 border border-brand-gold/30 flex items-center justify-center text-brand-gold text-xl font-bold">01</div>
+                    <h3 class="font-serif-title text-xl font-bold text-white" data-i18n="b1_title">Universos Paralelos</h3>
+                    <p class="text-brand-muted text-sm leading-relaxed" data-i18n="b1_text">Explora una construcción de mundo asombrosa sobre dimensiones entrelazadas e imperceptibles a la vista común.</p>
+                </div>
+
+                <div class="bg-brand-card p-8 rounded-2xl border border-brand-border space-y-4 hover:border-brand-gold/50 transition-all">
+                    <div class="w-12 h-12 rounded-xl bg-brand-gold/10 border border-brand-gold/30 flex items-center justify-center text-brand-gold text-xl font-bold">02</div>
+                    <h3 class="font-serif-title text-xl font-bold text-white" data-i18n="b2_title">Profundidad Filosófica</h3>
+                    <p class="text-brand-muted text-sm leading-relaxed" data-i18n="b2_text">Invita a la reflexión sobre la energía, la percepción, el conocimiento y lo que definimos como 'realidad'.</p>
+                </div>
+
+                <div class="bg-brand-card p-8 rounded-2xl border border-brand-border space-y-4 hover:border-brand-gold/50 transition-all">
+                    <div class="w-12 h-12 rounded-xl bg-brand-gold/10 border border-brand-gold/30 flex items-center justify-center text-brand-gold text-xl font-bold">03</div>
+                    <h3 class="font-serif-title text-xl font-bold text-white" data-i18n="b3_title">Vínculo Electrizante</h3>
+                    <p class="text-brand-muted text-sm leading-relaxed" data-i18n="b3_text">Sigue la intensa conexión entre Clara y Ezar a través de una grieta que desafía el tiempo y la física.</p>
+                </div>
+
+                <div class="bg-brand-card p-8 rounded-2xl border border-brand-border space-y-4 hover:border-brand-gold/50 transition-all">
+                    <div class="w-12 h-12 rounded-xl bg-brand-gold/10 border border-brand-gold/30 flex items-center justify-center text-brand-gold text-xl font-bold">04</div>
+                    <h3 class="font-serif-title text-xl font-bold text-white" data-i18n="b4_title">Atmósfera Inmersiva</h3>
+                    <p class="text-brand-muted text-sm leading-relaxed" data-i18n="b4_text">Una narrativa cautivadora que mezcla el misterio sobrenatural con el suspenso conceptual de alto nivel.</p>
+                </div>
+
+                <div class="bg-brand-card p-8 rounded-2xl border border-brand-border space-y-4 hover:border-brand-gold/50 transition-all md:col-span-2 lg:col-span-2">
+                    <div class="w-12 h-12 rounded-xl bg-brand-gold/10 border border-brand-gold/30 flex items-center justify-center text-brand-gold text-xl font-bold">05</div>
+                    <h3 class="font-serif-title text-xl font-bold text-white" data-i18n="b5_title">Lectura Transformadora</h3>
+                    <p class="text-brand-muted text-sm leading-relaxed" data-i18n="b5_text">Una obra imprescindible para lectores inquietos que disfrutan cuestionando los enigmas invisibles del universo.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- LLAMADA A LA ACCIÓN FINAL -->
+    <section class="py-24 relative overflow-hidden bg-gradient-to-b from-brand-dark via-brand-card to-brand-dark">
+        <div class="absolute inset-0 bg-grid-pattern opacity-50 pointer-events-none"></div>
+
+        <div class="max-w-4xl mx-auto px-4 text-center space-y-8 relative z-10">
+            <span class="px-4 py-1.5 rounded-full bg-brand-gold/10 border border-brand-gold/30 text-brand-gold text-xs font-mono uppercase tracking-widest" data-i18n="cta_tag">
+                Disponible ahora en formato digital e impreso
+            </span>
+
+            <h2 class="font-serif-title text-3xl sm:text-5xl font-bold text-white" data-i18n="cta_title">
+                ¿Te atreves a mirar más allá de lo visible?
+            </h2>
+
+            <p class="text-brand-muted text-lg max-w-2xl mx-auto">
+                <span data-i18n="cta_desc_prefix">Consigue tu ejemplar de</span> <strong class="text-white" id="cta-book-name">Más allá del velo</strong> <span data-i18n="cta_desc_suffix">en tu tienda preferida.</span>
+            </p>
+
+            <div class="pt-4 flex flex-wrap justify-center gap-4">
+                <a href="https://mybook.to/masalladelvelo" id="buy-cta-link" target="_blank" rel="noopener noreferrer" class="px-8 py-5 rounded-xl bg-gradient-to-r from-brand-gold to-amber-600 text-black font-bold text-xl hover:opacity-95 transition-all shadow-2xl shadow-brand-gold/30 flex items-center space-x-3">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span data-i18n="btn_buy_final">Comprar Ahora</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- PIE DE PÁGINA -->
+    <footer class="bg-black border-t border-brand-border text-brand-muted py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
+            <p class="font-serif-title text-lg font-bold text-white">A.J. STEMPLETON</p>
+            <p class="text-xs text-brand-muted">&copy; 2026 A.J. Stempleton. Todos los derechos reservados.</p>
+            <div class="flex justify-center space-x-6 text-sm pt-2">
+                <a href="https://ajstempleton.com" class="hover:text-brand-gold transition-colors" data-i18n="f_main">Sitio Principal</a>
+                <a href="https://ajstempleton.com/#tienda" class="hover:text-brand-gold transition-colors" data-i18n="f_store">Tienda Oficial</a>
+                <a href="https://ajstempleton.com/#contacto" class="hover:text-brand-gold transition-colors" data-i18n="f_contact">Contacto</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPT DE INTERACTIVIDAD, PORTADAS Y TRADUCCIONES -->
+    <script>
+        const storeUrls = {
+            es: "https://mybook.to/masalladelvelo",
+            en: "https://mybook.to/bey0nd",
+            pt: "https://chk.eduzz.com/E05Z5ZG49X"
+        };
+
+        const bookCovers = {
+            es: "https://ajstempleton.wordpress.com/wp-content/uploads/2024/10/masalla.jpg",
+            en: "https://ajstempleton.wordpress.com/wp-content/uploads/2024/10/beyond.jpg",
+            pt: "https://ajstempleton.wordpress.com/wp-content/uploads/2024/10/alem.jpg"
+        };
+
+        const titles = {
+            es: 'Más allá del <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-gold via-amber-400 to-brand-crimson italic">velo</span>',
+            en: 'Beyond the <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-gold via-amber-400 to-brand-crimson italic">Veil</span>',
+            pt: 'Além do <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-gold via-amber-400 to-brand-crimson italic">Véu</span>'
+        };
+
+        const ctaBookNames = {
+            es: "Más allá del velo",
+            en: "Beyond the Veil",
+            pt: "Além do Véu"
+        };
+
+        const translations = {
+            es: {
+                nav_back: '<i class="fa-solid fa-arrow-left"></i> Volver al Inicio',
+                nav_buy: "Comprar eBook",
+                hero_formats: "Formatos: eBook & Impreso",
+                hero_genre: "Ciencia Ficción & Filosofía Especulativa",
+                hero_edition: "Edición Oficial",
+                hero_lead: "Dos realidades superpuestas en un mismo punto del espacio, divididas únicamente por una barrera invisible e impenetrable. Cuando Clara y Ezar logran romper el silencio entre ambos universos, el velo comienza a desgarrarse.",
+                btn_buy_main: "Comprar Ejemplar",
+                btn_read_details: "Leer detalles completos",
+                hero_notice: "Consulta precios y disponibilidad según tu región en las tiendas autorizadas.",
+                sec_details_tag: "Detalles de la Obra",
+                sec_details_title: "¿Qué ocurre cuando la frontera entre dos planos de existencia deja de existir?",
+                p1_desc: "En «Más allá del velo», A.J. Stempleton nos invita a sumergirnos en un fascinante enigma metafísico donde dos mundos coexisten en las mismas coordenadas espaciales, completamente ciegos el uno al otro por la presencia de una frontera dimensional sutil pero infranqueable: el Velo.",
+                p2_desc: "Clara, desde su realidad guiada por la ciencia y la percepción tangible, y Ezar, perteneciente al plano divergente, descubren por accidente una grieta de comunicación. Un fenómeno imperceptible para el resto de la población que desafía las leyes conocidas de la física y la percepción humana.",
+                p3_desc: "A medida que intentan comprender la verdadera naturaleza del fenómeno, sus hallazgos amenazan con desestabilizar el equilibrio de ambos planos. ¿Es el Velo una barrera protectora diseñada para mantener la cordura del cosmos, o una prisión impuesta que impide descubrir la dimensión suprema de la existencia?",
+                quote_highlight: '«Un viaje místico y filosófico que desafía la brecha entre lo científico y lo sobrenatural, cautivando la mente de los lectores más curiosos.»',
+                quote_coincidence: "¿Hasta dónde llegarías para descubrir la verdad que se oculta detrás de la realidad?",
+                benefits_tag: "Razones para leer esta novela",
+                benefits_title: "¿Por qué leer Más allá del velo?",
+                benefits_sub: "Una experiencia literaria que une la ciencia ficción dura con la intriga filosófica y mística.",
+                b1_title: "Universos Paralelos",
+                b1_text: "Explora una construcción de mundo asombrosa sobre dimensiones entrelazadas e imperceptibles a la vista común.",
+                b2_title: "Profundidad Filosófica",
+                b2_text: "Invita a la reflexión sobre la energía, la percepción, el conocimiento y lo que definimos como 'realidad'.",
+                b3_title: "Vínculo Electrizante",
+                b3_text: "Sigue la intensa conexión entre Clara y Ezar a través de una grieta que desafía el tiempo y la física.",
+                b4_title: "Atmósfera Inmersiva",
+                b4_text: "Una narrativa cautivadora que mezcla el misterio sobrenatural con el suspenso conceptual de alto nivel.",
+                b5_title: "Lectura Transformadora",
+                b5_text: "Una obra imprescindible para lectores inquietos que disfrutan cuestionando los enigmas invisibles del universo.",
+                cta_tag: "Disponible ahora en formato digital e impreso",
+                cta_title: "¿Te atreves a mirar más allá de lo visible?",
+                cta_desc_prefix: "Consigue tu ejemplar de",
+                cta_desc_suffix: "en tu tienda preferida.",
+                btn_buy_final: "Comprar Ahora",
+                f_main: "Sitio Principal",
+                f_store: "Tienda Oficial",
+                f_contact: "Contacto"
+            },
+            en: {
+                nav_back: '<i class="fa-solid fa-arrow-left"></i> Back to Home',
+                nav_buy: "Buy eBook",
+                hero_formats: "Formats: eBook & Paperback",
+                hero_genre: "Sci-Fi & Speculative Philosophy",
+                hero_edition: "Official Edition",
+                hero_lead: "Two realities overlapping at the exact same location in space, separated only by an invisible, impenetrable barrier. When Clara and Ezar break the silence between both universes, the veil begins to tear.",
+                btn_buy_main: "Get Your Copy",
+                btn_read_details: "Read full details",
+                hero_notice: "Check prices and regional availability on authorized stores.",
+                sec_details_tag: "Book Details",
+                sec_details_title: "What happens when the boundary between two planes of existence dissolves?",
+                p1_desc: "In 'Beyond the Veil', A.J. Stempleton invites us into a mind-bending metaphysical puzzle where two worlds coexist at identical spatial coordinates, completely blind to one another due to a subtle yet impassable dimensional barrier: the Veil.",
+                p2_desc: "Clara, living in a realm governed by tangible science, and Ezar, hailing from the divergent plane, accidentally uncover a rift of communication—a phenomenon invisible to everyone else that defies known laws of physics.",
+                p3_desc: "As they strive to comprehend the rift's true nature, their discoveries threaten to shatter the equilibrium of both dimensions. Is the Veil a protective shield keeping sanity intact, or a prison guarding ultimate cosmic truth?",
+                quote_highlight: '«A mystical and philosophical journey bridging hard science and supernatural wonder, capturing the minds of inquisitive readers.»',
+                quote_coincidence: "How far would you go to unveil the truth hidden behind reality?",
+                benefits_tag: "Reasons to read this novel",
+                benefits_title: "Why Read Beyond the Veil?",
+                benefits_sub: "A literary experience blending hard speculative sci-fi with philosophical and mystical intrigue.",
+                b1_title: "Parallel Universes",
+                b1_text: "Delve into stunning worldbuilding featuring intertwined dimensions hidden from ordinary sight.",
+                b2_title: "Philosophical Depth",
+                b2_text: "Sparks contemplation on energy, human perception, knowledge, and what we define as 'reality'.",
+                b3_title: "Gripping Connection",
+                b3_text: "Follow the captivating bond between Clara and Ezar across a rift defying time and physics.",
+                b4_title: "Immersive Atmosphere",
+                b4_text: "Enthralling storytelling that merges supernatural mystery with high-concept conceptual suspense.",
+                b5_title: "Transformative Read",
+                b5_text: "An essential book for restless readers who love questioning the invisible enigmas of existence.",
+                cta_tag: "Available now in digital and print formats",
+                cta_title: "Dare to look beyond the visible?",
+                cta_desc_prefix: "Get your copy of",
+                cta_desc_suffix: "at your favorite store.",
+                btn_buy_final: "Buy Now",
+                f_main: "Main Website",
+                f_store: "Official Store",
+                f_contact: "Contact"
+            },
+            pt: {
+                nav_back: '<i class="fa-solid fa-arrow-left"></i> Voltar ao Início',
+                nav_buy: "Comprar eBook",
+                hero_formats: "Formatos: eBook & Impresso",
+                hero_genre: "Ficção Científica & Filosofia Especulativa",
+                hero_edition: "Edição Oficial",
+                hero_lead: "Duas realidades sobrepostas no mesmo ponto do espaço, divididas unicamente por uma barreira invisível e impenetrável. Quando Clara e Ezar rompem o silêncio entre ambos os universos, o véu começa a se rasgar.",
+                btn_buy_main: "Comprar Exemplar",
+                btn_read_details: "Ler detalhes completos",
+                hero_notice: "Consulte preços e disponibilidade por região nas lojas autorizadas.",
+                sec_details_tag: "Detalhes da Obra",
+                sec_details_title: "O que acontece quando a fronteira entre dois planos de existência deixa de existir?",
+                p1_desc: "Em «Além do Véu», A.J. Stempleton nos convida a mergulhar em um enigma metafísico fascinante onde dois mundos coexistem nas mesmas coordenadas espaciais, cegos um ao outro pela presença do Véu.",
+                p2_desc: "Clara, em sua realidade guiada pela ciência tangível, e Ezar, pertencente ao plano divergente, descobrem por acidente uma fenda de comunicação imperceptível para o resto da população.",
+                p3_desc: "À medida que tentam compreender o fenômeno, suas descobertas ameaçam desestabilizar o equilíbrio de ambos os planos. Será o Véu uma barreira protetora ou uma prisão imposta?",
+                quote_highlight: '«Uma jornada mística e filosófica que desafia a lacuna entre o científico e o sobrenatural, cativando os leitores mais curiosos.»',
+                quote_coincidence: "Até onde você iria para descobrir a verdade oculta por trás da realidade?",
+                benefits_tag: "Razões para ler este livro",
+                benefits_title: "Por que ler Além do Véu?",
+                benefits_sub: "Uma experiência literária que une ficção científica e intriga filosófica.",
+                b1_title: "Universos Paralelos",
+                b1_text: "Explore uma construção de mundo incrível sobre dimensões entrelaçadas e invisíveis aos olhos comuns.",
+                b2_title: "Profundidade Filosófica",
+                b2_text: "Convida à reflexão sobre energia, percepção, conhecimento e o conceito de 'realidade'.",
+                b3_title: "Vínculo Eletrizante",
+                b3_text: "Acompanhe a conexão intensa entre Clara e Ezar através de uma fenda que desafia a física.",
+                b4_title: "Atmosfera Imersiva",
+                b4_text: "Uma narrativa envolvente que combina mistério sobrenatural e suspense conceitual.",
+                b5_title: "Leitura Transformadora",
+                b5_text: "Um livro indispensável para leitores que gostam de questionar os enigmas invisíveis do universo.",
+                cta_tag: "Disponível agora em formato digital e impresso",
+                cta_title: "Você se atreve a olhar além do visível?",
+                cta_desc_prefix: "Adquira seu exemplar de",
+                cta_desc_suffix: "na sua loja preferida.",
+                btn_buy_final: "Comprar Agora",
+                f_main: "Site Principal",
+                f_store: "Loja Oficial",
+                f_contact: "Contato"
+            }
+        };
+
+        function setLanguage(lang) {
+            ['es', 'en', 'pt'].forEach(l => {
+                const btn = document.getElementById(`lang-${l}`);
+                if (btn) {
+                    if (l === lang) {
+                        btn.className = "px-2 py-1 rounded text-xs font-mono font-bold bg-brand-gold text-black transition-all";
+                    } else {
+                        btn.className = "px-2 py-1 rounded text-xs font-mono font-medium text-brand-muted hover:text-white transition-all";
+                    }
+                }
+            });
+
+            // Actualizar portada según el idioma seleccionado
+            const coverImg = document.getElementById('book-cover-img');
+            if (coverImg && bookCovers[lang]) {
+                coverImg.src = bookCovers[lang];
+            }
+
+            // Actualizar enlaces de tiendas
+            const url = storeUrls[lang];
+            const buyTop = document.getElementById('buy-top-link');
+            const buyMain = document.getElementById('buy-main-link');
+            const buyCta = document.getElementById('buy-cta-link');
+            if (buyTop) buyTop.href = url;
+            if (buyMain) buyMain.href = url;
+            if (buyCta) buyCta.href = url;
+
+            // Actualizar títulos dinámicos
+            const titleHead = document.getElementById('book-title-heading');
+            const ctaBookName = document.getElementById('cta-book-name');
+            if (titleHead) titleHead.innerHTML = titles[lang];
+            if (ctaBookName) ctaBookName.textContent = ctaBookNames[lang];
+
+            // Traducir elementos con data-i18n
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    el.innerHTML = translations[lang][key];
+                }
+            });
+        }
+    </script>
+</body>
+</html>
+```
+
+The updated file `masalladelvelo.html` includes:
+- **Spanish Cover:** `https://ajstempleton.wordpress.com/wp-content/uploads/2024/10/masalla.jpg`
+- **Portuguese Cover:** `https://ajstempleton.wordpress.com/wp-content/uploads/2024/10/alem.jpg`
