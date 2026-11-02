@@ -74,6 +74,16 @@
             background: #E53E3E;
         }
     </style>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        const activeLang = localStorage.getItem('ajs_lang');
+        if (activeLang && typeof setLanguage === 'function') {
+            setLanguage(activeLang);
+        }
+    });
+</script>
+    
 </head>
 <body class="bg-brand-dark text-brand-text antialiased selection:bg-brand-crimson selection:text-white">
 
