@@ -1,0 +1,1311 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A.J. Stempleton — Novelas que cuestionan el mundo</title>
+    <meta name="description" content="Sitio oficial de A.J. Stempleton. Novelas de ficción política, historia alternativa, ciencia ficción e Inteligencia Artificial que cuestionan el presente.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#07090E',
+                            card: '#131722',
+                            border: '#2A3042',
+                            crimson: '#E53E3E',
+                            gold: '#D69E2E',
+                            goldLight: '#F6E05E',
+                            amber: '#FF5722',
+                            text: '#E2E8F0',
+                            muted: '#94A3B8'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Cinzel', 'Playfair Display', 'Georgia', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts & FontAwesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        body {
+            background-color: #07090E;
+            color: #E2E8F0;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .font-serif-title {
+            font-family: 'Cinzel', serif;
+        }
+
+        .glow-effect {
+            box-shadow: 0 0 25px -5px rgba(214, 158, 46, 0.15);
+        }
+
+        .glow-effect:hover {
+            box-shadow: 0 0 35px 2px rgba(214, 158, 46, 0.3);
+        }
+
+        .bg-grid-pattern {
+            background-size: 40px 40px;
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        }
+
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .card-hover:hover {
+            transform: translateY(-6px);
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #07090E;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2A3042;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #D69E2E;
+        }
+    </style>
+</head>
+<body class="bg-brand-dark text-brand-text antialiased selection:bg-amber-600 selection:text-white">
+
+    <!-- NAVEGACIÓN -->
+    <nav class="fixed top-0 left-0 w-full z-50 bg-brand-dark/90 backdrop-blur-md border-b border-brand-border/60 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo / Nombre -->
+                <a href="#inicio" class="flex items-center space-x-3 group">
+                    <span class="font-serif-title text-2xl font-bold tracking-wider text-white group-hover:text-brand-gold transition-colors">
+                        A.J. STEMPLETON
+                    </span>
+                    <span class="w-2 h-2 rounded-full bg-brand-crimson animate-pulse"></span>
+                </a>
+
+                <!-- Nav Links Desktop -->
+                <div class="hidden md:flex items-center space-x-6 text-sm font-medium">
+                    <a href="#inicio" data-i18n="nav_inicio" class="text-gray-300 hover:text-brand-gold transition-colors">Inicio</a>
+                    <a href="#libros" data-i18n="nav_libros" class="text-gray-300 hover:text-brand-gold transition-colors">Libros</a>
+                    <a href="#tienda" data-i18n="nav_tienda" class="text-gray-300 hover:text-brand-gold transition-colors">Tienda</a>
+                    <a href="#autor" data-i18n="nav_autor" class="text-gray-300 hover:text-brand-gold transition-colors">El Autor</a>
+                    <a href="#bitacora" data-i18n="nav_bitacora" class="text-gray-300 hover:text-brand-gold transition-colors">Bitácora</a>
+                    <a href="https://ajstempleton.wordpress.com/2024/10/23/muestras/" id="nav-samples-link" target="_blank" rel="noopener noreferrer" data-i18n="nav_muestras" class="text-gray-300 hover:text-brand-gold transition-colors">Muestras</a>
+                    
+                    <!-- Selector de Idioma (ES / EN / PT) -->
+                    <div class="flex items-center bg-brand-card border border-brand-border rounded-lg p-1 space-x-1">
+                        <button onclick="setLanguage('es')" id="lang-es" class="px-2 py-1 rounded text-xs font-mono font-bold bg-brand-gold text-black transition-all">ES</button>
+                        <button onclick="setLanguage('en')" id="lang-en" class="px-2 py-1 rounded text-xs font-mono font-medium text-brand-muted hover:text-white transition-all">EN</button>
+                        <button onclick="setLanguage('pt')" id="lang-pt" class="px-2 py-1 rounded text-xs font-mono font-medium text-brand-muted hover:text-white transition-all">PT</button>
+                    </div>
+
+                    <a href="#contacto" data-i18n="nav_contacto" class="px-4 py-2 rounded-full border border-brand-gold/40 text-brand-gold hover:bg-brand-gold hover:text-black transition-all font-semibold">
+                        Contacto
+                    </a>
+                </div>
+
+                <!-- Botón Menú Mobile -->
+                <div class="md:hidden flex items-center space-x-2">
+                    <div class="flex items-center bg-brand-card border border-brand-border rounded p-0.5 text-xs">
+                        <button onclick="setLanguage('es')" id="m-lang-es" class="px-1.5 py-0.5 rounded font-mono font-bold bg-brand-gold text-black">ES</button>
+                        <button onclick="setLanguage('en')" id="m-lang-en" class="px-1.5 py-0.5 rounded font-mono text-brand-muted">EN</button>
+                        <button onclick="setLanguage('pt')" id="m-lang-pt" class="px-1.5 py-0.5 rounded font-mono text-brand-muted">PT</button>
+                    </div>
+                    <button id="mobile-menu-btn" class="text-gray-300 hover:text-white focus:outline-none p-2" aria-label="Abrir Menú">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Menú Desplegable Mobile -->
+        <div id="mobile-menu" class="hidden md:hidden bg-brand-card border-b border-brand-border px-4 pt-2 pb-6 space-y-3">
+            <a href="#inicio" data-i18n="nav_inicio" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-gray-200 hover:text-brand-gold hover:bg-brand-dark/50">Inicio</a>
+            <a href="#libros" data-i18n="nav_libros" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-gray-200 hover:text-brand-gold hover:bg-brand-dark/50">Libros</a>
+            <a href="#tienda" data-i18n="nav_tienda" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-gray-200 hover:text-brand-gold hover:bg-brand-dark/50">Tienda / Shop</a>
+            <a href="#autor" data-i18n="nav_autor" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-gray-200 hover:text-brand-gold hover:bg-brand-dark/50">El Autor</a>
+            <a href="#bitacora" data-i18n="nav_bitacora" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-gray-200 hover:text-brand-gold hover:bg-brand-dark/50">Bitácora</a>
+            <a href="https://ajstempleton.wordpress.com/2024/10/23/muestras/" id="mobile-samples-link" target="_blank" rel="noopener noreferrer" data-i18n="nav_muestras" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-gray-200 hover:text-brand-gold hover:bg-brand-dark/50">Muestras Gratuitas</a>
+            <a href="#contacto" data-i18n="nav_contacto" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-brand-gold hover:bg-brand-dark/50">Contacto</a>
+        </div>
+    </nav>
+
+    <!-- BOTÓN FLOTANTE VOLVER ARRIBA -->
+    <a href="#inicio" id="back-to-top" class="fixed bottom-6 left-6 z-40 w-12 h-12 rounded-full bg-brand-card border border-brand-border text-brand-gold flex items-center justify-center shadow-lg opacity-0 pointer-events-none transition-all duration-300 hover:bg-brand-gold hover:text-black hover:border-brand-gold" aria-label="Volver arriba">
+        <i class="fa-solid fa-arrow-up text-lg"></i>
+    </a>
+
+    <!-- HERO SECTION -->
+    <section id="inicio" class="relative pt-32 pb-20 md:pt-44 md:pb-32 overflow-hidden bg-grid-pattern">
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-brand-gold/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute top-1/3 right-10 w-72 h-72 bg-brand-crimson/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full bg-brand-border/50 border border-brand-gold/30 text-brand-gold text-xs font-semibold uppercase tracking-wider">
+                        <i class="fa-solid fa-feather-pointed"></i>
+                        <span data-i18n="hero_tag">Ficción que incomoda</span>
+                    </div>
+
+                    <h1 class="font-serif-title text-4xl sm:text-6xl lg:text-7xl font-extrabold text-white leading-tight tracking-tight">
+                        <span data-i18n="hero_title_1">El mundo no es lo que</span> <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-gold via-amber-400 to-brand-crimson italic" data-i18n="hero_title_2">parece.</span>
+                    </h1>
+
+                    <p class="text-lg sm:text-xl text-brand-muted max-w-2xl leading-relaxed mx-auto lg:mx-0" data-i18n="hero_desc">
+                        Novelas sobre poder, tecnología y futuros posibles. Historias que empiezan con una pregunta y terminan cambiando la forma de mirar el presente.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                        <a href="#libros" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-brand-gold to-amber-600 text-black font-bold text-center hover:opacity-95 transition-all shadow-lg shadow-brand-gold/20 flex items-center justify-center space-x-2">
+                            <span data-i18n="btn_explorar">Explorar las obras</span>
+                            <i class="fa-solid fa-arrow-right text-sm"></i>
+                        </a>
+                        <a href="#tienda" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-brand-card border border-brand-border text-white font-semibold text-center hover:border-brand-gold/60 transition-all flex items-center justify-center space-x-2">
+                            <i class="fa-solid fa-store text-brand-gold"></i>
+                            <span data-i18n="btn_tienda_hero">Ir a la Tienda</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-5">
+                    <div class="relative group">
+                        <div class="absolute -inset-0.5 bg-gradient-to-r from-brand-gold to-brand-crimson rounded-2xl opacity-40 group-hover:opacity-80 transition duration-500 blur"></div>
+                        
+                        <div class="relative p-8 bg-brand-card rounded-2xl border border-brand-border space-y-6">
+                            <div class="flex items-center justify-between">
+                                <span class="text-xs font-serif uppercase tracking-widest text-brand-gold" data-i18n="quote_tag">Ideas que dejan huella</span>
+                                <i class="fa-solid fa-quote-right text-3xl text-brand-border"></i>
+                            </div>
+
+                            <blockquote class="text-xl sm:text-2xl font-serif text-gray-100 leading-snug italic" data-i18n="quote_text">
+                                «La ficción es el lugar donde ensayamos las consecuencias antes de que el mundo las convierta en realidad.»
+                            </blockquote>
+
+                            <div class="flex items-center justify-between pt-4 border-t border-brand-border/50">
+                                <div>
+                                    <h4 class="font-bold text-white">A.J. Stempleton</h4>
+                                    <p class="text-xs text-brand-muted" data-i18n="quote_sub">Escritor &amp; Ensayista especulativo</p>
+                                </div>
+                                <span class="px-3 py-1 bg-brand-dark rounded-md text-xs border border-brand-border text-brand-gold font-mono">A.J.S.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- BANNER DE IDIOMAS Y TEMÁTICAS -->
+    <div class="border-y border-brand-border/60 bg-brand-card/40 py-6">
+        <div class="max-w-7xl mx-auto px-4 flex flex-wrap justify-around items-center gap-6 text-xs sm:text-sm text-brand-muted uppercase tracking-widest font-semibold">
+            <span class="flex items-center gap-2"><i class="fa-solid fa-shield-halved text-brand-gold"></i> <span data-i18n="banner_1">Ficción Política</span></span>
+            <span class="flex items-center gap-2"><i class="fa-solid fa-robot text-brand-gold"></i> <span data-i18n="banner_2">Inteligencia Artificial</span></span>
+            <span class="flex items-center gap-2"><i class="fa-solid fa-timeline text-brand-gold"></i> <span data-i18n="banner_3">Historias Alternativas</span></span>
+            <span class="flex items-center gap-2"><i class="fa-solid fa-globe text-brand-gold"></i> <span data-i18n="banner_4">Español · Inglés · Português</span></span>
+        </div>
+    </div>
+
+    <!-- SECCIÓN BIBLIOTECA / LIBROS -->
+    <section id="libros" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <span class="text-xs font-mono uppercase tracking-widest text-brand-gold" data-i18n="sec_1_tag">01 — Biblioteca</span>
+                <h2 class="font-serif-title text-3xl sm:text-5xl font-bold text-white">
+                    <span data-i18n="sec_1_title">Historias para</span> <span class="italic text-brand-gold" data-i18n="sec_1_title_2">lectores inquietos</span>
+                </h2>
+                <p class="text-brand-muted text-base sm:text-lg" data-i18n="sec_1_desc">
+                    Distopías, ficción política y universos alternativos que enfrentan las grandes preguntas de nuestro tiempo.
+                </p>
+                
+                <div class="flex flex-wrap justify-center gap-2 pt-6" id="filter-buttons">
+                    <button data-filter="all" data-i18n="filter_all" class="filter-btn px-4 py-2 rounded-full text-xs font-semibold bg-brand-gold text-black transition-all">Todos</button>
+                    <button data-filter="politica" data-i18n="filter_pol" class="filter-btn px-4 py-2 rounded-full text-xs font-semibold bg-brand-card border border-brand-border text-brand-muted hover:text-white transition-all">Política &amp; Distopía</button>
+                    <button data-filter="ia" data-i18n="filter_ia" class="filter-btn px-4 py-2 rounded-full text-xs font-semibold bg-brand-card border border-brand-border text-brand-muted hover:text-white transition-all">IA &amp; Ciencia Ficción</button>
+                    <button data-filter="historica" data-i18n="filter_hist" class="filter-btn px-4 py-2 rounded-full text-xs font-semibold bg-brand-card border border-brand-border text-brand-muted hover:text-white transition-all">Histórica &amp; Sagas</button>
+                </div>
+            </div>
+
+            <!-- Grilla de Libros -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="books-grid">
+
+                <!-- Libro 1: Ocho mil millones, un caos -->
+                <div class="book-card card-hover bg-brand-card rounded-2xl border border-brand-border p-8 flex flex-col justify-between group" data-category="politica">
+                    <div class="space-y-4">
+                        <span class="text-xs font-mono text-brand-gold uppercase tracking-wider bg-brand-gold/10 px-3 py-1 rounded-full border border-brand-gold/20" data-i18n="b1_tag">
+                            01 · Ficción política · Distopía
+                        </span>
+                        <h3 class="font-serif-title text-2xl font-bold text-white group-hover:text-brand-gold transition-colors" data-i18n="b1_title">
+                            Ocho mil millones, un caos
+                        </h3>
+                        <p class="text-brand-muted text-sm leading-relaxed" data-i18n="b1_desc">
+                            Dos figuras irreconciliables, una fortuna repartida al mundo entero y una economía global al borde del colapso.
+                        </p>
+                        <div class="pt-3">
+                            <span class="text-xs font-mono text-brand-muted block mb-2" data-i18n="card_details_label">Ver detalles del libro:</span>
+                            <a href="https://ajstempleton.com/8000.html" class="inline-flex items-center px-4 py-2 bg-brand-dark border border-brand-gold/40 rounded-lg text-xs font-bold text-brand-gold hover:bg-brand-gold hover:text-black transition-all">
+                                <span data-i18n="btn_ver_mas">Ver libro completo</span>
+                                <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="pt-6 mt-6 border-t border-brand-border/40 flex items-center justify-between">
+                        <button onclick="openSynopsisKey('b1')" class="text-xs text-brand-muted hover:text-white underline flex items-center gap-1" data-i18n="btn_sinopsis">
+                            <i class="fa-solid fa-circle-info"></i> Sinopsis rápida
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Libro 2: Sin Cruz -->
+                <div class="book-card card-hover bg-brand-card rounded-2xl border border-brand-border p-8 flex flex-col justify-between group" data-category="ia">
+                    <div class="space-y-4">
+                        <span class="text-xs font-mono text-brand-gold uppercase tracking-wider bg-brand-gold/10 px-3 py-1 rounded-full border border-brand-gold/20" data-i18n="b2_tag">
+                            02 · Historia alternativa · IA
+                        </span>
+                        <h3 class="font-serif-title text-2xl font-bold text-white group-hover:text-brand-gold transition-colors" data-i18n="b2_title">
+                            Sin Cruz
+                        </h3>
+                        <p class="text-brand-muted text-sm leading-relaxed" data-i18n="b2_desc">
+                            Un mundo sin iglesias, tribunales gobernados por inteligencia artificial y una pregunta incómoda: ¿puede existir justicia sin compasión?
+                        </p>
+                        <div class="pt-3">
+                            <span class="text-xs font-mono text-brand-muted block mb-2" data-i18n="card_details_label">Ver detalles del libro:</span>
+                            <a href="https://ajstempleton.com/sincruz.html" class="inline-flex items-center px-4 py-2 bg-brand-dark border border-brand-gold/40 rounded-lg text-xs font-bold text-brand-gold hover:bg-brand-gold hover:text-black transition-all">
+                                <span data-i18n="btn_ver_mas">Ver libro completo</span>
+                                <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="pt-6 mt-6 border-t border-brand-border/40 flex items-center justify-between">
+                        <button onclick="openSynopsisKey('b2')" class="text-xs text-brand-muted hover:text-white underline flex items-center gap-1" data-i18n="btn_sinopsis">
+                            <i class="fa-solid fa-circle-info"></i> Sinopsis rápida
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Libro 3: Más allá del velo -->
+                <div class="book-card card-hover bg-brand-card rounded-2xl border border-brand-border p-8 flex flex-col justify-between group" data-category="ia">
+                    <div class="space-y-4">
+                        <span class="text-xs font-mono text-brand-gold uppercase tracking-wider bg-brand-gold/10 px-3 py-1 rounded-full border border-brand-gold/20" data-i18n="b3_tag">
+                            03 · Ciencia ficción · Filosofía
+                        </span>
+                        <h3 class="font-serif-title text-2xl font-bold text-white group-hover:text-brand-gold transition-colors" data-i18n="b3_title">
+                            Más allá del velo
+                        </h3>
+                        <p class="text-brand-muted text-sm leading-relaxed" data-i18n="b3_desc">
+                            Dos realidades que no pueden verse comienzan a comunicarse. Clara y Ezar buscan una verdad capaz de alterar ambos universos.
+                        </p>
+                        <div class="pt-3">
+                            <span class="text-xs font-mono text-brand-muted block mb-2" data-i18n="card_details_label">Ver detalles del libro:</span>
+                            <a href="https://ajstempleton.com/velo.html" class="inline-flex items-center px-4 py-2 bg-brand-dark border border-brand-gold/40 rounded-lg text-xs font-bold text-brand-gold hover:bg-brand-gold hover:text-black transition-all">
+                                <span data-i18n="btn_ver_mas">Ver libro completo</span>
+                                <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="pt-6 mt-6 border-t border-brand-border/40 flex items-center justify-between">
+                        <button onclick="openSynopsisKey('b3')" class="text-xs text-brand-muted hover:text-white underline flex items-center gap-1" data-i18n="btn_sinopsis">
+                            <i class="fa-solid fa-circle-info"></i> Sinopsis rápida
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Libro 4: Los olvidados -->
+                <div class="book-card card-hover bg-brand-card rounded-2xl border border-brand-border p-8 flex flex-col justify-between group" data-category="historica">
+                    <div class="space-y-4">
+                        <span class="text-xs font-mono text-brand-gold uppercase tracking-wider bg-brand-gold/10 px-3 py-1 rounded-full border border-brand-gold/20" data-i18n="b4_tag">
+                            04 · Bilogía · Ficción histórica
+                        </span>
+                        <h3 class="font-serif-title text-2xl font-bold text-white group-hover:text-brand-gold transition-colors" data-i18n="b4_title">
+                            Los olvidados
+                        </h3>
+                        <p class="text-brand-muted text-sm leading-relaxed" data-i18n="b4_desc">
+                            Una mirada a quienes quedaron fuera de la versión oficial de la historia y a las fuerzas que decidieron su destino.
+                        </p>
+                        <div class="pt-3">
+                            <span class="text-xs font-mono text-brand-muted block mb-2" data-i18n="card_details_label">Ver detalles del libro:</span>
+                            <a href="https://ajstempleton.com/olvidados.html" class="inline-flex items-center px-4 py-2 bg-brand-dark border border-brand-gold/40 rounded-lg text-xs font-bold text-brand-gold hover:bg-brand-gold hover:text-black transition-all">
+                                <span data-i18n="btn_ver_mas">Ver libro completo</span>
+                                <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="pt-6 mt-6 border-t border-brand-border/40 flex items-center justify-between">
+                        <button onclick="openSynopsisKey('b4')" class="text-xs text-brand-muted hover:text-white underline flex items-center gap-1" data-i18n="btn_sinopsis">
+                            <i class="fa-solid fa-circle-info"></i> Sinopsis rápida
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Libro 5: El Clan | AnarKía -->
+                <div class="book-card card-hover bg-brand-card rounded-2xl border border-brand-border p-8 flex flex-col justify-between group" data-category="politica">
+                    <div class="space-y-4">
+                        <span class="text-xs font-mono text-brand-gold uppercase tracking-wider bg-brand-gold/10 px-3 py-1 rounded-full border border-brand-gold/20" data-i18n="b5_tag">
+                            05 · Saga · Thriller político
+                        </span>
+                        <h3 class="font-serif-title text-2xl font-bold text-white group-hover:text-brand-gold transition-colors" data-i18n="b5_title">
+                            Sombras de Anarquía / El Clan
+                        </h3>
+                        <p class="text-brand-muted text-sm leading-relaxed" data-i18n="b5_desc">
+                            Poder, lealtades rotas y una organización que se mueve en la frontera entre el orden y la rebelión.
+                        </p>
+                        <div class="pt-3">
+                            <span class="text-xs font-mono text-brand-muted block mb-2" data-i18n="card_details_label">Ver detalles del libro:</span>
+                            <a href="https://ajstempleton.com/anarkia.html" class="inline-flex items-center px-4 py-2 bg-brand-dark border border-brand-gold/40 rounded-lg text-xs font-bold text-brand-gold hover:bg-brand-gold hover:text-black transition-all">
+                                <span data-i18n="btn_ver_mas">Ver libro completo</span>
+                                <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="pt-6 mt-6 border-t border-brand-border/40 flex items-center justify-between">
+                        <button onclick="openSynopsisKey('b5')" class="text-xs text-brand-muted hover:text-white underline flex items-center gap-1" data-i18n="btn_sinopsis">
+                            <i class="fa-solid fa-circle-info"></i> Sinopsis rápida
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN TIENDA / SHOP / LOJA -->
+    <section id="tienda" class="py-24 bg-brand-card/20 border-y border-brand-border/60 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+            
+            <div class="text-center max-w-3xl mx-auto space-y-4">
+                <span class="text-xs font-mono uppercase tracking-widest text-brand-gold" data-i18n="store_tag">02 — Tienda Oficial</span>
+                <h2 class="font-serif-title text-3xl sm:text-5xl font-bold text-white">
+                    <span data-i18n="store_title">Adquiere las obras en</span> <span class="italic text-brand-gold" data-i18n="store_title_2">tu idioma preferido</span>
+                </h2>
+                <p class="text-brand-muted text-base sm:text-lg" data-i18n="store_desc">
+                    Compra directamente los eBooks e impresos a través de las plataformas autorizadas.
+                </p>
+
+                <!-- Selector de pestañas de Tienda por Idioma -->
+                <div class="flex justify-center gap-3 pt-4">
+                    <button onclick="switchStoreTab('es')" id="store-tab-es" class="px-6 py-2.5 rounded-xl font-mono text-xs font-bold bg-brand-gold text-black transition-all shadow-md">ESPAÑOL</button>
+                    <button onclick="switchStoreTab('en')" id="store-tab-en" class="px-6 py-2.5 rounded-xl font-mono text-xs font-bold bg-brand-card border border-brand-border text-brand-muted hover:text-white transition-all">ENGLISH</button>
+                    <button onclick="switchStoreTab('pt')" id="store-tab-pt" class="px-6 py-2.5 rounded-xl font-mono text-xs font-bold bg-brand-card border border-brand-border text-brand-muted hover:text-white transition-all">PORTUGUÊS</button>
+                </div>
+            </div>
+
+            <!-- CONTENIDO TIENDA: ESPAÑOL -->
+            <div id="store-content-es" class="store-pane space-y-8">
+                <div class="bg-brand-card rounded-2xl border border-brand-border p-8 max-w-4xl mx-auto shadow-xl space-y-6">
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center border-b border-brand-border pb-4 gap-4">
+                        <div>
+                            <h3 class="font-serif-title text-2xl font-bold text-white">Tienda / Catálogo en Español</h3>
+                            <p class="text-xs text-brand-muted">Acceso directo a las plataformas de compra.</p>
+                        </div>
+                        <a href="https://ajstempleton.wordpress.com/tienda/" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-lg bg-brand-dark border border-brand-gold/30 text-brand-gold text-xs font-mono font-semibold hover:bg-brand-gold hover:text-black transition-all">
+                            Ir a Tienda WordPress <i class="fa-solid fa-external-link-alt ml-1"></i>
+                        </a>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <a href="https://mybook.to/ElClan" target="_blank" rel="noopener noreferrer" class="p-4 rounded-xl bg-brand-dark/60 border border-brand-border/80 hover:border-brand-gold flex items-center justify-between group transition-all">
+                            <div>
+                                <h4 class="font-bold text-white group-hover:text-brand-gold transition-colors">El Clan | AnarKía</h4>
+                                <p class="text-xs text-brand-muted">Thriller político y distopía</p>
+                            </div>
+                            <i class="fa-solid fa-cart-shopping text-brand-gold"></i>
+                        </a>
+
+                        <a href="https://mybook.to/losolvidados" target="_blank" rel="noopener noreferrer" class="p-4 rounded-xl bg-brand-dark/60 border border-brand-border/80 hover:border-brand-gold flex items-center justify-between group transition-all">
+                            <div>
+                                <h4 class="font-bold text-white group-hover:text-brand-gold transition-colors">Los Olvidados (Bilogía)</h4>
+                                <p class="text-xs text-brand-muted">Ficción histórica y drama</p>
+                            </div>
+                            <i class="fa-solid fa-cart-shopping text-brand-gold"></i>
+                        </a>
+
+                        <a href="https://mybook.to/masalladelvelo" target="_blank" rel="noopener noreferrer" class="p-4 rounded-xl bg-brand-dark/60 border border-brand-border/80 hover:border-brand-gold flex items-center justify-between group transition-all">
+                            <div>
+                                <h4 class="font-bold text-white group-hover:text-brand-gold transition-colors">Más allá del velo</h4>
+                                <p class="text-xs text-brand-muted">Ciencia ficción y filosofía</p>
+                            </div>
+                            <i class="fa-solid fa-cart-shopping text-brand-gold"></i>
+                        </a>
+
+                        <a href="https://mybook.to/sincruz" target="_blank" rel="noopener noreferrer" class="p-4 rounded-xl bg-brand-dark/60 border border-brand-border/80 hover:border-brand-gold flex items-center justify-between group transition-all">
+                            <div>
+                                <h4 class="font-bold text-white group-hover:text-brand-gold transition-colors">Sin Cruz</h4>
+                                <p class="text-xs text-brand-muted">Historia alternativa e Inteligencia Artificial</p>
+                            </div>
+                            <i class="fa-solid fa-cart-shopping text-brand-gold"></i>
+                        </a>
+
+                        <a href="https://mybook.to/8billones" target="_blank" rel="noopener noreferrer" class="p-4 rounded-xl bg-brand-dark/60 border border-brand-border/80 hover:border-brand-gold flex items-center justify-between group transition-all sm:col-span-2">
+                            <div>
+                                <h4 class="font-bold text-white group-hover:text-brand-gold transition-colors">Ocho mil millones, un caos</h4>
+                                <p class="text-xs text-brand-muted">Ficción política global</p>
+                            </div>
+                            <i class="fa-solid fa-cart-shopping text-brand-gold"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CONTENIDO TIENDA: ENGLISH -->
+            <div id="store-content-en" class="store-pane hidden space-y-8">
+                <div class="bg-brand-card rounded-2xl border border-brand-border p-8 max-w-4xl mx-auto shadow-xl space-y-6">
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center border-b border-brand-border pb-4 gap-4">
+                        <div>
+                            <h3 class="font-serif-title text-2xl font-bold text-white">English Store &amp; Catalog</h3>
+                            <p class="text-xs text-brand-muted">Direct links to Amazon editions.</p>
+                        </div>
+                        <a href="https://ajstempleton.wordpress.com/categories/" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-lg bg-brand-dark border border-brand-gold/30 text-brand-gold text-xs font-mono font-semibold hover:bg-brand-gold hover:text-black transition-all">
+                            View All Categories <i class="fa-solid fa-external-link-alt ml-1"></i>
+                        </a>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <a href="https://mybook.to/TheClanA" target="_blank" rel="noopener noreferrer" class="p-4 rounded-xl bg-brand-dark/60 border border-brand-border/80 hover:border-brand-gold flex items-center justify-between group transition-all sm:col-span-2">
+                            <div>
+                                <h4 class="font-bold text-white group-hover:text-brand-gold transition-colors">The Clan | AnarKía</h4>
+                                <p class="text-xs text-brand-muted">Political thriller and dystopia</p>
+                            </div>
+                            <i class="fa-solid fa-cart-shopping text-brand-gold"></i>
+                        </a>
+
+                        <a href="https://mybook.to/TheF0rg0tten" target="_blank" rel="noopener noreferrer" class="p-4 rounded-xl bg-brand-dark/60 border border-brand-border/80 hover:border-brand-gold flex items-center justify-between group transition-all sm:col-span-2">
+                            <div>
+                                <h4 class="font-bold text-white group-hover:text-brand-gold transition-colors">The Forgotten</h4>
+                                <p class="text-xs text-brand-muted">Historical fiction duology</p>
+                            </div>
+                            <i class="fa-solid fa-cart-shopping text-brand-gold"></i>
+                        </a>
+
+                        <a href="https://mybook.to/bey0nd" target="_blank" rel="noopener noreferrer" class="p-4 rounded-xl bg-brand-dark/60 border border-brand-border/80 hover:border-brand-gold flex items-center justify-between group transition-all">
+                            <div>
+                                <h4 class="font-bold text-white group-hover:text-brand-gold transition-colors">Beyond the Veil</h4>
+                                <p class="text-xs text-brand-muted">Sci-Fi &amp; Philosophy</p>
+                            </div>
+                            <i class="fa-solid fa-cart-shopping text-brand-gold"></i>
+                        </a>
+
+                        <a href="https://mybook.to/with0ut" target="_blank" rel="noopener noreferrer" class="p-4 rounded-xl bg-brand-dark/60 border border-brand-border/80 hover:border-brand-gold flex items-center justify-between group transition-all">
+                            <div>
+                                <h4 class="font-bold text-white group-hover:text-brand-gold transition-colors">Without Cross</h4>
+                                <p class="text-xs text-brand-muted">Alternate history &amp; AI</p>
+                            </div>
+                            <i class="fa-solid fa-cart-shopping text-brand-gold"></i>
+                        </a>
+
+                        <a href="https://mybook.to/EightB" target="_blank" rel="noopener noreferrer" class="p-4 rounded-xl bg-brand-dark/60 border border-brand-border/80 hover:border-brand-gold flex items-center justify-between group transition-all sm:col-span-2">
+                            <div>
+                                <h4 class="font-bold text-white group-hover:text-brand-gold transition-colors">Eight Billion, One Chaos</h4>
+                                <p class="text-xs text-brand-muted">Global political fiction</p>
+                            </div>
+                            <i class="fa-solid fa-cart-shopping text-brand-gold"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CONTENIDO TIENDA: PORTUGUÊS -->
+            <div id="store-content-pt" class="store-pane hidden space-y-8">
+                <div class="bg-brand-card rounded-2xl border border-brand-border p-8 max-w-4xl mx-auto shadow-xl space-y-6">
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center border-b border-brand-border pb-4 gap-4">
+                        <div>
+                            <h3 class="font-serif-title text-2xl font-bold text-white">Loja &amp; Catálogo em Português</h3>
+                            <p class="text-xs text-brand-muted">Acesse os links diretos para comprar na Amazon.</p>
+                        </div>
+                        <a href="https://ajstempleton.wordpress.com/categoriapt/" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-lg bg-brand-dark border border-brand-gold/30 text-brand-gold text-xs font-mono font-semibold hover:bg-brand-gold hover:text-black transition-all">
+                            Ver Categorias PT <i class="fa-solid fa-external-link-alt ml-1"></i>
+                        </a>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        
+                        <!-- Sombras da Anarquia (Série Completa) -->
+                        <div class="sm:col-span-2 p-5 rounded-xl bg-brand-dark/80 border border-brand-gold/30 space-y-3">
+                            <div class="flex items-center justify-between border-b border-brand-border/60 pb-2">
+                                <div>
+                                    <h4 class="font-bold text-white text-base">Sombras da Anarquia (Série de 4 livros)</h4>
+                                    <p class="text-xs text-brand-gold">Thriller político &amp; Distopia</p>
+                                </div>
+                                <a href="https://www.amazon.com/-/es/dp/B0DJWR3265" target="_blank" rel="noopener noreferrer" class="px-3 py-1 rounded bg-brand-gold text-black text-xs font-bold hover:bg-brand-goldLight transition-all">
+                                    Ver Série na Amazon <i class="fa-solid fa-arrow-up-right-from-square ml-1"></i>
+                                </a>
+                            </div>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+                                <a href="https://a.co/d/039z25Q4" target="_blank" rel="noopener noreferrer" class="p-2.5 rounded-lg bg-brand-card border border-brand-border hover:border-brand-gold flex items-center justify-between text-brand-muted hover:text-white transition-all">
+                                    <span><strong>Livro 1:</strong> O Clã — AnarKía</span>
+                                    <i class="fa-solid fa-cart-shopping text-brand-gold"></i>
+                                </a>
+                                <a href="https://a.co/d/030rR9Jp" target="_blank" rel="noopener noreferrer" class="p-2.5 rounded-lg bg-brand-card border border-brand-border hover:border-brand-gold flex items-center justify-between text-brand-muted hover:text-white transition-all">
+                                    <span><strong>Livro 2:</strong> Filhos da AnarKia</span>
+                                    <i class="fa-solid fa-cart-shopping text-brand-gold"></i>
+                                </a>
+                                <a href="https://a.co/d/0du0s0jT" target="_blank" rel="noopener noreferrer" class="p-2.5 rounded-lg bg-brand-card border border-brand-border hover:border-brand-gold flex items-center justify-between text-brand-muted hover:text-white transition-all">
+                                    <span><strong>Livro 3:</strong> Sombras do Poder</span>
+                                    <i class="fa-solid fa-cart-shopping text-brand-gold"></i>
+                                </a>
+                                <a href="https://a.co/d/0bDJaGcd" target="_blank" rel="noopener noreferrer" class="p-2.5 rounded-lg bg-brand-card border border-brand-border hover:border-brand-gold flex items-center justify-between text-brand-muted hover:text-white transition-all">
+                                    <span><strong>Livro 4:</strong> Rebelião</span>
+                                    <i class="fa-solid fa-cart-shopping text-brand-gold"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Os Esquecidos Pela História (Série Completa) -->
+                        <div class="sm:col-span-2 p-5 rounded-xl bg-brand-dark/80 border border-brand-gold/30 space-y-3">
+                            <div class="flex items-center justify-between border-b border-brand-border/60 pb-2">
+                                <div>
+                                    <h4 class="font-bold text-white text-base">Os esquecidos pela história (Série de 2 livros)</h4>
+                                    <p class="text-xs text-brand-gold">Ficção Histórica &amp; Drama</p>
+                                </div>
+                                <a href="https://www.amazon.com/-/es/dp/B0DKG6WP6Q" target="_blank" rel="noopener noreferrer" class="px-3 py-1 rounded bg-brand-gold text-black text-xs font-bold hover:bg-brand-goldLight transition-all">
+                                    Ver Série na Amazon <i class="fa-solid fa-arrow-up-right-from-square ml-1"></i>
+                                </a>
+                            </div>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+                                <a href="https://a.co/d/0dPzgLyE" target="_blank" rel="noopener noreferrer" class="p-2.5 rounded-lg bg-brand-card border border-brand-border hover:border-brand-gold flex items-center justify-between text-brand-muted hover:text-white transition-all">
+                                    <span><strong>Livro 1:</strong> O Despertar dos Antigos: A câmara secreta</span>
+                                    <i class="fa-solid fa-cart-shopping text-brand-gold"></i>
+                                </a>
+                                <a href="https://a.co/d/01KXPzGv" target="_blank" rel="noopener noreferrer" class="p-2.5 rounded-lg bg-brand-card border border-brand-border hover:border-brand-gold flex items-center justify-between text-brand-muted hover:text-white transition-all">
+                                    <span><strong>Livro 2:</strong> Crônica dos esquecidos</span>
+                                    <i class="fa-solid fa-cart-shopping text-brand-gold"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Obras Individuales en PT -->
+                        <a href="https://a.co/d/0ikcQcwa" target="_blank" rel="noopener noreferrer" class="p-4 rounded-xl bg-brand-dark/60 border border-brand-border/80 hover:border-brand-gold flex items-center justify-between group transition-all">
+                            <div>
+                                <h4 class="font-bold text-white group-hover:text-brand-gold transition-colors">Sem Cruz</h4>
+                                <p class="text-xs text-brand-muted">História alternativa &amp; IA</p>
+                            </div>
+                            <i class="fa-solid fa-cart-shopping text-brand-gold"></i>
+                        </a>
+
+                        <a href="https://a.co/d/0aD64dIb" target="_blank" rel="noopener noreferrer" class="p-4 rounded-xl bg-brand-dark/60 border border-brand-border/80 hover:border-brand-gold flex items-center justify-between group transition-all">
+                            <div>
+                                <h4 class="font-bold text-white group-hover:text-brand-gold transition-colors">Além do véu</h4>
+                                <p class="text-xs text-brand-muted">Ficção científica &amp; Filosofia</p>
+                            </div>
+                            <i class="fa-solid fa-cart-shopping text-brand-gold"></i>
+                        </a>
+
+                        <a href="https://a.co/d/02r9MVB2" target="_blank" rel="noopener noreferrer" class="p-4 rounded-xl bg-brand-dark/60 border border-brand-border/80 hover:border-brand-gold flex items-center justify-between group transition-all sm:col-span-2">
+                            <div>
+                                <h4 class="font-bold text-white group-hover:text-brand-gold transition-colors">Oito bilhões, um caos</h4>
+                                <p class="text-xs text-brand-muted">Ficção política global</p>
+                            </div>
+                            <i class="fa-solid fa-cart-shopping text-brand-gold"></i>
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECCIÓN AUTOR -->
+    <section id="autor" class="py-24 bg-brand-card/30 border-y border-brand-border/50 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Fotografía del Autor -->
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="relative w-72 h-72 sm:w-80 sm:h-80 rounded-2xl bg-gradient-to-tr from-brand-border via-brand-card to-brand-dark p-1 border border-brand-gold/30 flex items-center justify-center glow-effect overflow-hidden">
+                        <img src="https://ajstempleton.wordpress.com/wp-content/uploads/2026/10/jcs1.jpg" alt="A.J. Stempleton" class="w-full h-full object-cover rounded-xl filter contrast-105" onerror="this.src='https://placehold.co/400x400/131722/D69E2E?text=A.J.+Stempleton'">
+                    </div>
+                </div>
+
+                <!-- Biografía y Enfoque -->
+                <div class="lg:col-span-7 space-y-6">
+                    <span class="text-xs font-mono uppercase tracking-widest text-brand-gold" data-i18n="sec_2_tag">03 — El Autor</span>
+                    <h2 class="font-serif-title text-3xl sm:text-5xl font-bold text-white leading-tight">
+                        <span data-i18n="sec_2_title">Escribir para poner</span> <span class="italic text-brand-gold" data-i18n="sec_2_title_2">el presente a prueba.</span>
+                    </h2>
+
+                    <div class="space-y-4 text-brand-muted text-base sm:text-lg leading-relaxed">
+                        <p data-i18n="author_p1">
+                            <strong class="text-white">A.J. Stempleton</strong> construye relatos donde la política, la historia y la tecnología dejan de ser un simple contexto y se convierten en verdaderos protagonistas.
+                        </p>
+                        <p data-i18n="author_p2">
+                            Sus novelas parten de escenarios extremos —una riqueza universal repentina, un mundo desprovisto de instituciones religiosas, o una justicia administrada implacablemente por máquinas— para explorar cómo reaccionamos cuando nos cambian las reglas del juego.
+                        </p>
+                        <p data-i18n="author_p3">
+                            Publica de manera activa en <span class="text-white font-medium">español, inglés y portugués</span>, aunque también sus libros se pueden encontrar en <span class="text-white font-medium">francés, italiano, alemán e hindi</span>, conectando con lectores inquietos de todo el mundo que buscan historias que incomoden y estimulen el pensamiento crítico.
+                        </p>
+                    </div>
+
+                    <div class="pt-4 flex flex-wrap gap-4">
+                        <div class="px-4 py-3 bg-brand-card rounded-xl border border-brand-border flex items-center space-x-3">
+                            <i class="fa-solid fa-book-bookmark text-brand-gold text-lg"></i>
+                            <div>
+                                <h4 class="text-xs font-mono uppercase text-brand-muted" data-i18n="badge_enfoque">Enfoque</h4>
+                                <p class="text-sm font-semibold text-white" data-i18n="badge_enfoque_val">Ficción Especulativa</p>
+                            </div>
+                        </div>
+                        <div class="px-4 py-3 bg-brand-card rounded-xl border border-brand-border flex items-center space-x-3">
+                            <i class="fa-solid fa-language text-brand-gold text-lg"></i>
+                            <div>
+                                <h4 class="text-xs font-mono uppercase text-brand-muted" data-i18n="badge_pub">Publicación</h4>
+                                <p class="text-sm font-semibold text-white" data-i18n="badge_pub_val">Multilingüe (ES / EN / PT +)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN BITÁCORA / BLOG -->
+    <section id="bitacora" class="py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+                <div class="space-y-3">
+                    <span class="text-xs font-mono uppercase tracking-widest text-brand-gold" data-i18n="sec_3_tag">04 — Bitácora</span>
+                    <h2 class="font-serif-title text-3xl sm:text-5xl font-bold text-white">
+                        <span data-i18n="sec_3_title">Detrás de</span> <span class="italic text-brand-gold" data-i18n="sec_3_title_2">las historias</span>
+                    </h2>
+                </div>
+                <a href="https://ajstempleton.wordpress.com/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center space-x-2 text-sm font-semibold text-brand-gold hover:underline">
+                    <span data-i18n="btn_ver_articulos">Ver todos los artículos</span>
+                    <i class="fa-solid fa-arrow-right text-xs"></i>
+                </a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+                <!-- Artículo 1 -->
+                <article class="card-hover bg-brand-card rounded-2xl border border-brand-border overflow-hidden p-8 flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <span class="text-xs font-mono text-brand-gold" data-i18n="art1_cat">01 · Proceso Creativo</span>
+                        <h3 class="font-serif-title text-xl font-bold text-white hover:text-brand-gold transition-colors">
+                            <a href="https://ajstempleton.wordpress.com/2025/01/11/ideasc/" target="_blank" rel="noopener noreferrer" data-i18n="art1_title">
+                                De dónde nace la idea para «Sin Cruz»
+                            </a>
+                        </h3>
+                        <p class="text-brand-muted text-sm leading-relaxed" data-i18n="art1_desc">
+                            Una batalla del año 1000, un emperador frente al papa y la posibilidad de imaginar otro curso para la historia.
+                        </p>
+                    </div>
+                    <div class="pt-6 mt-6 border-t border-brand-border/40">
+                        <a href="https://ajstempleton.wordpress.com/2025/01/11/ideasc/" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-brand-gold hover:underline flex items-center justify-between">
+                            <span data-i18n="btn_leer_art">Leer artículo</span>
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Artículo 2 -->
+                <article class="card-hover bg-brand-card rounded-2xl border border-brand-border overflow-hidden p-8 flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <span class="text-xs font-mono text-brand-gold" data-i18n="art2_cat">02 · Adelantos Exclusivos</span>
+                        <h3 class="font-serif-title text-xl font-bold text-white hover:text-brand-gold transition-colors">
+                            <a href="https://ajstempleton.wordpress.com/2024/11/18/zidea/" target="_blank" rel="noopener noreferrer" data-i18n="art2_title">
+                                Primeros capítulos de «Sin Cruz»
+                            </a>
+                        </h3>
+                        <p class="text-brand-muted text-sm leading-relaxed" data-i18n="art2_desc">
+                            El fin de la cruz, la Ley de Hierro y el origen de una sociedad construida sobre una justicia radical.
+                        </p>
+                    </div>
+                    <div class="pt-6 mt-6 border-t border-brand-border/40">
+                        <a href="https://ajstempleton.wordpress.com/2024/11/18/zidea/" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-brand-gold hover:underline flex items-center justify-between">
+                            <span data-i18n="btn_leer_art">Leer artículo</span>
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Artículo 3 -->
+                <article class="card-hover bg-brand-card rounded-2xl border border-brand-border overflow-hidden p-8 flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <span class="text-xs font-mono text-brand-gold" data-i18n="art3_cat">03 · Proyectos Futuros</span>
+                        <h3 class="font-serif-title text-xl font-bold text-white hover:text-brand-gold transition-colors">
+                            <a href="https://ajstempleton.wordpress.com/2024/10/27/proximos/" target="_blank" rel="noopener noreferrer" data-i18n="art3_title">
+                                Las próximas historias
+                            </a>
+                        </h3>
+                        <p class="text-brand-muted text-sm leading-relaxed" data-i18n="art3_desc">
+                            Civilizaciones perdidas, universos paralelos, ficción histórica y nuevos relatos sobre el poder.
+                        </p>
+                    </div>
+                    <div class="pt-6 mt-6 border-t border-brand-border/40">
+                        <a href="https://ajstempleton.wordpress.com/2024/10/27/proximos/" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-brand-gold hover:underline flex items-center justify-between">
+                            <span data-i18n="btn_leer_art">Leer artículo</span>
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CALL TO ACTION: MUESTRAS GRATUITAS -->
+    <section id="muestras" class="py-20 relative overflow-hidden bg-gradient-to-b from-brand-dark via-brand-card to-brand-dark border-t border-brand-border">
+        <div class="max-w-5xl mx-auto px-4 text-center space-y-8 relative z-10">
+            <span class="px-4 py-1.5 rounded-full bg-brand-gold/10 border border-brand-gold/30 text-brand-gold text-xs font-mono uppercase tracking-widest" data-i18n="cta_tag">
+                Comienza a leer hoy
+            </span>
+
+            <h2 class="font-serif-title text-3xl sm:text-5xl font-bold text-white" data-i18n="cta_title">
+                ¿Listo para cruzar el umbral?
+            </h2>
+
+            <p class="text-brand-muted text-lg max-w-2xl mx-auto" data-i18n="cta_desc">
+                Elige una historia. Cuestiona el mundo. Accede a las muestras gratuitas y descubre los primeros capítulos antes de decidirte.
+            </p>
+
+            <div class="pt-4 flex flex-wrap justify-center gap-4">
+                <a href="https://ajstempleton.wordpress.com/2024/10/23/muestras/" id="cta-samples-btn" target="_blank" rel="noopener noreferrer" class="px-8 py-4 rounded-xl bg-gradient-to-r from-brand-gold to-amber-600 text-black font-bold text-lg hover:opacity-95 transition-all shadow-xl shadow-brand-gold/20 flex items-center space-x-3">
+                    <i class="fa-solid fa-download"></i>
+                    <span data-i18n="cta_btn">Descargar / Leer Muestras</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- PIE DE PÁGINA Y CONTACTO -->
+    <footer id="contacto" class="bg-black border-t border-brand-border text-brand-muted pt-16 pb-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+            
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 pb-12 border-b border-brand-border/60">
+                
+                <div class="md:col-span-5 space-y-4">
+                    <h3 class="font-serif-title text-2xl font-bold text-white">A.J. STEMPLETON</h3>
+                    <p class="text-sm text-brand-muted max-w-sm" data-i18n="footer_desc">
+                        Ficción política, historia alternativa y ciencia ficción especulativa. Narrativas diseñadas para desafiar certezas.
+                    </p>
+                </div>
+
+                <div class="md:col-span-3 space-y-3">
+                    <h4 class="text-xs font-mono uppercase tracking-wider text-white" data-i18n="footer_links_title">Plataformas &amp; Libros</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="https://ajstempleton.wordpress.com/" target="_blank" rel="noopener noreferrer" class="hover:text-brand-gold transition-colors"><i class="fa-brands fa-wordpress mr-2"></i><span data-i18n="f_link_1">Bitácora / WordPress</span></a></li>
+                        <li><a href="https://www.amazon.com/author/ajstempleton" target="_blank" rel="noopener noreferrer" class="hover:text-brand-gold transition-colors"><i class="fa-brands fa-amazon mr-2"></i><span data-i18n="f_link_2">Página de Autor en Amazon</span></a></li>
+                        <li><a href="https://www.goodreads.com/author/show/52469486.A_J_Stempleton" target="_blank" rel="noopener noreferrer" class="hover:text-brand-gold transition-colors"><i class="fa-solid fa-book-reader mr-2"></i><span data-i18n="f_link_3">Perfil en Goodreads</span></a></li>
+                        <li><a href="https://www.kobo.com/es/es/search?query=aj+stempleton" target="_blank" rel="noopener noreferrer" class="hover:text-brand-gold transition-colors"><i class="fa-solid fa-tablet-screen-button mr-2"></i><span data-i18n="f_link_4">Catálogo en Kobo (EN,PT)</span></a></li>
+                    </ul>
+                </div>
+
+                <div class="md:col-span-4 space-y-3">
+                    <h4 class="text-xs font-mono uppercase tracking-wider text-white" data-i18n="footer_contact_title">Contacto &amp; Redes</h4>
+                    <div class="flex flex-wrap gap-3">
+                        <a href="https://www.instagram.com/ajstempleton/" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-lg bg-brand-card border border-brand-border flex items-center justify-center text-white hover:text-brand-gold hover:border-brand-gold transition-all" aria-label="Instagram">
+                            <i class="fa-brands fa-instagram text-lg"></i>
+                        </a>
+                        <a href="https://www.facebook.com/ajstempleton/" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-lg bg-brand-card border border-brand-border flex items-center justify-center text-white hover:text-brand-gold hover:border-brand-gold transition-all" aria-label="Facebook">
+                            <i class="fa-brands fa-facebook-f text-lg"></i>
+                        </a>
+                        <a href="https://www.tiktok.com/@aj.stempleton" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-lg bg-brand-card border border-brand-border flex items-center justify-center text-white hover:text-brand-gold hover:border-brand-gold transition-all" aria-label="TikTok">
+                            <i class="fa-brands fa-tiktok text-lg"></i>
+                        </a>
+                        <a href="https://wa.me/c/558596996479" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-lg bg-brand-card border border-brand-border flex items-center justify-center text-white hover:text-brand-gold hover:border-brand-gold transition-all" aria-label="WhatsApp">
+                            <i class="fa-brands fa-whatsapp text-lg"></i>
+                        </a>
+                        <a href="mailto:aj@ajstempleton.com" class="w-10 h-10 rounded-lg bg-brand-card border border-brand-border flex items-center justify-center text-white hover:text-brand-gold hover:border-brand-gold transition-all" aria-label="Correo electrónico">
+                            <i class="fa-solid fa-envelope text-lg"></i>
+                        </a>
+                    </div>
+                    <p class="text-xs text-brand-muted pt-2">
+                        <span data-i18n="footer_direct">Contacto directo:</span> <a href="mailto:aj@ajstempleton.com" class="text-white hover:underline">aj@ajstempleton.com</a>
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="flex flex-col sm:flex-row justify-between items-center text-xs text-brand-muted gap-4">
+                <p>&copy; 2025 A.J. Stempleton. Todos los derechos reservados.</p>
+                <p data-i18n="footer_sub">Diseñado para lectores que cuestionan el presente.</p>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- MODAL SINOPSIS RÁPIDA -->
+    <div id="synopsis-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300">
+        <div class="bg-brand-card border border-brand-border rounded-2xl max-w-lg w-full p-6 sm:p-8 space-y-4 shadow-2xl relative">
+            <button onclick="closeSynopsis()" class="absolute top-4 right-4 text-brand-muted hover:text-white text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <h3 id="modal-title" class="font-serif-title text-2xl font-bold text-brand-gold"></h3>
+            <div class="w-10 h-0.5 bg-brand-gold"></div>
+            <p id="modal-body" class="text-brand-muted text-sm leading-relaxed"></p>
+            <div class="pt-4 flex justify-end">
+                <button onclick="closeSynopsis()" class="px-5 py-2 rounded-lg bg-brand-border text-white text-xs font-semibold hover:bg-brand-gold hover:text-black transition-colors" data-i18n="modal_close">
+                    Cerrar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT DE TRADUCCIÓN E INTERACCIONES -->
+    <script>
+        const backToTopBtn = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.remove('opacity-0', 'pointer-events-none');
+                backToTopBtn.classList.add('opacity-100');
+            } else {
+                backToTopBtn.classList.remove('opacity-100');
+                backToTopBtn.classList.add('opacity-0', 'pointer-events-none');
+            }
+        });
+
+        function switchStoreTab(lang) {
+            ['es', 'en', 'pt'].forEach(l => {
+                const tab = document.getElementById(`store-tab-${l}`);
+                const content = document.getElementById(`store-content-${l}`);
+                if (l === lang) {
+                    tab.className = "px-6 py-2.5 rounded-xl font-mono text-xs font-bold bg-brand-gold text-black transition-all shadow-md";
+                    content.classList.remove('hidden');
+                } else {
+                    tab.className = "px-6 py-2.5 rounded-xl font-mono text-xs font-bold bg-brand-card border border-brand-border text-brand-muted hover:text-white transition-all";
+                    content.classList.add('hidden');
+                }
+            });
+        }
+
+        const translations = {
+            es: {
+                nav_inicio: "Inicio",
+                nav_libros: "Libros",
+                nav_tienda: "Tienda",
+                nav_autor: "El Autor",
+                nav_bitacora: "Bitácora",
+                nav_muestras: "Muestras",
+                nav_contacto: "Contacto",
+                hero_tag: "Ficción que incomoda",
+                hero_title_1: "El mundo no es lo que",
+                hero_title_2: "parece.",
+                hero_desc: "Novelas sobre poder, tecnología y futuros posibles. Historias que empiezan con una pregunta y terminan cambiando la forma de mirar el presente.",
+                btn_explorar: "Explorar las obras",
+                btn_tienda_hero: "Ir a la Tienda",
+                quote_tag: "Ideas que dejan huella",
+                quote_text: "«La ficción es el lugar donde ensayamos las consecuencias antes de que el mundo las convierta en realidad.»",
+                quote_sub: "Escritor & Ensayista especulativo",
+                banner_1: "Ficción Política",
+                banner_2: "Inteligencia Artificial",
+                banner_3: "Historias Alternativas",
+                banner_4: "Español · Inglés · Português",
+                sec_1_tag: "01 — Biblioteca",
+                sec_1_title: "Historias para",
+                sec_1_title_2: "lectores inquietos",
+                sec_1_desc: "Distopías, ficción política y universos alternativos que enfrentan las grandes preguntas de nuestro tiempo.",
+                filter_all: "Todos",
+                filter_pol: "Política & Distopía",
+                filter_ia: "IA & Ciencia Ficción",
+                filter_hist: "Histórica & Sagas",
+                b1_tag: "01 · Ficción política · Distopía",
+                b1_title: "Ocho mil millones, un caos",
+                b1_desc: "Dos figuras irreconciliables, una fortuna repartida al mundo entero y una economía global al borde del colapso.",
+                b2_tag: "02 · Historia alternativa · IA",
+                b2_title: "Sin Cruz",
+                b2_desc: "Un mundo sin iglesias, tribunales gobernados por inteligencia artificial y una pregunta incómoda: ¿puede existir justicia sin compasión?",
+                b3_tag: "03 · Ciencia ficción · Filosofía",
+                b3_title: "Más allá del velo",
+                b3_desc: "Dos realidades que no pueden verse comienzan a comunicarse. Clara y Ezar buscan una verdad capaz de alterar ambos universos.",
+                b4_tag: "04 · Bilogía · Ficción histórica",
+                b4_title: "Los olvidados",
+                b4_desc: "Una mirada a quienes quedaron fuera de la versión oficial de la historia y a las fuerzas que decidieron su destino.",
+                b5_tag: "05 · Saga · Thriller político",
+                b5_title: "Sombras de Anarquía / El Clan",
+                b5_desc: "Poder, lealtades rotas y una organización que se mueve en la frontera entre el orden y la rebelión.",
+                card_details_label: "Ver detalles del libro:",
+                btn_ver_mas: "Ver libro completo",
+                btn_sinopsis: "Sinopsis rápida",
+                store_tag: "02 — Tienda Oficial",
+                store_title: "Adquiere las obras en",
+                store_title_2: "tu idioma preferido",
+                store_desc: "Compra directamente los eBooks e impresos a través de las plataformas autorizadas (Amazon y portales independientes).",
+                sec_2_tag: "03 — El Autor",
+                sec_2_title: "Escribir para poner",
+                sec_2_title_2: "el presente a prueba.",
+                author_p1: "A.J. Stempleton construye relatos donde la política, la historia y la tecnología dejan de ser un simple contexto y se convierten en verdaderos protagonistas.",
+                author_p2: "Sus novelas parten de escenarios extremos —una riqueza universal repentina, un mundo desprovisto de instituciones religiosas, o una justicia administrada implacablemente por máquinas— para explorar cómo reaccionamos cuando nos cambian las reglas del juego.",
+                author_p3: "Publica de manera activa en español, inglés y portugués, aunque también sus libros se pueden encontrar en francés, italiano, alemán e hindi, conectando con lectores inquietos de todo el mundo que buscan historias que incomoden y estimulen el pensamiento crítico.",
+                badge_enfoque: "Enfoque",
+                badge_enfoque_val: "Ficción Especulativa",
+                badge_pub: "Publicación",
+                badge_pub_val: "Multilingüe (ES / EN / PT +)",
+                sec_3_tag: "04 — Bitácora",
+                sec_3_title: "Detrás de",
+                sec_3_title_2: "las historias",
+                btn_ver_articulos: "Ver todos los artículos",
+                art1_cat: "01 · Proceso Creativo",
+                art1_title: "De dónde nace la idea para «Sin Cruz»",
+                art1_desc: "Una batalla del año 1000, un emperador frente al papa y la posibilidad de imaginar otro curso para la historia.",
+                art2_cat: "02 · Adelantos Exclusivos",
+                art2_title: "Primeros capítulos de «Sin Cruz»",
+                art2_desc: "El fin de la cruz, la Ley de Hierro y el origen de una sociedad construida sobre una justicia radical.",
+                art3_cat: "03 · Proyectos Futuros",
+                art3_title: "Las próximas historias",
+                art3_desc: "Civilizaciones perdidas, universos paralelos, ficción histórica y nuevos relatos sobre el poder.",
+                btn_leer_art: "Leer artículo",
+                cta_tag: "Comienza a leer hoy",
+                cta_title: "¿Listo para cruzar el umbral?",
+                cta_desc: "Elige una historia. Cuestiona el mundo. Accede a las muestras gratuitas y descubre los primeros capítulos antes de decidirte.",
+                cta_btn: "Descargar / Leer Muestras",
+                footer_desc: "Ficción política, historia alternativa y ciencia ficción especulativa. Narrativas diseñadas para desafiar certezas.",
+                footer_links_title: "Plataformas & Libros",
+                f_link_1: "Bitácora / WordPress",
+                f_link_2: "Página de Autor en Amazon",
+                f_link_3: "Perfil en Goodreads",
+                f_link_4: "Catálogo en Kobo (EN,PT)",
+                footer_contact_title: "Contacto & Redes",
+                footer_direct: "Contacto directo:",
+                footer_sub: "Diseñado para lectores que cuestionan el presente.",
+                modal_close: "Cerrar"
+            },
+            en: {
+                nav_inicio: "Home",
+                nav_libros: "Books",
+                nav_tienda: "Shop",
+                nav_autor: "The Author",
+                nav_bitacora: "Journal",
+                nav_muestras: "Samples",
+                nav_contacto: "Contact",
+                hero_tag: "Fiction that unsettles",
+                hero_title_1: "The world is not what it",
+                hero_title_2: "seems.",
+                hero_desc: "Novels about power, technology, and possible futures. Stories that begin with a question and end up changing the way we look at the present.",
+                btn_explorar: "Explore works",
+                btn_tienda_hero: "Go to Shop",
+                quote_tag: "Ideas that leave a mark",
+                quote_text: "«Fiction is the place where we rehearse the consequences before the world turns them into reality.»",
+                quote_sub: "Writer & Speculative Essayist",
+                banner_1: "Political Fiction",
+                banner_2: "Artificial Intelligence",
+                banner_3: "Alternate Histories",
+                banner_4: "Spanish · English · Portuguese",
+                sec_1_tag: "01 — Library",
+                sec_1_title: "Stories for",
+                sec_1_title_2: "restless readers",
+                sec_1_desc: "Dystopias, political fiction, and alternate universes that confront the big questions of our time.",
+                filter_all: "All",
+                filter_pol: "Politics & Dystopia",
+                filter_ia: "AI & Sci-Fi",
+                filter_hist: "Historical & Sagas",
+                b1_tag: "01 · Political Fiction · Dystopia",
+                b1_title: "Eight Billion, One Chaos",
+                b1_desc: "Two irreconcilable figures, a fortune distributed to the entire world, and a global economy on the brink of collapse.",
+                b2_tag: "02 · Alternate History · AI",
+                b2_title: "Without Cross",
+                b2_desc: "A world without churches, courts governed by artificial intelligence, and an uncomfortable question: can justice exist without compassion?",
+                b3_tag: "03 · Science Fiction · Philosophy",
+                b3_title: "Beyond the Veil",
+                b3_desc: "Two realities that cannot see each other begin to communicate. Clara and Ezar seek a truth capable of altering both universes.",
+                b4_tag: "04 · Duology · Historical Fiction",
+                b4_title: "The Forgotten",
+                b4_desc: "A look at those left out of the official version of history and the forces that decided their fate.",
+                b5_tag: "05 · Saga · Political Thriller",
+                b5_title: "Shadows of Anarchy / The Clan",
+                b5_desc: "Power, broken loyalties, and an organization operating on the border between order and rebellion.",
+                card_details_label: "View book details:",
+                btn_ver_mas: "View full book",
+                btn_sinopsis: "Quick synopsis",
+                store_tag: "02 — Official Store",
+                store_title: "Get the works in",
+                store_title_2: "your preferred language",
+                store_desc: "Buy eBooks and paperbacks directly through authorized platforms (Amazon and independent portals).",
+                sec_2_tag: "03 — The Author",
+                sec_2_title: "Writing to put",
+                sec_2_title_2: "the present to the test.",
+                author_p1: "<strong class=\"text-white\">A.J. Stempleton</strong> crafts stories where politics, history, and technology cease to be simple background and become true protagonists.",
+                author_p2: "His novels stem from extreme scenarios—sudden universal wealth, a world devoid of religious institutions, or justice relentlessly administered by machines—to explore how we react when the rules of the game change.",
+                author_p3: "He actively publishes in <span class=\"text-white font-medium\">Spanish, English, and Portuguese</span>, while his books can also be found in <span class=\"text-white font-medium\">French, Italian, German, and Hindi</span>, connecting with restless readers worldwide seeking thought-provoking stories.",
+                badge_enfoque: "Focus",
+                badge_enfoque_val: "Speculative Fiction",
+                badge_pub: "Publication",
+                badge_pub_val: "Multilingual (ES / EN / PT +)",
+                sec_3_tag: "04 — Journal",
+                sec_3_title: "Behind",
+                sec_3_title_2: "the stories",
+                btn_ver_articulos: "View all articles",
+                art1_cat: "01 · Creative Process",
+                art1_title: "Where the idea for «Without Cross» comes from",
+                art1_desc: "A battle from the year 1000, an emperor facing the pope, and the possibility of imagining another course for history.",
+                art2_cat: "02 · Exclusive Previews",
+                art2_title: "First chapters of «Without Cross»",
+                art2_desc: "The end of the cross, the Iron Law, and the origin of a society built on radical justice.",
+                art3_cat: "03 · Future Projects",
+                art3_title: "Upcoming stories",
+                art3_desc: "Lost civilizations, parallel universes, historical fiction, and new tales about power.",
+                btn_leer_art: "Read article",
+                cta_tag: "Start reading today",
+                cta_title: "Ready to cross the threshold?",
+                cta_desc: "Choose a story. Question the world. Access free samples and discover the first chapters before deciding.",
+                cta_btn: "Download / Read Samples",
+                footer_desc: "Political fiction, alternate history, and speculative sci-fi. Narratives designed to challenge certainties.",
+                footer_links_title: "Platforms & Books",
+                f_link_1: "Journal / WordPress",
+                f_link_2: "Amazon Author Page",
+                f_link_3: "Goodreads Profile",
+                f_link_4: "Kobo Catalog (EN,PT)",
+                footer_contact_title: "Contact & Socials",
+                footer_direct: "Direct contact:",
+                footer_sub: "Designed for readers who question the present.",
+                modal_close: "Close"
+            },
+            pt: {
+                nav_inicio: "Início",
+                nav_libros: "Livros",
+                nav_tienda: "Loja",
+                nav_autor: "O Autor",
+                nav_bitacora: "Blog",
+                nav_muestras: "Amostras",
+                nav_contacto: "Contato",
+                hero_tag: "Ficção que incomoda",
+                hero_title_1: "O mundo não é o que",
+                hero_title_2: "parece.",
+                hero_desc: "Romances sobre poder, tecnologia e futuros possíveis. Histórias que começam com uma pergunta e terminam mudando a forma de olhar para o presente.",
+                btn_explorar: "Explorar as obras",
+                btn_tienda_hero: "Ir para a Loja",
+                quote_tag: "Ideias que deixam marca",
+                quote_text: "«A ficção é o lugar onde ensaiamos as consequências antes que o mundo as transforme em realidade.»",
+                quote_sub: "Escritor & Ensaísta especulativo",
+                banner_1: "Ficção Política",
+                banner_2: "Inteligência Artificial",
+                banner_3: "Histórias Alternativas",
+                banner_4: "Espanhol · Inglês · Português",
+                sec_1_tag: "01 — Biblioteca",
+                sec_1_title: "Histórias para",
+                sec_1_title_2: "leitores inquietos",
+                sec_1_desc: "Distopias, ficção política e universos alternativos que enfrentam as grandes perguntas do nosso tempo.",
+                filter_all: "Todos",
+                filter_pol: "Política & Distopia",
+                filter_ia: "IA & Ficção Científica",
+                filter_hist: "Histórica & Sagas",
+                b1_tag: "01 · Ficção política · Distopia",
+                b1_title: "Oito bilhões, um caos",
+                b1_desc: "Duas figuras irreconciliáveis, uma fortuna distribuída a todo o mundo e uma economia global à beira do colapso.",
+                b2_tag: "02 · História alternativa · IA",
+                b2_title: "Sem Cruz",
+                b2_desc: "Um mundo sem igrejas, tribunais governados por inteligência artificial e uma pergunta incômoda: pode existir justiça sem compaixão?",
+                b3_tag: "03 · Ficção científica · Filosofia",
+                b3_title: "Além do véu",
+                b3_desc: "Duas realidades que não podem se ver começam a se comunicar. Clara e Ezar buscam uma verdade capaz de alterar ambos os universos.",
+                b4_tag: "04 · Bilogia · Ficção histórica",
+                b4_title: "Os esquecidos",
+                b4_desc: "Um olhar sobre aqueles que ficaram de fora da versão oficial da história e as forças que decidiram seu destino.",
+                b5_tag: "05 · Saga · Thriller político",
+                b5_title: "Sombras de Anarquia / O Clã",
+                b5_desc: "Poder, lealdades rompidas e uma organização que se move na fronteira entre a ordem e a rebelião.",
+                card_details_label: "Ver detalhes do livro:",
+                btn_ver_mas: "Ver livro completo",
+                btn_sinopsis: "Sinopse rápida",
+                store_tag: "02 — Loja Oficial",
+                store_title: "Adquira as obras em",
+                store_title_2: "seu idioma preferido",
+                store_desc: "Compre diretamente eBooks e impressos através das plataformas autorizadas (Amazon e portais independentes).",
+                sec_2_tag: "03 — O Autor",
+                sec_2_title: "Escrever para pôr",
+                sec_2_title_2: "o presente à prova.",
+                author_p1: "<strong class=\"text-white\">A.J. Stempleton</strong> constrói narrativas onde a política, a história e a tecnologia deixam de ser um mero contexto e se tornam verdadeiros protagonistas.",
+                author_p2: "Seus romances partem de cenários extremos — uma riqueza universal repentina, um mundo desprovido de instituições religiosas ou uma justiça administrada implacavelmente por máquinas — para explorar como reacionamos quando as regras do jogo mudam.",
+                author_p3: "Publica ativamente em <span class=\"text-white font-medium\">espanhol, inglês e português</span>, embora seus livros também possam ser encontrados em <span class=\"text-white font-medium\">francês, italiano, alemão e hindi</span>, conectando-se com leitores inquietos do mundo todo.",
+                badge_enfoque: "Foco",
+                badge_enfoque_val: "Ficção Especulativa",
+                badge_pub: "Publicação",
+                badge_pub_val: "Multilíngue (ES / EN / PT +)",
+                sec_3_tag: "04 — Blog",
+                sec_3_title: "Por trás de",
+                sec_3_title_2: "as histórias",
+                btn_ver_articulos: "Ver todos os artigos",
+                art1_cat: "01 · Processo Criativo",
+                art1_title: "De onde nasce a ideia para «Sem Cruz»",
+                art1_desc: "Uma batalha do ano 1000, um imperador diante do papa e a possibilidade de imaginar outro rumo para a história.",
+                art2_cat: "02 · Pré-estreias Exclusivas",
+                art2_title: "Primeiros capítulos de «Sem Cruz»",
+                art2_desc: "O fim da cruz, a Lei de Ferro e a origem de uma sociedade construída sobre uma justiça radical.",
+                art3_cat: "03 · Projetos Futuros",
+                art3_title: "As próximas histórias",
+                art3_desc: "Civilizações perdidas, universos paralelos, ficção histórica e novos relatos sobre o poder.",
+                btn_leer_art: "Ler artigo",
+                cta_tag: "Comece a ler hoje",
+                cta_title: "Pronto para cruzar o limiar?",
+                cta_desc: "Escolha uma história. Questione o mundo. Acesse as amostras gratuitas e descubra os primeiros capítulos.",
+                cta_btn: "Baixar / Ler Amostras",
+                footer_desc: "Ficção política, história alternativa e ficção científica especulativa. Narrativas projetadas para desafiar certezas.",
+                footer_links_title: "Plataformas & Livros",
+                f_link_1: "Blog / WordPress",
+                f_link_2: "Página de Autor na Amazon",
+                f_link_3: "Perfil no Goodreads",
+                f_link_4: "Catálogo na Kobo (EN,PT)",
+                footer_contact_title: "Contato & Redes",
+                footer_direct: "Contato direto:",
+                footer_sub: "Projetado para leitores que questionam o presente.",
+                modal_close: "Fechar"
+            }
+        };
+
+        const samplesUrls = {
+            es: "https://ajstempleton.wordpress.com/2024/10/23/muestras/",
+            en: "https://ajstempleton.wordpress.com/2024/10/25/samples/",
+            pt: "https://ajstempleton.wordpress.com/2024/10/26/amostras/"
+        };
+
+        const synopsesData = {
+            b1: {
+                es: { title: "Ocho mil millones, un caos", text: "Dos figuras irreconciliables se enfrentan en una partida de ajedrez geopolítico sin precedentes. Cuando una fortuna inmensa es distribuida directamente a cada habitante del planeta, el sistema económico internacional entra en caída libre. ¿Es la redistribución definitiva o la receta para el caos universal?" },
+                en: { title: "Eight Billion, One Chaos", text: "Two irreconcilable figures face off in an unprecedented geopolitical chess game. When an immense fortune is distributed directly to every inhabitant of the planet, the international economic system goes into free fall. Is this ultimate redistribution or a recipe for universal chaos?" },
+                pt: { title: "Oito bilhões, um caos", text: "Duas figuras irreconciliáveis se enfrentam em um jogo de xadrez geopolítico sem precedentes. Quando uma fortuna imensa é distribuída diretamente a cada habitante do planeta, o sistema econômico internacional entra em queda livre." }
+            },
+            b2: {
+                es: { title: "Sin Cruz", text: "Tras un giro inesperado en la historia medieval, las instituciones religiosas tradicionales desaparecieron. En el presente, fríos algoritmos e inteligencias artificiales administran la justicia humana con precisión implacable. Sin embargo, cuando surge un dilema no cuantificable, la sociedad descubre el precio de eliminar la compasión." },
+                en: { title: "Without Cross", text: "Following an unexpected twist in medieval history, traditional religious institutions disappeared. In the present, cold algorithms and artificial intelligence administer human justice with relentless precision. However, when a non-quantifiable dilemma arises, society discovers the price of eliminating compassion." },
+                pt: { title: "Sem Cruz", text: "Após uma reviravolta inesperada na história medieval, as instituições religiosas tradicionais desapareceram. No presente, algoritmos frios e inteligência artificial administram a justiça humana com precisão implacável." }
+            },
+            b3: {
+                es: { title: "Más allá del velo", text: "Existencias paralelas habitan el mismo espacio pero separadas por una barrera imperceptible. Cuando Clara y Ezar establecen el primer punto de contacto entre ambas dimensiones, descubren que las leyes que gobiernan su existencia están al borde de quebrarse." },
+                en: { title: "Beyond the Veil", text: "Parallel existences inhabit the same space but are separated by an imperceptible barrier. When Clara and Ezar establish the first point of contact between both dimensions, they discover that the laws governing their existence are on the verge of breaking." },
+                pt: { title: "Além do véu", text: "Existências paralelas habitam o mesmo espaço, mas separadas por uma barreira imperceptível. Quando Clara e Ezar estabelecem o primeiro ponto de contato entre ambas as dimensões, descubrem que as leis que governam sua existência estão à beira de se quebrar." }
+            },
+            b4: {
+                es: { title: "Los olvidados", text: "Una bilogía profunda que rescata las vidas omitidas por los libros de texto oficiales. Entre tensiones sociales, decisiones trágicas y giros de poder, los protagonistas intentan sobrevivir a las fuerzas silenciosas que escriben el destino de las naciones." },
+                en: { title: "The Forgotten", text: "A deep duology that rescues lives omitted by official textbooks. Amid social tensions, tragic decisions, and shifts in power, the protagonists try to survive the silent forces that write the destiny of nations." },
+                pt: { title: "Os esquecidos", text: "Uma bilogia profunda que resgata vidas omitidas pelos livros didáticos oficiais. Entre tensões sociais, decisões trágicas e reviravoltas de poder, os protagonistas tentam sobrevivir às forças silenciosas que escrevem o destino das nações." }
+            },
+            b5: {
+                es: { title: "Sombras de Anarquía / El Clan", text: "Una red secreta opera desde la penumbra controlando las decisiones más cruciales del estado. Cuando un grupo disidente desafía su autoridad bajo la bandera de la libertad absoluta, la delgada línea entre la estabilidad y el caos se desvanece por completo." },
+                en: { title: "Shadows of Anarchy / The Clan", text: "A secret network operates from the shadows controlling the most crucial decisions of the state. When a dissident group challenges its authority under the banner of absolute freedom, the thin line between stability and chaos vanishes completely." },
+                pt: { title: "Sombras de Anarquia / O Clã", text: "Uma rede secreta opera nas sombras controlando as decisões mais cruciais do estado. Quando um grupo dissidente desafia sua autoridade sob a bandeira da liberdade absoluta, a linha tênue entre estabilidade e caos desaparece por completo." }
+            }
+        };
+
+        let currentLang = 'es';
+        let currentSynopsisKey = null;
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            
+            ['es', 'en', 'pt'].forEach(l => {
+                const btn = document.getElementById(`lang-${l}`);
+                const mBtn = document.getElementById(`m-lang-${l}`);
+                if(btn) {
+                    if(l === lang) {
+                        btn.className = "px-2 py-1 rounded text-xs font-mono font-bold bg-brand-gold text-black transition-all";
+                        if(mBtn) mBtn.className = "px-1.5 py-0.5 rounded font-mono font-bold bg-brand-gold text-black";
+                    } else {
+                        btn.className = "px-2 py-1 rounded text-xs font-mono font-medium text-brand-muted hover:text-white transition-all";
+                        if(mBtn) mBtn.className = "px-1.5 py-0.5 rounded font-mono text-brand-muted";
+                    }
+                }
+            });
+
+            // Coordinar la pestaña activa de la tienda con el idioma general
+            switchStoreTab(lang);
+
+            const targetSampleUrl = samplesUrls[lang];
+            const navSamples = document.getElementById('nav-samples-link');
+            const mobSamples = document.getElementById('mobile-samples-link');
+            const ctaSamples = document.getElementById('cta-samples-btn');
+
+            if(navSamples) navSamples.href = targetSampleUrl;
+            if(mobSamples) mobSamples.href = targetSampleUrl;
+            if(ctaSamples) ctaSamples.href = targetSampleUrl;
+
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if(translations[lang][key]) {
+                    el.innerHTML = translations[lang][key];
+                }
+            });
+
+            if(currentSynopsisKey) {
+                openSynopsisKey(currentSynopsisKey);
+            }
+        }
+
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const bookCards = document.querySelectorAll('.book-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => {
+                    b.classList.remove('bg-brand-gold', 'text-black');
+                    b.classList.add('bg-brand-card', 'text-brand-muted', 'border', 'border-brand-border');
+                });
+                btn.classList.add('bg-brand-gold', 'text-black');
+                btn.classList.remove('bg-brand-card', 'text-brand-muted', 'border', 'border-brand-border');
+
+                const filter = btn.getAttribute('data-filter');
+
+                bookCards.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        const modal = document.getElementById('synopsis-modal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalBody = document.getElementById('modal-body');
+
+        function openSynopsisKey(key) {
+            currentSynopsisKey = key;
+            const data = synopsesData[key][currentLang];
+            modalTitle.textContent = data.title;
+            modalBody.textContent = data.text;
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            modal.classList.add('opacity-100');
+        }
+
+        function closeSynopsis() {
+            currentSynopsisKey = null;
+            modal.classList.remove('opacity-100');
+            modal.classList.add('opacity-0', 'pointer-events-none');
+        }
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeSynopsis();
+            }
+        });
+    </script>
+</body>
+</html>
